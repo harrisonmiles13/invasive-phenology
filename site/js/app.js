@@ -493,15 +493,15 @@
     const stage = e.stage || Object.keys(val).find((st) => val[st].kind === "literature" && val[st].event === e.id);
     const v = stage ? val[stage] : null;
     if (v && v.kind === "fitted" && v.test) {
-      parts.push(h("p", { class: "check" }, h("span", { class: "badge fitted" }, "Fitted"),
+      parts.push(h("p", { class: "verdict" }, h("span", { class: "badge fitted" }, "Fitted"),
         ` from ${(v.n_train + v.n_test).toLocaleString()} iNaturalist ${stage.toLowerCase()} records. On held-out years the peak date was off by ${v.test.mae.toFixed(0)} days on average, against ${v.test_null.mae.toFixed(0)} days for a single calendar date. ${Math.round(v.test.coverage * 100)}% of records fell between the predicted start and end.`));
     } else if (v && v.kind === "fitted") {
-      parts.push(h("p", { class: "check" }, h("span", { class: "badge fitted" }, "Fitted"), ` from ${(v.n_train || 0).toLocaleString()} iNaturalist records; ${v.validated_by}.`));
+      parts.push(h("p", { class: "verdict" }, h("span", { class: "badge fitted" }, "Fitted"), ` from ${(v.n_train || 0).toLocaleString()} iNaturalist records; ${v.validated_by}.`));
     } else if (v && v.kind === "literature" && v.n) {
-      parts.push(h("p", { class: "check" }, h("span", { class: "badge lit" }, "Published model"),
+      parts.push(h("p", { class: "verdict" }, h("span", { class: "badge lit" }, "Published model"),
         ` Checked against ${v.n.toLocaleString()} iNaturalist ${stage.toLowerCase()} records: ${Math.round(v.early * 100)}% were photographed before the predicted date (${Math.round(v.early_7d * 100)}% more than a week before).`));
     } else {
-      parts.push(h("p", { class: "check" }, h("span", { class: "badge lit" }, "Published model"), " Not yet checked against observations."));
+      parts.push(h("p", { class: "verdict" }, h("span", { class: "badge lit" }, "Published model"), " Not yet checked against observations."));
     }
     parts.push(h("p", { class: "note" }, "Source: ", src.url ? h("a", { href: src.url }, src.cite) : src.cite || e.source));
     box.replaceChildren(...parts);
