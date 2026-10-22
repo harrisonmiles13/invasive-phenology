@@ -3,7 +3,7 @@
  "domain": "Contiguous United States (NOAA nClimGrid-Daily, 1/12°)",
  "sources": {
   "ddrp": {
-   "cite": "DDRP species parameter files (Barker & Coop, Oregon State Univ.), github.com/bbarker505/ddrp_v3; SLF model: Barker, Beyer & Coop 2025, Insects 16:790",
+   "cite": "DDRP species parameter files (Barker & Coop, Oregon State University), github.com/bbarker505/ddrp_v3",
    "url": "https://github.com/bbarker505/ddrp_v3",
    "note": "First = earliest overwintering cohort (xdist1); typical = mean cohort (distro_mean); later stages add the published stage durations."
   },
@@ -18,6 +18,11 @@
   "inat_fit": {
    "cite": "Fitted in this project from research-grade iNaturalist observations with phenology annotations (CC0 / CC BY / CC BY-NC)",
    "url": "https://www.inaturalist.org"
+  },
+  "ddrp_slf": {
+   "cite": "Barker, Beyer & Coop 2025, Real-time integrative mapping of the phenology and climatic suitability for the spotted lanternfly, Insects 16:790 (DDRP SLF parameter file)",
+   "url": "https://doi.org/10.3390/insects16080790",
+   "note": "First = earliest overwintering cohort (xdist1); typical = mean cohort (distro_mean); later stages add the published stage durations."
   }
  },
  "species": [
@@ -40,7 +45,7 @@
       "start": "01-01",
       "threshold": 135
      },
-     "source": "ddrp"
+     "source": "ddrp_slf"
     },
     {
      "id": "hatch",
@@ -54,7 +59,7 @@
       "start": "01-01",
       "threshold": 202
      },
-     "source": "ddrp"
+     "source": "ddrp_slf"
     },
     {
      "id": "mid_nymph",
@@ -68,7 +73,7 @@
       "start": "01-01",
       "threshold": 644
      },
-     "source": "ddrp"
+     "source": "ddrp_slf"
     },
     {
      "id": "adult",
@@ -82,7 +87,7 @@
       "start": "01-01",
       "threshold": 1092
      },
-     "source": "ddrp"
+     "source": "ddrp_slf"
     },
     {
      "id": "ovip_first",
@@ -96,7 +101,7 @@
       "start": "01-01",
       "threshold": 1722
      },
-     "source": "ddrp"
+     "source": "ddrp_slf"
     },
     {
      "id": "ovip_50",
@@ -110,7 +115,7 @@
       "start": "01-01",
       "threshold": 1868
      },
-     "source": "ddrp"
+     "source": "ddrp_slf"
     }
    ],
    "fit_stages": [],

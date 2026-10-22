@@ -34,6 +34,7 @@ from engine import CACHE, harm_basis  # noqa: E402
 NBM_URL = "https://noaa-nbm-grib2-pds.s3.amazonaws.com"
 SRC_OBS, SRC_PROV, SRC_FCST, SRC_PROJ = 1, 2, 3, 4
 MAX_LEAD = 10
+BEYOND = 2000  # days-ahead flag: more heat than a normal full year
 
 
 # ------------------------------------------------------------------ NBM
@@ -221,7 +222,9 @@ def main():
         normal_today = cum[today_doy - 1]
         v = general_today[g["id"]]
         reach = (cum < v[None]).sum(0) + 1  # DOY the normal curve reaches today's value
-        ahead = np.where(valid & (normal_today > 1), today_doy - reach, 0)
+        ahead = np.where(valid & (normal_today > 1), today_doy - reach, np.nan)
+        # Past a normal full year's total the comparison has no date: flag it.
+        ahead = np.where(valid & (reach > 365), BEYOND, ahead)
         gen_out[g["id"]] = np.stack([np.where(valid, v, np.nan), np.where(valid, normal_today, np.nan),
                                      np.where(valid, ahead, np.nan)]).astype(np.float32)
 

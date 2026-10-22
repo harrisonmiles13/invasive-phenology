@@ -81,6 +81,7 @@
     notyet: { c: PALE, label: "Not expected this year" },
     notreached: { c: GREY, label: "Not reached" },
     nonormal: { c: GREY, label: "Reached in < half of years" },
+    beyond: { c: hex("#67000d"), label: "Past a normal full year's heat" },
   };
   const PATTERN = { 3: "dots", 4: "hatch" }; // forecast / projected cells
 
@@ -276,8 +277,13 @@
     const cls = (d) => { let k = 0; while (k < edges.length && d > edges[k]) k++; return k; };
     return {
       title: `Season ${today}: days ahead or behind`, sub: `Heat accumulated so far compared with the date the ${man.normal_period.join("–")} normal reaches it (${drv.label.toLowerCase()})`,
-      scale: { classes, cls }, specials: [], diverging: true,
-      at(i) { if (!ok(i) || g[2 * n + i] === 65535) return null; const d = g[2 * n + i] - 1000; return { k: cls(d), text: d === 0 ? "on schedule" : `${Math.abs(d)} days ${d > 0 ? "ahead of" : "behind"} normal` }; },
+      scale: { classes, cls }, specials: ["beyond"], diverging: true,
+      at(i) {
+        if (!ok(i) || g[2 * n + i] === 65535) return null;
+        if (g[2 * n + i] === 3000) return { k: "beyond", text: "already more heat than a normal full year" };
+        const d = g[2 * n + i] - 1000;
+        return { k: cls(d), text: d === 0 ? "on schedule" : `${Math.abs(d)} days ${d > 0 ? "ahead of" : "behind"} normal` };
+      },
     };
   }
 
@@ -591,7 +597,8 @@
       ddBox.append(
         h("div", { class: "stat" }, h("span", { class: "label" }, `${man.drivers.find((d) => d.id === state.driver).label}, to date`), h("strong", {}, `${fmtDD(g.value)}`), h("span", { class: "unit" }, ddUnit())),
         h("div", { class: "stat" }, h("span", { class: "label" }, "Normal to date"), h("strong", {}, fmtDD(g.normal)), h("span", { class: "unit" }, ddUnit())),
-        h("div", { class: "stat" }, h("span", { class: "label" }, "Season"), h("strong", { class: ahead > 0 ? "ahead" : ahead < 0 ? "behind" : "" }, ahead == null ? "–" : ahead === 0 ? "On time" : `${Math.abs(ahead)} d`), h("span", { class: "unit" }, ahead > 0 ? "ahead of normal" : ahead < 0 ? "behind normal" : "")));
+        h("div", { class: "stat" }, h("span", { class: "label" }, "Season"), h("strong", { class: ahead > 0 ? "ahead" : ahead < 0 ? "behind" : "" }, ahead == null ? "–" : ahead === 2000 ? "Past" : ahead === 0 ? "On time" : `${Math.abs(ahead)} d`),
+          h("span", { class: "unit" }, ahead === 2000 ? "a normal full year's total" : ahead > 0 ? "ahead of normal" : ahead < 0 ? "behind normal" : "")));
     }
     // Upcoming
     const near = (id) => !state.rangeOnly || p.range[id] !== 0; // 2 = no range data yet
