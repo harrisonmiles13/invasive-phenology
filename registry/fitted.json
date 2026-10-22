@@ -1,0 +1,888 @@
+{
+ "buffelgrass": {
+  "Flowering": {
+   "n_train": 0,
+   "n_test": 0,
+   "publish": false,
+   "reason": "no annotated observations"
+  }
+ },
+ "spongy": {
+  "Larva": {
+   "n_train": 5137,
+   "n_test": 2728,
+   "years": [
+    2008,
+    2026
+   ],
+   "driver": "gdd10",
+   "cv_mae": {
+    "gdd0": 17.01323729803387,
+    "gdd5": 16.523262604633054,
+    "gdd10": 16.412497566673157
+   },
+   "cv_mae_null": 14.232042047887873,
+   "test": {
+    "mae": 14.576612903225806,
+    "coverage": 0.8291788856304986,
+    "width": 42.799853372434015,
+    "early": 0.11546920821114369
+   },
+   "test_null": {
+    "mae": 18.44941348973607,
+    "coverage": 0.7133431085043989,
+    "width": 44.0,
+    "early": 0.25146627565982405
+   },
+   "validated_by": "held-out years 2024+",
+   "publish": true,
+   "thresholds": {
+    "onset": 178.7599639892578,
+    "peak": 358.3874816894531,
+    "end": 573.182861328125
+   },
+   "driver_model": {
+    "type": "gdd",
+    "base": 10,
+    "upper": 35,
+    "method": "triangle",
+    "start": "01-01"
+   },
+   "driver_label": "degree-days above 10 \u00b0C since Jan 1",
+   "reason": null
+  },
+  "Adult": {
+   "n_train": 3439,
+   "n_test": 1433,
+   "years": [
+    2008,
+    2026
+   ],
+   "driver": "gdd5",
+   "cv_mae": {
+    "gdd0": 12.706019191625472,
+    "gdd5": 12.242803140447805,
+    "gdd10": 12.375981389938936
+   },
+   "cv_mae_null": 10.855190462343705,
+   "test": {
+    "mae": 11.32798325191905,
+    "coverage": 0.8297278436845779,
+    "width": 29.743196092114445,
+    "early": 0.05303558967201675
+   },
+   "test_null": {
+    "mae": 12.453593859036985,
+    "coverage": 0.6545708304256804,
+    "width": 32.0,
+    "early": 0.2784368457780879
+   },
+   "validated_by": "held-out years 2024+",
+   "publish": true,
+   "thresholds": {
+    "onset": 1019.2060546875,
+    "peak": 1274.76171875,
+    "end": 1543.3009033203125
+   },
+   "driver_model": {
+    "type": "gdd",
+    "base": 5,
+    "upper": 35,
+    "method": "triangle",
+    "start": "01-01"
+   },
+   "driver_label": "degree-days above 5 \u00b0C since Jan 1",
+   "reason": null
+  }
+ },
+ "btm": {
+  "Larva": {
+   "n_train": 2,
+   "n_test": 47,
+   "years": [
+    2023,
+    2026
+   ],
+   "publish": false,
+   "reason": "too few training observations"
+  },
+  "Adult": {
+   "n_train": 20,
+   "n_test": 477,
+   "years": [
+    2022,
+    2026
+   ],
+   "publish": false,
+   "reason": "too few training observations"
+  }
+ },
+ "esb": {
+  "Adult": {
+   "n_train": 127,
+   "n_test": 67,
+   "years": [
+    2013,
+    2026
+   ],
+   "driver": "gdd10",
+   "cv_mae": {
+    "gdd0": 62.07086614173228,
+    "gdd5": 61.94488188976378,
+    "gdd10": 61.889763779527556
+   },
+   "cv_mae_null": 64.86614173228347,
+   "test": {
+    "mae": 65.38805970149254,
+    "coverage": 0.8507462686567164,
+    "width": 247.02985074626866,
+    "early": 0.07462686567164178
+   },
+   "test_null": {
+    "mae": 66.02985074626865,
+    "coverage": 0.746268656716418,
+    "width": 212.99999999999997,
+    "early": 0.1791044776119403
+   },
+   "validated_by": "held-out years 2024+",
+   "publish": true,
+   "thresholds": {
+    "onset": 41.021053314208984,
+    "peak": 598.7139892578125,
+    "end": 1591.112060546875
+   },
+   "driver_model": {
+    "type": "gdd",
+    "base": 10,
+    "upper": 35,
+    "method": "triangle",
+    "start": "01-01"
+   },
+   "driver_label": "degree-days above 10 \u00b0C since Jan 1",
+   "reason": null
+  }
+ },
+ "hwa": {
+  "Egg": {
+   "n_train": 6,
+   "n_test": 2,
+   "years": [
+    2020,
+    2026
+   ],
+   "publish": false,
+   "reason": "too few training observations"
+  },
+  "Adult": {
+   "n_train": 7,
+   "n_test": 6,
+   "years": [
+    2021,
+    2026
+   ],
+   "publish": false,
+   "reason": "too few training observations"
+  }
+ },
+ "toh": {
+  "Breaking Leaf Buds": {
+   "n_train": 73,
+   "n_test": 91,
+   "years": [
+    2017,
+    2026
+   ],
+   "publish": false,
+   "reason": "too few training observations"
+  },
+  "Flowering": {
+   "n_train": 0,
+   "n_test": 0,
+   "publish": false,
+   "reason": "no annotated observations"
+  },
+  "Fruiting": {
+   "n_train": 0,
+   "n_test": 0,
+   "publish": false,
+   "reason": "no annotated observations"
+  },
+  "Colored Leaves": {
+   "n_train": 14,
+   "n_test": 48,
+   "years": [
+    2020,
+    2026
+   ],
+   "publish": false,
+   "reason": "too few training observations"
+  }
+ },
+ "garlic_mustard": {
+  "Flowering": {
+   "n_train": 0,
+   "n_test": 0,
+   "publish": false,
+   "reason": "no annotated observations"
+  },
+  "Fruiting": {
+   "n_train": 0,
+   "n_test": 0,
+   "publish": false,
+   "reason": "no annotated observations"
+  }
+ },
+ "knotweed": {
+  "Flowering": {
+   "n_train": 0,
+   "n_test": 0,
+   "publish": false,
+   "reason": "no annotated observations"
+  },
+  "Fruiting": {
+   "n_train": 0,
+   "n_test": 0,
+   "publish": false,
+   "reason": "no annotated observations"
+  }
+ },
+ "multiflora_rose": {
+  "Flowering": {
+   "n_train": 0,
+   "n_test": 0,
+   "publish": false,
+   "reason": "no annotated observations"
+  },
+  "Fruiting": {
+   "n_train": 0,
+   "n_test": 0,
+   "publish": false,
+   "reason": "no annotated observations"
+  }
+ },
+ "jap_honeysuckle": {
+  "Flowering": {
+   "n_train": 0,
+   "n_test": 0,
+   "publish": false,
+   "reason": "no annotated observations"
+  },
+  "Fruiting": {
+   "n_train": 0,
+   "n_test": 0,
+   "publish": false,
+   "reason": "no annotated observations"
+  }
+ },
+ "amur_honeysuckle": {
+  "Breaking Leaf Buds": {
+   "n_train": 80,
+   "n_test": 109,
+   "years": [
+    2016,
+    2026
+   ],
+   "publish": false,
+   "reason": "too few training observations"
+  },
+  "Flowering": {
+   "n_train": 0,
+   "n_test": 0,
+   "publish": false,
+   "reason": "no annotated observations"
+  },
+  "Fruiting": {
+   "n_train": 0,
+   "n_test": 0,
+   "publish": false,
+   "reason": "no annotated observations"
+  },
+  "Colored Leaves": {
+   "n_train": 1107,
+   "n_test": 873,
+   "years": [
+    2009,
+    2026
+   ],
+   "driver": "cold15_aug1",
+   "cv_mae": {
+    "cold15_aug1": 24.43721770551039,
+    "cold15_p13": 24.43992773261066,
+    "cold10_aug1": 24.82204155374887
+   },
+   "cv_mae_null": 22.58084914182475,
+   "test": {
+    "mae": 39.720504009163804,
+    "coverage": 0.7124856815578465,
+    "width": 73.03780068728523,
+    "early": 0.27376861397479957
+   },
+   "test_null": {
+    "mae": 31.970217640320733,
+    "coverage": 0.6449026345933563,
+    "width": 59.0,
+    "early": 0.3241695303550974
+   },
+   "validated_by": "held-out years 2024+",
+   "publish": false,
+   "thresholds": {
+    "onset": 0.0,
+    "peak": 36.59130859375,
+    "end": 228.81875610351562
+   },
+   "driver_model": {
+    "type": "cold",
+    "base": 15,
+    "start": "08-01"
+   },
+   "driver_label": "chilling below 15 \u00b0C since Aug 1",
+   "reason": "no better than a calendar-only model"
+  }
+ },
+ "barberry": {
+  "Breaking Leaf Buds": {
+   "n_train": 8,
+   "n_test": 34,
+   "years": [
+    2018,
+    2026
+   ],
+   "publish": false,
+   "reason": "too few training observations"
+  },
+  "Flowering": {
+   "n_train": 0,
+   "n_test": 0,
+   "publish": false,
+   "reason": "no annotated observations"
+  },
+  "Fruiting": {
+   "n_train": 0,
+   "n_test": 0,
+   "publish": false,
+   "reason": "no annotated observations"
+  }
+ },
+ "autumn_olive": {
+  "Flowering": {
+   "n_train": 0,
+   "n_test": 0,
+   "publish": false,
+   "reason": "no annotated observations"
+  },
+  "Fruiting": {
+   "n_train": 0,
+   "n_test": 0,
+   "publish": false,
+   "reason": "no annotated observations"
+  }
+ },
+ "russian_olive": {
+  "Flowering": {
+   "n_train": 0,
+   "n_test": 0,
+   "publish": false,
+   "reason": "no annotated observations"
+  },
+  "Fruiting": {
+   "n_train": 0,
+   "n_test": 0,
+   "publish": false,
+   "reason": "no annotated observations"
+  }
+ },
+ "loosestrife": {
+  "Flowering": {
+   "n_train": 0,
+   "n_test": 0,
+   "publish": false,
+   "reason": "no annotated observations"
+  },
+  "Fruiting": {
+   "n_train": 0,
+   "n_test": 0,
+   "publish": false,
+   "reason": "no annotated observations"
+  }
+ },
+ "kudzu": {
+  "Flowering": {
+   "n_train": 0,
+   "n_test": 0,
+   "publish": false,
+   "reason": "no annotated observations"
+  }
+ },
+ "callery_pear": {
+  "Flowering": {
+   "n_train": 0,
+   "n_test": 0,
+   "publish": false,
+   "reason": "no annotated observations"
+  },
+  "Fruiting": {
+   "n_train": 0,
+   "n_test": 0,
+   "publish": false,
+   "reason": "no annotated observations"
+  },
+  "Colored Leaves": {
+   "n_train": 11,
+   "n_test": 94,
+   "years": [
+    2017,
+    2026
+   ],
+   "publish": false,
+   "reason": "too few training observations"
+  }
+ },
+ "stiltgrass": {
+  "Flowering": {
+   "n_train": 0,
+   "n_test": 0,
+   "publish": false,
+   "reason": "no annotated observations"
+  }
+ },
+ "spotted_knapweed": {
+  "Flowering": {
+   "n_train": 0,
+   "n_test": 0,
+   "publish": false,
+   "reason": "no annotated observations"
+  },
+  "Fruiting": {
+   "n_train": 0,
+   "n_test": 0,
+   "publish": false,
+   "reason": "no annotated observations"
+  }
+ },
+ "yellow_starthistle": {
+  "Flowering": {
+   "n_train": 0,
+   "n_test": 0,
+   "publish": false,
+   "reason": "no annotated observations"
+  }
+ },
+ "leafy_spurge": {
+  "Flowering": {
+   "n_train": 0,
+   "n_test": 0,
+   "publish": false,
+   "reason": "no annotated observations"
+  }
+ },
+ "cheatgrass": {
+  "Flowering": {
+   "n_train": 0,
+   "n_test": 0,
+   "publish": false,
+   "reason": "no annotated observations"
+  },
+  "Fruiting": {
+   "n_train": 0,
+   "n_test": 0,
+   "publish": false,
+   "reason": "no annotated observations"
+  }
+ },
+ "canada_thistle": {
+  "Flowering": {
+   "n_train": 0,
+   "n_test": 0,
+   "publish": false,
+   "reason": "no annotated observations"
+  },
+  "Fruiting": {
+   "n_train": 0,
+   "n_test": 0,
+   "publish": false,
+   "reason": "no annotated observations"
+  }
+ },
+ "wild_parsnip": {
+  "Flowering": {
+   "n_train": 0,
+   "n_test": 0,
+   "publish": false,
+   "reason": "no annotated observations"
+  },
+  "Fruiting": {
+   "n_train": 0,
+   "n_test": 0,
+   "publish": false,
+   "reason": "no annotated observations"
+  }
+ },
+ "bittersweet": {
+  "Flowering": {
+   "n_train": 0,
+   "n_test": 0,
+   "publish": false,
+   "reason": "no annotated observations"
+  },
+  "Fruiting": {
+   "n_train": 0,
+   "n_test": 0,
+   "publish": false,
+   "reason": "no annotated observations"
+  }
+ },
+ "buckthorn": {
+  "Breaking Leaf Buds": {
+   "n_train": 30,
+   "n_test": 47,
+   "years": [
+    2019,
+    2026
+   ],
+   "publish": false,
+   "reason": "too few training observations"
+  },
+  "Flowering": {
+   "n_train": 0,
+   "n_test": 0,
+   "publish": false,
+   "reason": "no annotated observations"
+  },
+  "Fruiting": {
+   "n_train": 0,
+   "n_test": 0,
+   "publish": false,
+   "reason": "no annotated observations"
+  },
+  "Colored Leaves": {
+   "n_train": 9,
+   "n_test": 63,
+   "years": [
+    2019,
+    2026
+   ],
+   "publish": false,
+   "reason": "too few training observations"
+  }
+ },
+ "glossy_buckthorn": {
+  "Flowering": {
+   "n_train": 0,
+   "n_test": 0,
+   "publish": false,
+   "reason": "no annotated observations"
+  },
+  "Fruiting": {
+   "n_train": 0,
+   "n_test": 0,
+   "publish": false,
+   "reason": "no annotated observations"
+  }
+ },
+ "norway_maple": {
+  "Breaking Leaf Buds": {
+   "n_train": 321,
+   "n_test": 135,
+   "years": [
+    2010,
+    2026
+   ],
+   "driver": "gdd10",
+   "cv_mae": {
+    "gdd0": 13.663551401869158,
+    "gdd5": 11.922118380062305,
+    "gdd10": 10.996884735202492
+   },
+   "cv_mae_null": 7.454828660436137,
+   "test": {
+    "mae": 10.148148148148149,
+    "coverage": 0.7037037037037037,
+    "width": 18.8,
+    "early": 0.17037037037037037
+   },
+   "test_null": {
+    "mae": 7.022222222222222,
+    "coverage": 0.837037037037037,
+    "width": 24.0,
+    "early": 0.1037037037037037
+   },
+   "validated_by": "held-out years 2024+",
+   "publish": false,
+   "thresholds": {
+    "onset": 47.6383056640625,
+    "peak": 78.17327117919922,
+    "end": 116.90943908691406
+   },
+   "driver_model": {
+    "type": "gdd",
+    "base": 10,
+    "upper": 35,
+    "method": "triangle",
+    "start": "01-01"
+   },
+   "driver_label": "degree-days above 10 \u00b0C since Jan 1",
+   "reason": "no better than a calendar-only model"
+  },
+  "Flowering": {
+   "n_train": 0,
+   "n_test": 0,
+   "publish": false,
+   "reason": "no annotated observations"
+  },
+  "Colored Leaves": {
+   "n_train": 138,
+   "n_test": 293,
+   "years": [
+    2008,
+    2026
+   ],
+   "driver": "cold15_aug1",
+   "cv_mae": {
+    "cold15_aug1": 13.246376811594203,
+    "cold15_p13": 13.246376811594203,
+    "cold10_aug1": 13.898550724637682
+   },
+   "cv_mae_null": 13.956521739130435,
+   "test": {
+    "mae": 11.10580204778157,
+    "coverage": 0.8600682593856656,
+    "width": 38.44027303754266,
+    "early": 0.04778156996587031
+   },
+   "test_null": {
+    "mae": 10.941979522184301,
+    "coverage": 0.856655290102389,
+    "width": 43.30000000000001,
+    "early": 0.06143344709897611
+   },
+   "validated_by": "held-out years 2024+",
+   "publish": false,
+   "thresholds": {
+    "onset": 51.7197265625,
+    "peak": 167.1396484375,
+    "end": 314.57421875
+   },
+   "driver_model": {
+    "type": "cold",
+    "base": 15,
+    "start": "08-01"
+   },
+   "driver_label": "chilling below 15 \u00b0C since Aug 1",
+   "reason": "no better than a calendar-only model"
+  }
+ },
+ "johnsongrass": {
+  "Flowering": {
+   "n_train": 0,
+   "n_test": 0,
+   "publish": false,
+   "reason": "no annotated observations"
+  }
+ },
+ "giant_hogweed": {
+  "Flowering": {
+   "n_train": 0,
+   "n_test": 0,
+   "publish": false,
+   "reason": "no annotated observations"
+  }
+ },
+ "lesser_celandine": {
+  "Flowering": {
+   "n_train": 0,
+   "n_test": 0,
+   "publish": false,
+   "reason": "no annotated observations"
+  }
+ },
+ "burning_bush": {
+  "Breaking Leaf Buds": {
+   "n_train": 7,
+   "n_test": 58,
+   "years": [
+    2018,
+    2026
+   ],
+   "publish": false,
+   "reason": "too few training observations"
+  },
+  "Fruiting": {
+   "n_train": 0,
+   "n_test": 0,
+   "publish": false,
+   "reason": "no annotated observations"
+  },
+  "Colored Leaves": {
+   "n_train": 82,
+   "n_test": 459,
+   "years": [
+    2010,
+    2026
+   ],
+   "publish": false,
+   "reason": "too few training observations"
+  }
+ },
+ "chinese_privet": {
+  "Flowering": {
+   "n_train": 0,
+   "n_test": 0,
+   "publish": false,
+   "reason": "no annotated observations"
+  },
+  "Fruiting": {
+   "n_train": 0,
+   "n_test": 0,
+   "publish": false,
+   "reason": "no annotated observations"
+  }
+ },
+ "english_ivy": {
+  "Flowering": {
+   "n_train": 0,
+   "n_test": 0,
+   "publish": false,
+   "reason": "no annotated observations"
+  },
+  "Fruiting": {
+   "n_train": 0,
+   "n_test": 0,
+   "publish": false,
+   "reason": "no annotated observations"
+  }
+ },
+ "pepperweed": {
+  "Flowering": {
+   "n_train": 0,
+   "n_test": 0,
+   "publish": false,
+   "reason": "no annotated observations"
+  }
+ },
+ "scotch_broom": {
+  "Flowering": {
+   "n_train": 0,
+   "n_test": 0,
+   "publish": false,
+   "reason": "no annotated observations"
+  },
+  "Fruiting": {
+   "n_train": 0,
+   "n_test": 0,
+   "publish": false,
+   "reason": "no annotated observations"
+  }
+ },
+ "himalayan_blackberry": {
+  "Flowering": {
+   "n_train": 0,
+   "n_test": 0,
+   "publish": false,
+   "reason": "no annotated observations"
+  },
+  "Fruiting": {
+   "n_train": 0,
+   "n_test": 0,
+   "publish": false,
+   "reason": "no annotated observations"
+  }
+ },
+ "chinese_tallow": {
+  "Flowering": {
+   "n_train": 0,
+   "n_test": 0,
+   "publish": false,
+   "reason": "no annotated observations"
+  },
+  "Fruiting": {
+   "n_train": 0,
+   "n_test": 0,
+   "publish": false,
+   "reason": "no annotated observations"
+  },
+  "Colored Leaves": {
+   "n_train": 27,
+   "n_test": 65,
+   "years": [
+    2020,
+    2026
+   ],
+   "publish": false,
+   "reason": "too few training observations"
+  }
+ },
+ "cogongrass": {
+  "Flowering": {
+   "n_train": 0,
+   "n_test": 0,
+   "publish": false,
+   "reason": "no annotated observations"
+  }
+ },
+ "mile_a_minute": {
+  "Flowering": {
+   "n_train": 0,
+   "n_test": 0,
+   "publish": false,
+   "reason": "no annotated observations"
+  },
+  "Fruiting": {
+   "n_train": 0,
+   "n_test": 0,
+   "publish": false,
+   "reason": "no annotated observations"
+  }
+ },
+ "teasel": {
+  "Flowering": {
+   "n_train": 0,
+   "n_test": 0,
+   "publish": false,
+   "reason": "no annotated observations"
+  }
+ },
+ "poison_hemlock": {
+  "Flowering": {
+   "n_train": 0,
+   "n_test": 0,
+   "publish": false,
+   "reason": "no annotated observations"
+  },
+  "Fruiting": {
+   "n_train": 0,
+   "n_test": 0,
+   "publish": false,
+   "reason": "no annotated observations"
+  }
+ },
+ "swallowwort": {
+  "Flowering": {
+   "n_train": 0,
+   "n_test": 0,
+   "publish": false,
+   "reason": "no annotated observations"
+  },
+  "Fruiting": {
+   "n_train": 0,
+   "n_test": 0,
+   "publish": false,
+   "reason": "no annotated observations"
+  }
+ },
+ "yellow_flag": {
+  "Flowering": {
+   "n_train": 0,
+   "n_test": 0,
+   "publish": false,
+   "reason": "no annotated observations"
+  }
+ },
+ "tamarisk": {
+  "Flowering": {
+   "n_train": 0,
+   "n_test": 0,
+   "publish": false,
+   "reason": "no annotated observations"
+  }
+ }
+}
