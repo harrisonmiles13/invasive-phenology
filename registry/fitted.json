@@ -825,7 +825,7 @@
   },
   "Fruiting": {
    "n_train": 3935,
-   "n_test": 2307,
+   "n_test": 2304,
    "years": [
     2008,
     2026
@@ -842,26 +842,26 @@
    },
    "cv_error_null": 19.86375992063492,
    "test": {
-    "mae": 28.245773732119638,
-    "coverage": 0.8859991330732553,
-    "width": 96.73211963589077,
-    "early": 0.056783701777199824,
+    "mae": 28.27300347222222,
+    "coverage": 0.8858506944444444,
+    "width": 96.67664930555556,
+    "early": 0.05685763888888889,
     "region_error": 19.55983606557377,
     "regions": 61
    },
    "test_null": {
-    "mae": 27.9345470307759,
-    "coverage": 0.8838318162115302,
+    "mae": 27.95876736111111,
+    "coverage": 0.8836805555555556,
     "width": 94.0,
-    "early": 0.05201560468140442,
-    "region_error": 19.407377049180326
+    "early": 0.052083333333333336,
+    "region_error": 19.397540983606557
    },
    "validated_by": "held-out years 2024+",
    "publish": false,
    "thresholds": {
-    "onset": null,
-    "peak": null,
-    "end": null
+    "onset": 2.433852195739746,
+    "peak": 4.303443431854248,
+    "end": 5.938637733459473
    },
    "driver_model": {
     "type": "shortday"
@@ -975,7 +975,7 @@
   },
   "Fruiting": {
    "n_train": 1153,
-   "n_test": 688,
+   "n_test": 685,
    "years": [
     2008,
     2026
@@ -992,26 +992,26 @@
    },
    "cv_error_null": 35.71839285714286,
    "test": {
-    "mae": 54.286337209302324,
-    "coverage": 0.8255813953488372,
-    "width": 189.48982558139534,
-    "early": 0.08430232558139535,
-    "region_error": 47.996,
+    "mae": 54.332846715328465,
+    "coverage": 0.8248175182481752,
+    "width": 189.4131386861314,
+    "early": 0.08467153284671533,
+    "region_error": 47.861999999999995,
     "regions": 25
    },
    "test_null": {
-    "mae": 35.37936046511628,
-    "coverage": 0.8459302325581395,
+    "mae": 35.4992700729927,
+    "coverage": 0.8452554744525548,
     "width": 169.6,
-    "early": 0.07848837209302326,
-    "region_error": 37.78799999999999
+    "early": 0.07883211678832117,
+    "region_error": 37.653999999999996
    },
    "validated_by": "held-out years 2024+",
    "publish": false,
    "thresholds": {
-    "onset": null,
-    "peak": null,
-    "end": null
+    "onset": 1382.1695556640625,
+    "peak": 3725.23388671875,
+    "end": 4559.90625
    },
    "driver_model": {
     "type": "gdd",
@@ -1919,7 +1919,7 @@
   },
   "Fruiting": {
    "n_train": 4925,
-   "n_test": 1501,
+   "n_test": 1499,
    "years": [
     2008,
     2026
@@ -1936,26 +1936,26 @@
    },
    "cv_error_null": 19.964945604849092,
    "test": {
-    "mae": 37.82678214523651,
-    "coverage": 0.8374417055296469,
-    "width": 119.92938041305796,
-    "early": 0.08527648234510327,
-    "region_error": 22.880434782608695,
+    "mae": 37.82721814543029,
+    "coverage": 0.8372248165443629,
+    "width": 119.90393595730487,
+    "early": 0.08539026017344896,
+    "region_error": 22.9804347826087,
     "regions": 46
    },
    "test_null": {
-    "mae": 34.97601598934044,
-    "coverage": 0.8381079280479681,
+    "mae": 35.021347565043364,
+    "coverage": 0.837891927951968,
     "width": 120.0,
-    "early": 0.07861425716189208,
-    "region_error": 20.31195652173913
+    "early": 0.07871914609739826,
+    "region_error": 20.411956521739132
    },
    "validated_by": "held-out years 2024+",
    "publish": false,
    "thresholds": {
-    "onset": null,
-    "peak": null,
-    "end": null
+    "onset": 2.074288845062256,
+    "peak": 4.986149311065674,
+    "end": 6.6068878173828125
    },
    "driver_model": {
     "type": "shortday"
@@ -3022,7 +3022,7 @@
  "poison_hemlock": {
   "Flowering": {
    "n_train": 1686,
-   "n_test": 1553,
+   "n_test": 1552,
    "years": [
     2008,
     2026
@@ -3035,26 +3035,26 @@
    },
    "cv_error_null": 25.920407925407925,
    "test": {
-    "mae": 27.274951706374758,
-    "coverage": 0.8473921442369607,
-    "width": 71.74951706374759,
-    "early": 0.0669671603348358,
-    "region_error": 12.940425531914894,
+    "mae": 27.20167525773196,
+    "coverage": 0.8479381443298969,
+    "width": 71.74420103092784,
+    "early": 0.06701030927835051,
+    "region_error": 12.985106382978723,
     "regions": 47
    },
    "test_null": {
-    "mae": 25.066323245331617,
-    "coverage": 0.8564069542820347,
+    "mae": 24.990335051546392,
+    "coverage": 0.8569587628865979,
     "width": 88.0,
-    "early": 0.0643915003219575,
-    "region_error": 20.497872340425534
+    "early": 0.06443298969072164,
+    "region_error": 20.458510638297877
    },
    "validated_by": "held-out years 2024+",
-   "publish": false,
+   "publish": true,
    "thresholds": {
-    "onset": null,
-    "peak": null,
-    "end": null
+    "onset": 1102.9476318359375,
+    "peak": 1528.2958984375,
+    "end": 2377.861328125
    },
    "driver_model": {
     "type": "gdd",
@@ -3064,7 +3064,7 @@
     "start": "01-01"
    },
    "driver_label": "degree-days above 0 \u00b0C since Jan 1",
-   "reason": "thresholds could not be fitted (pending refit)"
+   "reason": null
   },
   "Fruiting": {
    "n_train": 454,
