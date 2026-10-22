@@ -191,11 +191,30 @@ def save_state(year, stepper, valid, meta):
 
 
 def run_chunk(years, mode, workdir):
-    """Worker: a run of years; returns climatology sums for normal-period years."""
+    """Worker: a run of years; returns climatology sums for normal-period years.
+
+    Each year is retried a few times (network drops), and its climatology sums
+    are merged only once the year has finished.
+    """
     harm = {}
     for y in years:
         in_normal = mode == "grids" and NORMAL_YEARS[0] <= y <= NORMAL_YEARS[1]
-        run_year(y, mode, workdir, harm if in_normal else None)
+        for attempt in range(3):
+            yh = {} if in_normal else None
+            try:
+                run_year(y, mode, workdir, yh)
+                break
+            except Exception as e:  # noqa: BLE001 - retry any transient failure
+                if attempt == 2:
+                    raise
+                print(f"{y}: {e!r}; retrying", flush=True)
+        if yh:
+            if not harm:
+                harm.update(count=yh["count"].copy(), sums=yh["sums"], models=yh["models"])
+            else:
+                harm["count"] += yh["count"]
+                for k in harm["sums"]:
+                    harm["sums"][k] += yh["sums"][k]
     return harm
 
 
