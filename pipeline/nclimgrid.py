@@ -17,15 +17,27 @@ BUCKET = "https://noaa-nclimgrid-daily-pds.s3.amazonaws.com"
 VARS = ("tmax", "tmin", "prcp")
 
 
+def _exists(url):
+    for attempt in range(5):
+        try:
+            with urllib.request.urlopen(urllib.request.Request(url, method="HEAD"), timeout=60):
+                return True
+        except urllib.error.HTTPError as e:
+            if e.code in (403, 404):
+                return False
+            if attempt == 4:
+                raise
+        except (urllib.error.URLError, OSError):
+            if attempt == 4:
+                raise
+        time.sleep(2 ** (attempt + 1))
+
+
 def month_url(year, month):
     for kind in ("scaled", "prelim"):
         url = f"{BUCKET}/access/grids/{year}/ncdd-{year}{month:02d}-grd-{kind}.nc"
-        try:
-            with urllib.request.urlopen(urllib.request.Request(url, method="HEAD"), timeout=60):
-                return url
-        except urllib.error.HTTPError as e:
-            if e.code not in (403, 404):
-                raise
+        if _exists(url):
+            return url
     return None
 
 
