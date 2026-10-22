@@ -249,7 +249,12 @@ def main():
             "events": [{k: e.get(k) for k in ("id", "label", "phase", "stage", "quantile", "source", "note", "model")}
                        for e in evs]})
     with open(mpath, "w", encoding="utf-8") as f:
-        json.dump(man, f, indent=1, ensure_ascii=False)
+        json.dump(registry.json_clean(man), f, indent=1, ensure_ascii=False, allow_nan=False)
+    vpath = os.path.join(SITE, "validation.json")
+    if os.path.exists(vpath):  # older builds wrote NaN, which browsers reject
+        v = json.loads(open(vpath).read().replace("NaN", "null"))
+        with open(vpath, "w", encoding="utf-8") as f:
+            json.dump(registry.json_clean(v), f, indent=1, allow_nan=False)
     print(f"manifest: {len(man['species'])} species, {len(events)} events, {len(man['tiles'])} tiles")
 
 

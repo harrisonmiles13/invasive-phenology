@@ -64,6 +64,14 @@ r = fit.fit_stage(curves, doy, year, "Flowering")
 check(r["publish"], "synthetic fit should publish")
 check(r.get("test", {}).get("mae", 99) < r.get("test_null", {}).get("mae", 0), "fitted model beats calendar model")
 
+# JSON written for the browser must not contain NaN.
+check(registry.json_clean({"a": float("nan"), "b": [1.0, float("inf")]}) == {"a": None, "b": [1.0, None]}, "json_clean")
+for name in ("manifest.json", "validation.json"):
+    path = os.path.join(ROOT, "site", "data", name)
+    if os.path.exists(path):
+        txt = open(path).read()
+        check("NaN" not in txt and "Infinity" not in txt, f"{name} contains NaN/Infinity")
+
 # Registry integrity.
 reg, fitted = registry.load()
 ids = [s["id"] for s in reg["species"]]

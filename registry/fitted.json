@@ -277,7 +277,7 @@
     "coverage": 0.6875,
     "width": 29.625,
     "early": 0.10416666666666667,
-    "region_error": NaN,
+    "region_error": null,
     "regions": 0
    },
    "test_null": {
@@ -285,7 +285,7 @@
     "coverage": 0.7291666666666666,
     "width": 44.0,
     "early": 0.22916666666666666,
-    "region_error": NaN
+    "region_error": null
    },
    "validated_by": "held-out years 2024+",
    "publish": false,
@@ -859,9 +859,9 @@
    "validated_by": "held-out years 2024+",
    "publish": false,
    "thresholds": {
-    "onset": NaN,
-    "peak": NaN,
-    "end": NaN
+    "onset": null,
+    "peak": null,
+    "end": null
    },
    "driver_model": {
     "type": "shortday"
@@ -1009,9 +1009,9 @@
    "validated_by": "held-out years 2024+",
    "publish": false,
    "thresholds": {
-    "onset": NaN,
-    "peak": NaN,
-    "end": NaN
+    "onset": null,
+    "peak": null,
+    "end": null
    },
    "driver_model": {
     "type": "gdd",
@@ -1279,7 +1279,7 @@
     "coverage": 0.47692307692307695,
     "width": 64.46153846153847,
     "early": 0.27692307692307694,
-    "region_error": NaN,
+    "region_error": null,
     "regions": 0
    },
    "test_null": {
@@ -1287,7 +1287,7 @@
     "coverage": 0.7384615384615385,
     "width": 58.0,
     "early": 0.18461538461538463,
-    "region_error": NaN
+    "region_error": null
    },
    "validated_by": "held-out years 2024+",
    "publish": false,
@@ -1953,9 +1953,9 @@
    "validated_by": "held-out years 2024+",
    "publish": false,
    "thresholds": {
-    "onset": NaN,
-    "peak": NaN,
-    "end": NaN
+    "onset": null,
+    "peak": null,
+    "end": null
    },
    "driver_model": {
     "type": "shortday"
@@ -3050,11 +3050,11 @@
     "region_error": 20.497872340425534
    },
    "validated_by": "held-out years 2024+",
-   "publish": true,
+   "publish": false,
    "thresholds": {
-    "onset": NaN,
-    "peak": NaN,
-    "end": NaN
+    "onset": null,
+    "peak": null,
+    "end": null
    },
    "driver_model": {
     "type": "gdd",
@@ -3064,7 +3064,7 @@
     "start": "01-01"
    },
    "driver_label": "degree-days above 0 \u00b0C since Jan 1",
-   "reason": null
+   "reason": "thresholds could not be fitted (pending refit)"
   },
   "Fruiting": {
    "n_train": 454,

@@ -7,6 +7,7 @@ registry/fitted.json    written by fit.py: per species and stage, the chosen
                         test-year validation; only models with skill are used
 """
 import json
+import math
 import os
 
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
@@ -31,6 +32,19 @@ def load():
     return reg, fitted
 
 
+def json_clean(x):
+    """Replace NaN / inf with None (JSON has no NaN; browsers reject it)."""
+    if isinstance(x, dict):
+        return {k: json_clean(v) for k, v in x.items()}
+    if isinstance(x, (list, tuple)):
+        return [json_clean(v) for v in x]
+    if hasattr(x, "item") and not isinstance(x, (str, bytes)):
+        x = x.item()
+    if isinstance(x, float) and not math.isfinite(x):
+        return None
+    return x
+
+
 def stage_slug(stage):
     return stage.lower().replace(" ", "_")
 
@@ -39,7 +53,8 @@ def fitted_events(sp, fitted):
     """Onset / peak / end events for each fitted stage that has skill."""
     out = []
     for stage, fm in fitted.get(sp["id"], {}).items():
-        if not fm.get("publish"):
+        th = fm.get("thresholds") or {}
+        if not fm.get("publish") or not all(isinstance(th.get(q), (int, float)) and math.isfinite(th[q]) for q, _ in QUANTS):
             continue
         for q, verb in QUANTS:
             model = dict(fm["driver_model"], threshold=round(fm["thresholds"][q], 2))

@@ -26,6 +26,7 @@ import numpy as np
 
 sys.path.insert(0, os.path.dirname(__file__))
 import registry  # noqa: E402
+from registry import json_clean  # noqa: E402
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 CACHE = os.path.join(HERE, "cache")
@@ -185,8 +186,11 @@ def fit_stage(curves, doy, year, stage, cell=None):
     ok = ~np.isnan(curves[:, 0, cands[0]])
     curves, doy, year = curves[ok], doy[ok], year[ok]
     cell = cell[ok] if cell is not None else None
-    keys = region_keys(year, cell)
     x_all = curves[np.arange(len(doy)), doy - 1]  # (n, n_candidates)
+    ok = ~np.isnan(x_all[:, cands]).any(1)  # e.g. records dated after the last observed day
+    curves, doy, year, x_all = curves[ok], doy[ok], year[ok], x_all[ok]
+    cell = cell[ok] if cell is not None else None
+    keys = region_keys(year, cell)
     train = year < TEST_START
     if (train.sum() < MIN_TRAIN or len(np.unique(year[train])) < 3) and len(doy) >= MIN_TRAIN + MIN_TEST \
             and len(np.unique(year)) >= 3:
@@ -274,7 +278,7 @@ def fit():
                   f"publish={r['publish']} region_err={t.get('region_error')} "
                   f"null={r.get('test_null', {}).get('region_error')} groups={t.get('regions')}", flush=True)
     with open(registry.FITTED, "w", encoding="utf-8") as f:
-        json.dump(out, f, indent=1, default=float)
+        json.dump(json_clean(out), f, indent=1, allow_nan=False)
 
 
 # ------------------------------------------------------------------ validation
@@ -315,7 +319,7 @@ def validate():
                 "validated_by", "cv_error_null", "years")}, "cv_error": (r.get("cv_error") or {}).get(r.get("driver"))}
     path = os.path.join(HERE, "..", "site", "data", "validation.json")
     with open(path, "w", encoding="utf-8") as f:
-        json.dump(out, f, indent=1, default=float)
+        json.dump(json_clean(out), f, indent=1, allow_nan=False)
     print(f"wrote {path}")
 
 
