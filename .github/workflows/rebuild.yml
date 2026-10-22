@@ -1,0 +1,83 @@
+name: Rebuild models
+
+# Monthly (and on demand): pull phenology-annotated iNaturalist observations,
+# fit and validate models, recompute every event for 1991-present, rebuild
+# normals and climatology, and republish. Takes 1-2 hours.
+
+on:
+  schedule:
+    - cron: "11 4 3 * *"    # 3rd of each month
+  workflow_dispatch:
+    inputs:
+      fetch:
+        description: "Download fresh iNaturalist observations"
+        type: boolean
+        default: true
+  push:
+    branches: [main]
+    paths: ["registry/species.json"]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publish
+  cancel-in-progress: false
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with: { ref: gh-pages, path: published }
+        continue-on-error: true
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12", cache: pip, cache-dependency-path: pipeline/requirements.txt }
+      - run: pip install -r pipeline/requirements.txt
+
+      - name: iNaturalist observations
+        run: |
+          if [ "${{ github.event_name }}" != "workflow_dispatch" ] || [ "${{ inputs.fetch }}" = "true" ]; then
+            python pipeline/inat.py
+          else
+            mkdir -p pipeline/cache/obs && cp published/data/_store/obs/* pipeline/cache/obs/
+          fi
+          cat pipeline/cache/obs/summary.json || true
+
+      - name: Fit models
+        run: |
+          Y=$(date -u +%Y)
+          python pipeline/fit.py prepare
+          python pipeline/engine.py samples 2008-$Y --jobs 4
+          python pipeline/fit.py fit
+
+      - name: Commit fitted models
+        run: |
+          git add registry/fitted.json
+          if ! git diff --cached --quiet; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git commit -m "Refit phenology models from iNaturalist observations"
+            git push
+          fi
+
+      - name: All events, 1991 to today
+        run: |
+          Y=$(date -u +%Y)
+          python pipeline/engine.py grids 1991-$Y --jobs 4
+          python pipeline/engine.py normals
+          python pipeline/nowcast.py
+          python pipeline/fit.py validate
+          python pipeline/build_site.py --normals --years $((Y - 3))-$((Y - 1)) --obs --store
+          python pipeline/assemble_page.py
+
+      - run: python tests/test_pipeline.py
+
+      - uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./site
+          force_orphan: true
+          commit_message: "Models rebuilt"

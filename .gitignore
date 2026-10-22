@@ -1,0 +1,13 @@
+pipeline/cache/
+__pycache__/
+*.pyc
+.DS_Store
+# Generated data lives on the gh-pages branch, not main.
+site/data/ev/
+site/data/general/
+site/data/tiles/
+site/data/obs/
+site/data/range/
+site/data/_store/
+site/data/manifest.json
+site/data/validation.json

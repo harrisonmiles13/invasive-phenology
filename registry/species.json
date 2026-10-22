@@ -1,0 +1,1064 @@
+{
+ "version": 1,
+ "domain": "Contiguous United States (NOAA nClimGrid-Daily, 1/12°)",
+ "sources": {
+  "ddrp": {
+   "cite": "DDRP species parameter files (Barker & Coop, Oregon State Univ.), github.com/bbarker505/ddrp_v3; SLF model: Barker, Beyer & Coop 2025, Insects 16:790",
+   "url": "https://github.com/bbarker505/ddrp_v3",
+   "note": "First = earliest overwintering cohort (xdist1); typical = mean cohort (distro_mean); later stages add the published stage durations."
+  },
+  "usu_bmsb": {
+   "cite": "Utah State University Extension, Brown marmorated stink bug fact sheet (13.5 h day-length biofix, base 57.2 °F); Nielsen et al. 2008 Environ. Entomol. (538 DD egg to adult)",
+   "url": "https://digitalcommons.usu.edu/cgi/viewcontent.cgi?article=2906&context=extension_curall"
+  },
+  "npn_buffelgrass": {
+   "cite": "USA-NPN Buffelgrass Pheno Forecast (Gerst et al. 2021, Ecol. Solutions & Evidence; thresholds from Wallace et al. 2016)",
+   "url": "https://besjournals.onlinelibrary.wiley.com/doi/full/10.1002/2688-8319.12109"
+  },
+  "inat_fit": {
+   "cite": "Fitted in this project from research-grade iNaturalist observations with phenology annotations (CC0 / CC BY / CC BY-NC)",
+   "url": "https://www.inaturalist.org"
+  }
+ },
+ "species": [
+  {
+   "id": "slf",
+   "common": "Spotted lanternfly",
+   "scientific": "Lycorma delicatula",
+   "group": "insect",
+   "inat_name": "Lycorma delicatula",
+   "events": [
+    {
+     "id": "hatch_first",
+     "label": "First egg hatch",
+     "phase": "emergence",
+     "model": {
+      "type": "gdd",
+      "base": 10,
+      "upper": 35,
+      "method": "triangle",
+      "start": "01-01",
+      "threshold": 135
+     },
+     "source": "ddrp"
+    },
+    {
+     "id": "hatch",
+     "label": "Egg hatch",
+     "phase": "emergence",
+     "model": {
+      "type": "gdd",
+      "base": 10,
+      "upper": 35,
+      "method": "triangle",
+      "start": "01-01",
+      "threshold": 202
+     },
+     "source": "ddrp"
+    },
+    {
+     "id": "mid_nymph",
+     "label": "Nymphs halfway developed",
+     "phase": "development",
+     "model": {
+      "type": "gdd",
+      "base": 10,
+      "upper": 35,
+      "method": "triangle",
+      "start": "01-01",
+      "threshold": 644
+     },
+     "source": "ddrp"
+    },
+    {
+     "id": "adult",
+     "label": "First adults",
+     "phase": "emergence",
+     "model": {
+      "type": "gdd",
+      "base": 10,
+      "upper": 35,
+      "method": "triangle",
+      "start": "01-01",
+      "threshold": 1092
+     },
+     "source": "ddrp"
+    },
+    {
+     "id": "ovip_first",
+     "label": "First egg laying",
+     "phase": "reproduction",
+     "model": {
+      "type": "gdd",
+      "base": 10,
+      "upper": 35,
+      "method": "triangle",
+      "start": "01-01",
+      "threshold": 1722
+     },
+     "source": "ddrp"
+    },
+    {
+     "id": "ovip_50",
+     "label": "50% egg laying",
+     "phase": "reproduction",
+     "model": {
+      "type": "gdd",
+      "base": 10,
+      "upper": 35,
+      "method": "triangle",
+      "start": "01-01",
+      "threshold": 1868
+     },
+     "source": "ddrp"
+    }
+   ],
+   "fit_stages": [],
+   "validate": {
+    "Nymph": "hatch_first",
+    "Adult": "adult"
+   }
+  },
+  {
+   "id": "eab",
+   "common": "Emerald ash borer",
+   "scientific": "Agrilus planipennis",
+   "group": "insect",
+   "inat_name": "Agrilus planipennis",
+   "events": [
+    {
+     "id": "adult_first",
+     "label": "First adult emergence",
+     "phase": "emergence",
+     "model": {
+      "type": "gdd",
+      "base": 12.2,
+      "upper": 36,
+      "method": "triangle",
+      "start": "01-01",
+      "threshold": 195
+     },
+     "source": "ddrp"
+    },
+    {
+     "id": "adult",
+     "label": "Adult emergence (typical)",
+     "phase": "emergence",
+     "model": {
+      "type": "gdd",
+      "base": 12.2,
+      "upper": 36,
+      "method": "triangle",
+      "start": "01-01",
+      "threshold": 335
+     },
+     "source": "ddrp"
+    },
+    {
+     "id": "ovip_first",
+     "label": "First egg laying",
+     "phase": "reproduction",
+     "model": {
+      "type": "gdd",
+      "base": 12.2,
+      "upper": 36,
+      "method": "triangle",
+      "start": "01-01",
+      "threshold": 267
+     },
+     "source": "ddrp"
+    },
+    {
+     "id": "hatch",
+     "label": "Egg hatch (typical)",
+     "phase": "emergence",
+     "model": {
+      "type": "gdd",
+      "base": 12.2,
+      "upper": 36,
+      "method": "triangle",
+      "start": "01-01",
+      "threshold": 579
+     },
+     "source": "ddrp"
+    }
+   ],
+   "fit_stages": [],
+   "validate": {
+    "Adult": "adult_first"
+   }
+  },
+  {
+   "id": "alb",
+   "common": "Asian longhorned beetle",
+   "scientific": "Anoplophora glabripennis",
+   "group": "insect",
+   "inat_name": "Anoplophora glabripennis",
+   "events": [
+    {
+     "id": "adult_first",
+     "label": "First adult emergence",
+     "phase": "emergence",
+     "model": {
+      "type": "gdd",
+      "base": 10,
+      "upper": 35,
+      "method": "average",
+      "start": "01-01",
+      "threshold": 285
+     },
+     "source": "ddrp"
+    },
+    {
+     "id": "adult",
+     "label": "Adult emergence (typical)",
+     "phase": "emergence",
+     "model": {
+      "type": "gdd",
+      "base": 10,
+      "upper": 35,
+      "method": "average",
+      "start": "01-01",
+      "threshold": 505
+     },
+     "source": "ddrp"
+    },
+    {
+     "id": "flight25",
+     "label": "25% adult flight",
+     "phase": "reproduction",
+     "model": {
+      "type": "gdd",
+      "base": 10,
+      "upper": 35,
+      "method": "average",
+      "start": "01-01",
+      "threshold": 715
+     },
+     "source": "ddrp"
+    }
+   ],
+   "fit_stages": [],
+   "validate": {
+    "Adult": "adult_first"
+   }
+  },
+  {
+   "id": "jb",
+   "common": "Japanese beetle",
+   "scientific": "Popillia japonica",
+   "group": "insect",
+   "inat_name": "Popillia japonica",
+   "events": [
+    {
+     "id": "pupation",
+     "label": "Spring pupation (typical)",
+     "phase": "development",
+     "model": {
+      "type": "gdd",
+      "base": 10,
+      "upper": 33.3,
+      "method": "triangle",
+      "start": "01-01",
+      "threshold": 535
+     },
+     "source": "ddrp"
+    },
+    {
+     "id": "adult_first",
+     "label": "First adults",
+     "phase": "emergence",
+     "model": {
+      "type": "gdd",
+      "base": 10,
+      "upper": 33.3,
+      "method": "triangle",
+      "start": "01-01",
+      "threshold": 485
+     },
+     "source": "ddrp"
+    },
+    {
+     "id": "adult",
+     "label": "Adult emergence (typical)",
+     "phase": "emergence",
+     "model": {
+      "type": "gdd",
+      "base": 10,
+      "upper": 33.3,
+      "method": "triangle",
+      "start": "01-01",
+      "threshold": 685
+     },
+     "source": "ddrp"
+    },
+    {
+     "id": "ovip",
+     "label": "Egg laying (typical)",
+     "phase": "reproduction",
+     "model": {
+      "type": "gdd",
+      "base": 10,
+      "upper": 33.3,
+      "method": "triangle",
+      "start": "01-01",
+      "threshold": 817
+     },
+     "source": "ddrp"
+    }
+   ],
+   "fit_stages": [],
+   "validate": {
+    "Adult": "adult_first"
+   }
+  },
+  {
+   "id": "lbam",
+   "common": "Light brown apple moth",
+   "scientific": "Epiphyas postvittana",
+   "group": "insect",
+   "inat_name": "Epiphyas postvittana",
+   "events": [
+    {
+     "id": "adult_first",
+     "label": "First spring flight",
+     "phase": "emergence",
+     "model": {
+      "type": "gdd",
+      "base": 7.2,
+      "upper": 31.1,
+      "method": "triangle",
+      "start": "01-01",
+      "threshold": 228
+     },
+     "source": "ddrp"
+    },
+    {
+     "id": "adult",
+     "label": "Spring flight (typical)",
+     "phase": "emergence",
+     "model": {
+      "type": "gdd",
+      "base": 7.2,
+      "upper": 31.1,
+      "method": "triangle",
+      "start": "01-01",
+      "threshold": 338
+     },
+     "source": "ddrp"
+    },
+    {
+     "id": "ovip",
+     "label": "First-generation egg laying",
+     "phase": "reproduction",
+     "model": {
+      "type": "gdd",
+      "base": 7.2,
+      "upper": 31.1,
+      "method": "triangle",
+      "start": "01-01",
+      "threshold": 360
+     },
+     "source": "ddrp"
+    }
+   ],
+   "fit_stages": [],
+   "validate": {
+    "Adult": "adult_first"
+   },
+   "regions": "California; later generations not modeled"
+  },
+  {
+   "id": "bmsb",
+   "common": "Brown marmorated stink bug",
+   "scientific": "Halyomorpha halys",
+   "group": "insect",
+   "inat_name": "Halyomorpha halys",
+   "events": [
+    {
+     "id": "biofix",
+     "label": "Day length reaches 13.5 h",
+     "phase": "cue",
+     "model": {
+      "type": "photoperiod",
+      "hours": 13.5,
+      "direction": "increasing"
+     },
+     "source": "usu_bmsb"
+    },
+    {
+     "id": "ovip",
+     "label": "Egg laying begins",
+     "phase": "reproduction",
+     "model": {
+      "type": "gdd",
+      "base": 14,
+      "upper": null,
+      "method": "triangle",
+      "start": {
+       "daylength": 13.5
+      },
+      "threshold": 94.4
+     },
+     "source": "usu_bmsb",
+     "note": "170 °F·days (base 57.2 °F) after the 13.5 h day-length biofix"
+    },
+    {
+     "id": "adult_g1",
+     "label": "First-generation adults",
+     "phase": "emergence",
+     "model": {
+      "type": "gdd",
+      "base": 14,
+      "upper": null,
+      "method": "triangle",
+      "start": {
+       "daylength": 13.5
+      },
+      "threshold": 630
+     },
+     "source": "usu_bmsb",
+     "note": "1,134 °F·days after the biofix"
+    }
+   ],
+   "fit_stages": [],
+   "validate": {
+    "Nymph": "ovip"
+   }
+  },
+  {
+   "id": "buffelgrass",
+   "common": "Buffelgrass",
+   "scientific": "Cenchrus ciliaris",
+   "group": "plant",
+   "inat_name": "Cenchrus ciliaris",
+   "events": [
+    {
+     "id": "greenup_possible",
+     "label": "Summer green-up possible",
+     "phase": "emergence",
+     "model": {
+      "type": "precip",
+      "window": 24,
+      "mm": 25.4,
+      "start": "06-01",
+      "end": "10-31"
+     },
+     "source": "npn_buffelgrass",
+     "note": "≥ 1 in. of rain in 24 days: 50% greenness may follow in 1–2 weeks"
+    },
+    {
+     "id": "greenup_likely",
+     "label": "Summer green-up likely (treatable)",
+     "phase": "emergence",
+     "model": {
+      "type": "precip",
+      "window": 24,
+      "mm": 43.2,
+      "start": "06-01",
+      "end": "10-31"
+     },
+     "source": "npn_buffelgrass",
+     "note": "≥ 1.7 in. in 24 days: >50% greenness likely; glyphosate works best on green plants"
+    }
+   ],
+   "fit_stages": [
+    "Flowering"
+   ],
+   "validate": {},
+   "regions": "Southwest; only the June–October rain season is modeled"
+  },
+  {
+   "id": "spongy",
+   "common": "Spongy moth",
+   "scientific": "Lymantria dispar",
+   "group": "insect",
+   "inat_name": "Lymantria dispar",
+   "events": [],
+   "fit_stages": [
+    "Larva",
+    "Adult"
+   ],
+   "validate": {}
+  },
+  {
+   "id": "btm",
+   "common": "Box tree moth",
+   "scientific": "Cydalima perspectalis",
+   "group": "insect",
+   "inat_name": "Cydalima perspectalis",
+   "events": [],
+   "fit_stages": [
+    "Larva",
+    "Adult"
+   ],
+   "validate": {}
+  },
+  {
+   "id": "esb",
+   "common": "Elm seed bug",
+   "scientific": "Arocatus melanocephalus",
+   "group": "insect",
+   "inat_name": "Arocatus melanocephalus",
+   "events": [],
+   "fit_stages": [
+    "Adult"
+   ],
+   "validate": {}
+  },
+  {
+   "id": "hwa",
+   "common": "Hemlock woolly adelgid",
+   "scientific": "Adelges tsugae",
+   "group": "insect",
+   "inat_name": "Adelges tsugae",
+   "events": [],
+   "fit_stages": [
+    "Egg",
+    "Adult"
+   ],
+   "validate": {}
+  },
+  {
+   "id": "toh",
+   "common": "Tree of heaven",
+   "scientific": "Ailanthus altissima",
+   "group": "plant",
+   "inat_name": "Ailanthus altissima",
+   "events": [],
+   "fit_stages": [
+    "Breaking Leaf Buds",
+    "Flowering",
+    "Fruiting",
+    "Colored Leaves"
+   ],
+   "validate": {}
+  },
+  {
+   "id": "garlic_mustard",
+   "common": "Garlic mustard",
+   "scientific": "Alliaria petiolata",
+   "group": "plant",
+   "inat_name": "Alliaria petiolata",
+   "events": [],
+   "fit_stages": [
+    "Flowering",
+    "Fruiting"
+   ],
+   "validate": {}
+  },
+  {
+   "id": "knotweed",
+   "common": "Japanese knotweed",
+   "scientific": "Reynoutria japonica",
+   "group": "plant",
+   "inat_name": "Reynoutria japonica",
+   "events": [],
+   "fit_stages": [
+    "Flowering",
+    "Fruiting"
+   ],
+   "validate": {}
+  },
+  {
+   "id": "multiflora_rose",
+   "common": "Multiflora rose",
+   "scientific": "Rosa multiflora",
+   "group": "plant",
+   "inat_name": "Rosa multiflora",
+   "events": [],
+   "fit_stages": [
+    "Flowering",
+    "Fruiting"
+   ],
+   "validate": {}
+  },
+  {
+   "id": "jap_honeysuckle",
+   "common": "Japanese honeysuckle",
+   "scientific": "Lonicera japonica",
+   "group": "plant",
+   "inat_name": "Lonicera japonica",
+   "events": [],
+   "fit_stages": [
+    "Flowering",
+    "Fruiting"
+   ],
+   "validate": {}
+  },
+  {
+   "id": "amur_honeysuckle",
+   "common": "Amur honeysuckle",
+   "scientific": "Lonicera maackii",
+   "group": "plant",
+   "inat_name": "Lonicera maackii",
+   "events": [],
+   "fit_stages": [
+    "Breaking Leaf Buds",
+    "Flowering",
+    "Fruiting",
+    "Colored Leaves"
+   ],
+   "validate": {}
+  },
+  {
+   "id": "barberry",
+   "common": "Japanese barberry",
+   "scientific": "Berberis thunbergii",
+   "group": "plant",
+   "inat_name": "Berberis thunbergii",
+   "events": [],
+   "fit_stages": [
+    "Breaking Leaf Buds",
+    "Flowering",
+    "Fruiting"
+   ],
+   "validate": {}
+  },
+  {
+   "id": "autumn_olive",
+   "common": "Autumn olive",
+   "scientific": "Elaeagnus umbellata",
+   "group": "plant",
+   "inat_name": "Elaeagnus umbellata",
+   "events": [],
+   "fit_stages": [
+    "Flowering",
+    "Fruiting"
+   ],
+   "validate": {}
+  },
+  {
+   "id": "russian_olive",
+   "common": "Russian olive",
+   "scientific": "Elaeagnus angustifolia",
+   "group": "plant",
+   "inat_name": "Elaeagnus angustifolia",
+   "events": [],
+   "fit_stages": [
+    "Flowering",
+    "Fruiting"
+   ],
+   "validate": {}
+  },
+  {
+   "id": "loosestrife",
+   "common": "Purple loosestrife",
+   "scientific": "Lythrum salicaria",
+   "group": "plant",
+   "inat_name": "Lythrum salicaria",
+   "events": [],
+   "fit_stages": [
+    "Flowering",
+    "Fruiting"
+   ],
+   "validate": {}
+  },
+  {
+   "id": "kudzu",
+   "common": "Kudzu",
+   "scientific": "Pueraria montana",
+   "group": "plant",
+   "inat_name": "Pueraria montana",
+   "events": [],
+   "fit_stages": [
+    "Flowering"
+   ],
+   "validate": {}
+  },
+  {
+   "id": "callery_pear",
+   "common": "Callery pear",
+   "scientific": "Pyrus calleryana",
+   "group": "plant",
+   "inat_name": "Pyrus calleryana",
+   "events": [],
+   "fit_stages": [
+    "Flowering",
+    "Fruiting",
+    "Colored Leaves"
+   ],
+   "validate": {}
+  },
+  {
+   "id": "stiltgrass",
+   "common": "Japanese stiltgrass",
+   "scientific": "Microstegium vimineum",
+   "group": "plant",
+   "inat_name": "Microstegium vimineum",
+   "events": [],
+   "fit_stages": [
+    "Flowering"
+   ],
+   "validate": {}
+  },
+  {
+   "id": "spotted_knapweed",
+   "common": "Spotted knapweed",
+   "scientific": "Centaurea stoebe",
+   "group": "plant",
+   "inat_name": "Centaurea stoebe",
+   "events": [],
+   "fit_stages": [
+    "Flowering",
+    "Fruiting"
+   ],
+   "validate": {}
+  },
+  {
+   "id": "yellow_starthistle",
+   "common": "Yellow starthistle",
+   "scientific": "Centaurea solstitialis",
+   "group": "plant",
+   "inat_name": "Centaurea solstitialis",
+   "events": [],
+   "fit_stages": [
+    "Flowering"
+   ],
+   "validate": {}
+  },
+  {
+   "id": "leafy_spurge",
+   "common": "Leafy spurge",
+   "scientific": "Euphorbia virgata",
+   "group": "plant",
+   "inat_name": "Euphorbia virgata",
+   "events": [],
+   "fit_stages": [
+    "Flowering"
+   ],
+   "validate": {}
+  },
+  {
+   "id": "cheatgrass",
+   "common": "Cheatgrass",
+   "scientific": "Bromus tectorum",
+   "group": "plant",
+   "inat_name": "Bromus tectorum",
+   "events": [],
+   "fit_stages": [
+    "Flowering",
+    "Fruiting"
+   ],
+   "validate": {}
+  },
+  {
+   "id": "canada_thistle",
+   "common": "Canada thistle",
+   "scientific": "Cirsium arvense",
+   "group": "plant",
+   "inat_name": "Cirsium arvense",
+   "events": [],
+   "fit_stages": [
+    "Flowering",
+    "Fruiting"
+   ],
+   "validate": {}
+  },
+  {
+   "id": "wild_parsnip",
+   "common": "Wild parsnip",
+   "scientific": "Pastinaca sativa",
+   "group": "plant",
+   "inat_name": "Pastinaca sativa",
+   "events": [],
+   "fit_stages": [
+    "Flowering",
+    "Fruiting"
+   ],
+   "validate": {}
+  },
+  {
+   "id": "bittersweet",
+   "common": "Oriental bittersweet",
+   "scientific": "Celastrus orbiculatus",
+   "group": "plant",
+   "inat_name": "Celastrus orbiculatus",
+   "events": [],
+   "fit_stages": [
+    "Flowering",
+    "Fruiting"
+   ],
+   "validate": {}
+  },
+  {
+   "id": "buckthorn",
+   "common": "Common buckthorn",
+   "scientific": "Rhamnus cathartica",
+   "group": "plant",
+   "inat_name": "Rhamnus cathartica",
+   "events": [],
+   "fit_stages": [
+    "Breaking Leaf Buds",
+    "Flowering",
+    "Fruiting",
+    "Colored Leaves"
+   ],
+   "validate": {}
+  },
+  {
+   "id": "glossy_buckthorn",
+   "common": "Glossy buckthorn",
+   "scientific": "Frangula alnus",
+   "group": "plant",
+   "inat_name": "Frangula alnus",
+   "events": [],
+   "fit_stages": [
+    "Flowering",
+    "Fruiting"
+   ],
+   "validate": {}
+  },
+  {
+   "id": "norway_maple",
+   "common": "Norway maple",
+   "scientific": "Acer platanoides",
+   "group": "plant",
+   "inat_name": "Acer platanoides",
+   "events": [],
+   "fit_stages": [
+    "Breaking Leaf Buds",
+    "Flowering",
+    "Colored Leaves"
+   ],
+   "validate": {}
+  },
+  {
+   "id": "johnsongrass",
+   "common": "Johnsongrass",
+   "scientific": "Sorghum halepense",
+   "group": "plant",
+   "inat_name": "Sorghum halepense",
+   "events": [],
+   "fit_stages": [
+    "Flowering"
+   ],
+   "validate": {}
+  },
+  {
+   "id": "giant_hogweed",
+   "common": "Giant hogweed",
+   "scientific": "Heracleum mantegazzianum",
+   "group": "plant",
+   "inat_name": "Heracleum mantegazzianum",
+   "events": [],
+   "fit_stages": [
+    "Flowering"
+   ],
+   "validate": {}
+  },
+  {
+   "id": "lesser_celandine",
+   "common": "Lesser celandine",
+   "scientific": "Ficaria verna",
+   "group": "plant",
+   "inat_name": "Ficaria verna",
+   "events": [],
+   "fit_stages": [
+    "Flowering"
+   ],
+   "validate": {}
+  },
+  {
+   "id": "burning_bush",
+   "common": "Burning bush",
+   "scientific": "Euonymus alatus",
+   "group": "plant",
+   "inat_name": "Euonymus alatus",
+   "events": [],
+   "fit_stages": [
+    "Breaking Leaf Buds",
+    "Fruiting",
+    "Colored Leaves"
+   ],
+   "validate": {}
+  },
+  {
+   "id": "chinese_privet",
+   "common": "Chinese privet",
+   "scientific": "Ligustrum sinense",
+   "group": "plant",
+   "inat_name": "Ligustrum sinense",
+   "events": [],
+   "fit_stages": [
+    "Flowering",
+    "Fruiting"
+   ],
+   "validate": {}
+  },
+  {
+   "id": "english_ivy",
+   "common": "English ivy",
+   "scientific": "Hedera helix",
+   "group": "plant",
+   "inat_name": "Hedera helix",
+   "events": [],
+   "fit_stages": [
+    "Flowering",
+    "Fruiting"
+   ],
+   "validate": {}
+  },
+  {
+   "id": "pepperweed",
+   "common": "Perennial pepperweed",
+   "scientific": "Lepidium latifolium",
+   "group": "plant",
+   "inat_name": "Lepidium latifolium",
+   "events": [],
+   "fit_stages": [
+    "Flowering"
+   ],
+   "validate": {}
+  },
+  {
+   "id": "scotch_broom",
+   "common": "Scotch broom",
+   "scientific": "Cytisus scoparius",
+   "group": "plant",
+   "inat_name": "Cytisus scoparius",
+   "events": [],
+   "fit_stages": [
+    "Flowering",
+    "Fruiting"
+   ],
+   "validate": {}
+  },
+  {
+   "id": "himalayan_blackberry",
+   "common": "Himalayan blackberry",
+   "scientific": "Rubus bifrons",
+   "group": "plant",
+   "inat_name": "Rubus bifrons",
+   "events": [],
+   "fit_stages": [
+    "Flowering",
+    "Fruiting"
+   ],
+   "validate": {}
+  },
+  {
+   "id": "chinese_tallow",
+   "common": "Chinese tallow",
+   "scientific": "Triadica sebifera",
+   "group": "plant",
+   "inat_name": "Triadica sebifera",
+   "events": [],
+   "fit_stages": [
+    "Flowering",
+    "Fruiting",
+    "Colored Leaves"
+   ],
+   "validate": {}
+  },
+  {
+   "id": "cogongrass",
+   "common": "Cogongrass",
+   "scientific": "Imperata cylindrica",
+   "group": "plant",
+   "inat_name": "Imperata cylindrica",
+   "events": [],
+   "fit_stages": [
+    "Flowering"
+   ],
+   "validate": {}
+  },
+  {
+   "id": "mile_a_minute",
+   "common": "Mile-a-minute",
+   "scientific": "Persicaria perfoliata",
+   "group": "plant",
+   "inat_name": "Persicaria perfoliata",
+   "events": [],
+   "fit_stages": [
+    "Flowering",
+    "Fruiting"
+   ],
+   "validate": {}
+  },
+  {
+   "id": "teasel",
+   "common": "Common teasel",
+   "scientific": "Dipsacus fullonum",
+   "group": "plant",
+   "inat_name": "Dipsacus fullonum",
+   "events": [],
+   "fit_stages": [
+    "Flowering"
+   ],
+   "validate": {}
+  },
+  {
+   "id": "poison_hemlock",
+   "common": "Poison hemlock",
+   "scientific": "Conium maculatum",
+   "group": "plant",
+   "inat_name": "Conium maculatum",
+   "events": [],
+   "fit_stages": [
+    "Flowering",
+    "Fruiting"
+   ],
+   "validate": {}
+  },
+  {
+   "id": "swallowwort",
+   "common": "Black swallow-wort",
+   "scientific": "Vincetoxicum nigrum",
+   "group": "plant",
+   "inat_name": "Vincetoxicum nigrum",
+   "events": [],
+   "fit_stages": [
+    "Flowering",
+    "Fruiting"
+   ],
+   "validate": {}
+  },
+  {
+   "id": "yellow_flag",
+   "common": "Yellow flag iris",
+   "scientific": "Iris pseudacorus",
+   "group": "plant",
+   "inat_name": "Iris pseudacorus",
+   "events": [],
+   "fit_stages": [
+    "Flowering"
+   ],
+   "validate": {}
+  },
+  {
+   "id": "tamarisk",
+   "common": "Saltcedar",
+   "scientific": "Tamarix ramosissima",
+   "group": "plant",
+   "inat_name": "Tamarix ramosissima",
+   "events": [],
+   "fit_stages": [
+    "Flowering"
+   ],
+   "validate": {}
+  }
+ ],
+ "drivers": [
+  {
+   "id": "agdd50",
+   "label": "Degree-days, base 50 °F (10 °C)",
+   "model": {
+    "type": "gdd",
+    "base": 10,
+    "method": "average",
+    "start": "01-01"
+   }
+  },
+  {
+   "id": "agdd32",
+   "label": "Degree-days, base 32 °F (0 °C)",
+   "model": {
+    "type": "gdd",
+    "base": 0,
+    "method": "average",
+    "start": "01-01"
+   }
+  }
+ ]
+}
