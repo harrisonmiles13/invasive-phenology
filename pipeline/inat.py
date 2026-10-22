@@ -32,7 +32,7 @@ OUT = os.path.join(HERE, "cache", "obs")
 UA = "invasive-phenology/1.0 (github.com/harrisonmiles13/invasive-phenology)"
 LICENSES = "cc0,cc-by,cc-by-nc"
 PER_PAGE = 200
-MAX_PER_STAGE = 8000   # newest first, so held-out recent years are always included
+MAX_PER_STAGE = 15000  # newest first, so held-out recent years are always included
 MAX_RANGE = 2000
 _last = [0.0]
 
@@ -69,10 +69,20 @@ def controlled_terms():
     return out
 
 
+# Registry stage names -> iNaturalist value labels (iNat renamed the plant
+# phenology values, e.g. "Flowering" -> "Flowers"; accept either).
+STAGE_LABELS = {
+    "Flowering": ("Flowering", "Flowers"),
+    "Fruiting": ("Fruiting", "Fruits or Seeds"),
+    "Flower Budding": ("Flower Budding", "Flower Buds"),
+}
+
+
 def stage_filter(terms, stage):
-    for term in ("Life Stage", "Plant Phenology", "Flowers and Fruits", "Leaves"):
-        if (term, stage) in terms:
-            return terms[(term, stage)]
+    for label in STAGE_LABELS.get(stage, (stage,)):
+        for term in ("Life Stage", "Plant Phenology", "Flowers and Fruits", "Leaves"):
+            if (term, label) in terms:
+                return terms[(term, label)]
     return None
 
 

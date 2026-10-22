@@ -12,7 +12,8 @@ Onset / peak / end thresholds are the 10th / 50th / 90th percentiles of those
 values. The driver is chosen among CANDIDATES by year-grouped cross-validation
 on the training years (<= TEST_START - 1); the chosen model is then scored on
 the held-out years against a calendar-only model that predicts the same date
-everywhere. A model is published only if it beats the calendar model.
+everywhere. A model is published only if its error is at most 90% of the calendar
+model's and its onset-end window holds at least 70% of test records.
 """
 import csv
 import datetime as dt
@@ -31,6 +32,8 @@ CACHE = os.path.join(HERE, "cache")
 GRID = json.load(open(os.path.join(HERE, "grid.json")))
 TEST_START = 2024
 MIN_TRAIN, MIN_TEST = 100, 30
+SKILL = 0.9          # publish only if error is at most 90% of the calendar model's
+MIN_COVERAGE = 0.7   # and the onset-end window holds at least 70% of test records
 Q = {"onset": 0.10, "peak": 0.50, "end": 0.90}
 
 _g = lambda b: {"type": "gdd", "base": b, "upper": 35, "method": "triangle", "start": "01-01"}
@@ -148,11 +151,14 @@ def fit_stage(curves, doy, year, stage):
     curves, doy, year = curves[ok], doy[ok], year[ok]
     x_all = curves[np.arange(len(doy)), doy - 1]  # (n, n_candidates)
     train = year < TEST_START
+    if (train.sum() < MIN_TRAIN or len(np.unique(year[train])) < 3) and len(doy) >= MIN_TRAIN + MIN_TEST \
+            and len(np.unique(year)) >= 3:
+        train = np.ones_like(train)  # recent invader: validate by cross-validation over all years
     test = ~train
     res = {"n_train": int(train.sum()), "n_test": int(test.sum()),
            "years": [int(year.min()), int(year.max())] if len(year) else None}
     if train.sum() < MIN_TRAIN or len(np.unique(year[train])) < 3:
-        return {**res, "publish": False, "reason": "too few training observations"}
+        return {**res, "publish": False, "reason": "too few observations"}
     # Driver choice: year-grouped CV on training years.
     tr_years = np.unique(year[train])
     folds = np.array_split(np.random.default_rng(0).permutation(tr_years), min(5, len(tr_years)))
@@ -181,14 +187,14 @@ def fit_stage(curves, doy, year, stage):
         res["test"] = score(curves[test, :, k], doy[test], th_train)
         res["test_null"] = null_score(doy[train], doy[test])
         res["validated_by"] = f"held-out years {TEST_START}+"
-        skill = res["test"]["mae"] < res["test_null"]["mae"]
+        skill = (res["test"]["mae"] <= SKILL * res["test_null"]["mae"]) and res["test"]["coverage"] >= MIN_COVERAGE
     else:
-        res["validated_by"] = "cross-validation (too few recent records for a held-out test)"
-        skill = cv[best] < res["cv_mae_null"]
+        res["validated_by"] = "year-grouped cross-validation (too few records for a held-out test)"
+        skill = cv[best] <= SKILL * res["cv_mae_null"]
     all_th = thresholds(x_all[:, k])
     res.update({"publish": bool(skill), "thresholds": all_th, "driver_model": CANDIDATES[k]["model"],
                 "driver_label": CANDIDATES[k]["label"],
-                "reason": None if skill else "no better than a calendar-only model"})
+                "reason": None if skill else "not clearly better than a calendar-only model"})
     return res
 
 
