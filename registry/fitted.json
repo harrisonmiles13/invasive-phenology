@@ -1,10 +1,14 @@
 {
  "buffelgrass": {
   "Flowering": {
-   "n_train": 0,
-   "n_test": 0,
+   "n_train": 18,
+   "n_test": 13,
+   "years": [
+    2013,
+    2026
+   ],
    "publish": false,
-   "reason": "no annotated observations"
+   "reason": "too few observations"
   }
  },
  "spongy": {
@@ -78,7 +82,7 @@
     "early": 0.2784368457780879
    },
    "validated_by": "held-out years 2024+",
-   "publish": true,
+   "publish": false,
    "thresholds": {
     "onset": 1019.2060546875,
     "peak": 1274.76171875,
@@ -92,7 +96,7 @@
     "start": "01-01"
    },
    "driver_label": "degree-days above 5 \u00b0C since Jan 1",
-   "reason": null
+   "reason": "not clearly better than a calendar-only model"
   }
  },
  "btm": {
@@ -104,17 +108,38 @@
     2026
    ],
    "publish": false,
-   "reason": "too few training observations"
+   "reason": "too few observations"
   },
   "Adult": {
-   "n_train": 20,
-   "n_test": 477,
+   "n_train": 497,
+   "n_test": 0,
    "years": [
     2022,
     2026
    ],
+   "driver": "gdd0",
+   "cv_mae": {
+    "gdd0": 24.450704225352112,
+    "gdd5": 25.78672032193159,
+    "gdd10": 27.764587525150905
+   },
+   "cv_mae_null": 23.249496981891348,
+   "validated_by": "year-grouped cross-validation (too few records for a held-out test)",
    "publish": false,
-   "reason": "too few training observations"
+   "thresholds": {
+    "onset": 1573.9033203125,
+    "peak": 2656.841552734375,
+    "end": 3734.99365234375
+   },
+   "driver_model": {
+    "type": "gdd",
+    "base": 0,
+    "upper": 35,
+    "method": "triangle",
+    "start": "01-01"
+   },
+   "driver_label": "degree-days above 0 \u00b0C since Jan 1",
+   "reason": "not clearly better than a calendar-only model"
   }
  },
  "esb": {
@@ -145,7 +170,7 @@
     "early": 0.1791044776119403
    },
    "validated_by": "held-out years 2024+",
-   "publish": true,
+   "publish": false,
    "thresholds": {
     "onset": 41.021053314208984,
     "peak": 598.7139892578125,
@@ -159,7 +184,7 @@
     "start": "01-01"
    },
    "driver_label": "degree-days above 10 \u00b0C since Jan 1",
-   "reason": null
+   "reason": "not clearly better than a calendar-only model"
   }
  },
  "hwa": {
@@ -171,7 +196,7 @@
     2026
    ],
    "publish": false,
-   "reason": "too few training observations"
+   "reason": "too few observations"
   },
   "Adult": {
    "n_train": 7,
@@ -181,31 +206,126 @@
     2026
    ],
    "publish": false,
-   "reason": "too few training observations"
+   "reason": "too few observations"
   }
  },
  "toh": {
   "Breaking Leaf Buds": {
-   "n_train": 73,
-   "n_test": 91,
+   "n_train": 164,
+   "n_test": 0,
    "years": [
     2017,
     2026
    ],
+   "driver": "gdd10",
+   "cv_mae": {
+    "gdd0": 42.6219512195122,
+    "gdd5": 42.5,
+    "gdd10": 42.1219512195122
+   },
+   "cv_mae_null": 43.8780487804878,
+   "validated_by": "year-grouped cross-validation (too few records for a held-out test)",
    "publish": false,
-   "reason": "too few training observations"
+   "thresholds": {
+    "onset": 111.27001953125,
+    "peak": 312.9353942871094,
+    "end": 1377.266357421875
+   },
+   "driver_model": {
+    "type": "gdd",
+    "base": 10,
+    "upper": 35,
+    "method": "triangle",
+    "start": "01-01"
+   },
+   "driver_label": "degree-days above 10 \u00b0C since Jan 1",
+   "reason": "not clearly better than a calendar-only model"
   },
   "Flowering": {
-   "n_train": 0,
-   "n_test": 0,
+   "n_train": 148,
+   "n_test": 48,
+   "years": [
+    2009,
+    2026
+   ],
+   "driver": "gdd10",
+   "cv_mae": {
+    "gdd0": 13.513513513513514,
+    "gdd5": 12.972972972972974,
+    "gdd10": 12.094594594594595
+   },
+   "cv_mae_null": 14.763513513513514,
+   "test": {
+    "mae": 17.979166666666668,
+    "coverage": 0.6875,
+    "width": 29.625,
+    "early": 0.10416666666666667
+   },
+   "test_null": {
+    "mae": 17.541666666666668,
+    "coverage": 0.7291666666666666,
+    "width": 44.0,
+    "early": 0.22916666666666666
+   },
+   "validated_by": "held-out years 2024+",
    "publish": false,
-   "reason": "no annotated observations"
+   "thresholds": {
+    "onset": 368.1225891113281,
+    "peak": 487.5401306152344,
+    "end": 740.9539184570312
+   },
+   "driver_model": {
+    "type": "gdd",
+    "base": 10,
+    "upper": 35,
+    "method": "triangle",
+    "start": "01-01"
+   },
+   "driver_label": "degree-days above 10 \u00b0C since Jan 1",
+   "reason": "not clearly better than a calendar-only model"
   },
   "Fruiting": {
-   "n_train": 0,
-   "n_test": 0,
+   "n_train": 1004,
+   "n_test": 332,
+   "years": [
+    2008,
+    2026
+   ],
+   "driver": "gdd10",
+   "cv_mae": {
+    "gdd0": 35.31772908366534,
+    "gdd5": 35.05179282868526,
+    "gdd10": 34.864541832669325
+   },
+   "cv_mae_null": 35.16035856573705,
+   "test": {
+    "mae": 33.3855421686747,
+    "coverage": 0.8072289156626506,
+    "width": 147.51807228915663,
+    "early": 0.10843373493975904
+   },
+   "test_null": {
+    "mae": 32.78313253012048,
+    "coverage": 0.8373493975903614,
+    "width": 113.0,
+    "early": 0.08132530120481928
+   },
+   "validated_by": "held-out years 2024+",
    "publish": false,
-   "reason": "no annotated observations"
+   "thresholds": {
+    "onset": 732.9588623046875,
+    "peak": 1240.35791015625,
+    "end": 2089.69140625
+   },
+   "driver_model": {
+    "type": "gdd",
+    "base": 10,
+    "upper": 35,
+    "method": "triangle",
+    "start": "01-01"
+   },
+   "driver_label": "degree-days above 10 \u00b0C since Jan 1",
+   "reason": "not clearly better than a calendar-only model"
   },
   "Colored Leaves": {
    "n_train": 14,
@@ -215,87 +335,478 @@
     2026
    ],
    "publish": false,
-   "reason": "too few training observations"
+   "reason": "too few observations"
   }
  },
  "garlic_mustard": {
   "Flowering": {
-   "n_train": 0,
-   "n_test": 0,
+   "n_train": 3238,
+   "n_test": 2088,
+   "years": [
+    2008,
+    2026
+   ],
+   "driver": "gdd5",
+   "cv_mae": {
+    "gdd0": 12.911056207535516,
+    "gdd5": 12.687152563310686,
+    "gdd10": 13.460778258184064
+   },
+   "cv_mae_null": 11.897467572575664,
+   "test": {
+    "mae": 11.572318007662835,
+    "coverage": 0.8199233716475096,
+    "width": 28.84147509578544,
+    "early": 0.06848659003831417
+   },
+   "test_null": {
+    "mae": 10.993773946360154,
+    "coverage": 0.8304597701149425,
+    "width": 38.0,
+    "early": 0.08620689655172414
+   },
+   "validated_by": "held-out years 2024+",
    "publish": false,
-   "reason": "no annotated observations"
+   "thresholds": {
+    "onset": 209.30770874023438,
+    "peak": 316.02471923828125,
+    "end": 475.8791198730469
+   },
+   "driver_model": {
+    "type": "gdd",
+    "base": 5,
+    "upper": 35,
+    "method": "triangle",
+    "start": "01-01"
+   },
+   "driver_label": "degree-days above 5 \u00b0C since Jan 1",
+   "reason": "not clearly better than a calendar-only model"
   },
   "Fruiting": {
-   "n_train": 0,
-   "n_test": 0,
+   "n_train": 666,
+   "n_test": 460,
+   "years": [
+    2009,
+    2026
+   ],
+   "driver": "gdd0",
+   "cv_mae": {
+    "gdd0": 24.72822822822823,
+    "gdd5": 24.846846846846848,
+    "gdd10": 25.13213213213213
+   },
+   "cv_mae_null": 27.39189189189189,
+   "test": {
+    "mae": 22.241304347826087,
+    "coverage": 0.8434782608695652,
+    "width": 73.39565217391305,
+    "early": 0.10869565217391304
+   },
+   "test_null": {
+    "mae": 19.14782608695652,
+    "coverage": 0.8869565217391304,
+    "width": 85.0,
+    "early": 0.07173913043478261
+   },
+   "validated_by": "held-out years 2024+",
    "publish": false,
-   "reason": "no annotated observations"
+   "thresholds": {
+    "onset": 608.5003662109375,
+    "peak": 916.1666259765625,
+    "end": 1891.597412109375
+   },
+   "driver_model": {
+    "type": "gdd",
+    "base": 0,
+    "upper": 35,
+    "method": "triangle",
+    "start": "01-01"
+   },
+   "driver_label": "degree-days above 0 \u00b0C since Jan 1",
+   "reason": "not clearly better than a calendar-only model"
   }
  },
  "knotweed": {
   "Flowering": {
-   "n_train": 0,
-   "n_test": 0,
+   "n_train": 436,
+   "n_test": 185,
+   "years": [
+    2008,
+    2026
+   ],
+   "driver": "gdd0",
+   "cv_mae": {
+    "gdd0": 28.240825688073393,
+    "gdd5": 31.89908256880734,
+    "gdd10": 42.16284403669725
+   },
+   "cv_mae_null": 14.545871559633028,
+   "test": {
+    "mae": 23.713513513513515,
+    "coverage": 0.8108108108108109,
+    "width": 82.81621621621622,
+    "early": 0.07027027027027027
+   },
+   "test_null": {
+    "mae": 15.845945945945946,
+    "coverage": 0.8054054054054054,
+    "width": 43.0,
+    "early": 0.11351351351351352
+   },
+   "validated_by": "held-out years 2024+",
    "publish": false,
-   "reason": "no annotated observations"
+   "thresholds": {
+    "onset": 2401.177490234375,
+    "peak": 3076.43310546875,
+    "end": 3790.140625
+   },
+   "driver_model": {
+    "type": "gdd",
+    "base": 0,
+    "upper": 35,
+    "method": "triangle",
+    "start": "01-01"
+   },
+   "driver_label": "degree-days above 0 \u00b0C since Jan 1",
+   "reason": "not clearly better than a calendar-only model"
   },
   "Fruiting": {
-   "n_train": 0,
-   "n_test": 0,
+   "n_train": 193,
+   "n_test": 76,
+   "years": [
+    2008,
+    2026
+   ],
+   "driver": "gdd0",
+   "cv_mae": {
+    "gdd0": 47.134715025906736,
+    "gdd5": 53.87564766839378,
+    "gdd10": 60.13989637305699
+   },
+   "cv_mae_null": 22.702072538860104,
+   "test": {
+    "mae": 40.81578947368421,
+    "coverage": 0.9605263157894737,
+    "width": 116.11842105263158,
+    "early": 0.013157894736842105
+   },
+   "test_null": {
+    "mae": 22.473684210526315,
+    "coverage": 0.75,
+    "width": 72.60000000000002,
+    "early": 0.11842105263157894
+   },
+   "validated_by": "held-out years 2024+",
    "publish": false,
-   "reason": "no annotated observations"
+   "thresholds": {
+    "onset": 2986.447265625,
+    "peak": 3672.2861328125,
+    "end": 4513.263671875
+   },
+   "driver_model": {
+    "type": "gdd",
+    "base": 0,
+    "upper": 35,
+    "method": "triangle",
+    "start": "01-01"
+   },
+   "driver_label": "degree-days above 0 \u00b0C since Jan 1",
+   "reason": "not clearly better than a calendar-only model"
   }
  },
  "multiflora_rose": {
   "Flowering": {
-   "n_train": 0,
-   "n_test": 0,
-   "publish": false,
-   "reason": "no annotated observations"
+   "n_train": 1625,
+   "n_test": 1473,
+   "years": [
+    2008,
+    2026
+   ],
+   "driver": "gdd10",
+   "cv_mae": {
+    "gdd0": 9.974769230769231,
+    "gdd5": 9.041846153846153,
+    "gdd10": 8.916307692307692
+   },
+   "cv_mae_null": 13.518153846153846,
+   "test": {
+    "mae": 7.8044806517311605,
+    "coverage": 0.8404616429056347,
+    "width": 17.855397148676172,
+    "early": 0.08010862186014936
+   },
+   "test_null": {
+    "mae": 13.572301425661914,
+    "coverage": 0.8126272912423625,
+    "width": 44.0,
+    "early": 0.13238289205702647
+   },
+   "validated_by": "held-out years 2024+",
+   "publish": true,
+   "thresholds": {
+    "onset": 252.02647399902344,
+    "peak": 318.2384033203125,
+    "end": 393.50848388671875
+   },
+   "driver_model": {
+    "type": "gdd",
+    "base": 10,
+    "upper": 35,
+    "method": "triangle",
+    "start": "01-01"
+   },
+   "driver_label": "degree-days above 10 \u00b0C since Jan 1",
+   "reason": null
   },
   "Fruiting": {
-   "n_train": 0,
-   "n_test": 0,
+   "n_train": 1179,
+   "n_test": 919,
+   "years": [
+    2008,
+    2026
+   ],
+   "driver": "gdd0",
+   "cv_mae": {
+    "gdd0": 56.96437659033079,
+    "gdd5": 61.504664970313826,
+    "gdd10": 66.73621713316369
+   },
+   "cv_mae_null": 45.942324003392706,
+   "test": {
+    "mae": 51.31447225244831,
+    "coverage": 0.8628944504896626,
+    "width": 185.07290533188248,
+    "early": 0.051142546245919476
+   },
+   "test_null": {
+    "mae": 39.964091403699676,
+    "coverage": 0.8770402611534276,
+    "width": 176.2,
+    "early": 0.058759521218716
+   },
+   "validated_by": "held-out years 2024+",
    "publish": false,
-   "reason": "no annotated observations"
+   "thresholds": {
+    "onset": 1656.4127197265625,
+    "peak": 3668.6201171875,
+    "end": 4660.1552734375
+   },
+   "driver_model": {
+    "type": "gdd",
+    "base": 0,
+    "upper": 35,
+    "method": "triangle",
+    "start": "01-01"
+   },
+   "driver_label": "degree-days above 0 \u00b0C since Jan 1",
+   "reason": "not clearly better than a calendar-only model"
   }
  },
  "jap_honeysuckle": {
   "Flowering": {
-   "n_train": 0,
-   "n_test": 0,
-   "publish": false,
-   "reason": "no annotated observations"
+   "n_train": 1608,
+   "n_test": 856,
+   "years": [
+    2009,
+    2026
+   ],
+   "driver": "gdd0",
+   "cv_mae": {
+    "gdd0": 41.76243781094527,
+    "gdd5": 42.4521144278607,
+    "gdd10": 43.0634328358209
+   },
+   "cv_mae_null": 44.75373134328358,
+   "test": {
+    "mae": 39.38785046728972,
+    "coverage": 0.7207943925233645,
+    "width": 130.96144859813083,
+    "early": 0.20093457943925233
+   },
+   "test_null": {
+    "mae": 44.1553738317757,
+    "coverage": 0.764018691588785,
+    "width": 156.0,
+    "early": 0.1647196261682243
+   },
+   "validated_by": "held-out years 2024+",
+   "publish": true,
+   "thresholds": {
+    "onset": 1216.52001953125,
+    "peak": 1560.010009765625,
+    "end": 4220.54541015625
+   },
+   "driver_model": {
+    "type": "gdd",
+    "base": 0,
+    "upper": 35,
+    "method": "triangle",
+    "start": "01-01"
+   },
+   "driver_label": "degree-days above 0 \u00b0C since Jan 1",
+   "reason": null
   },
   "Fruiting": {
-   "n_train": 0,
-   "n_test": 0,
+   "n_train": 445,
+   "n_test": 105,
+   "years": [
+    2008,
+    2026
+   ],
+   "driver": "gdd0",
+   "cv_mae": {
+    "gdd0": 46.32359550561798,
+    "gdd5": 51.89887640449438,
+    "gdd10": 57.22696629213483
+   },
+   "cv_mae_null": 27.293258426966293,
+   "test": {
+    "mae": 56.50476190476191,
+    "coverage": 0.6666666666666666,
+    "width": 100.70476190476191,
+    "early": 0.1619047619047619
+   },
+   "test_null": {
+    "mae": 39.266666666666666,
+    "coverage": 0.7333333333333333,
+    "width": 84.60000000000002,
+    "early": 0.17142857142857143
+   },
+   "validated_by": "held-out years 2024+",
    "publish": false,
-   "reason": "no annotated observations"
+   "thresholds": {
+    "onset": 3769.73583984375,
+    "peak": 4635.7421875,
+    "end": 6089.91650390625
+   },
+   "driver_model": {
+    "type": "gdd",
+    "base": 0,
+    "upper": 35,
+    "method": "triangle",
+    "start": "01-01"
+   },
+   "driver_label": "degree-days above 0 \u00b0C since Jan 1",
+   "reason": "not clearly better than a calendar-only model"
   }
  },
  "amur_honeysuckle": {
   "Breaking Leaf Buds": {
-   "n_train": 80,
-   "n_test": 109,
+   "n_train": 189,
+   "n_test": 0,
    "years": [
     2016,
     2026
    ],
-   "publish": false,
-   "reason": "too few training observations"
+   "driver": "gdd0",
+   "cv_mae": {
+    "gdd0": 17.98941798941799,
+    "gdd5": 18.73015873015873,
+    "gdd10": 20.761904761904763
+   },
+   "cv_mae_null": 20.00793650793651,
+   "validated_by": "year-grouped cross-validation (too few records for a held-out test)",
+   "publish": true,
+   "thresholds": {
+    "onset": 234.8795166015625,
+    "peak": 377.10858154296875,
+    "end": 725.9505615234375
+   },
+   "driver_model": {
+    "type": "gdd",
+    "base": 0,
+    "upper": 35,
+    "method": "triangle",
+    "start": "01-01"
+   },
+   "driver_label": "degree-days above 0 \u00b0C since Jan 1",
+   "reason": null
   },
   "Flowering": {
-   "n_train": 0,
-   "n_test": 0,
-   "publish": false,
-   "reason": "no annotated observations"
+   "n_train": 1099,
+   "n_test": 641,
+   "years": [
+    2009,
+    2026
+   ],
+   "driver": "gdd5",
+   "cv_mae": {
+    "gdd0": 18.2147406733394,
+    "gdd5": 17.846223839854414,
+    "gdd10": 18.43221110100091
+   },
+   "cv_mae_null": 28.097361237488627,
+   "test": {
+    "mae": 18.463338533541343,
+    "coverage": 0.8112324492979719,
+    "width": 73.25741029641186,
+    "early": 0.08580343213728549
+   },
+   "test_null": {
+    "mae": 25.057722308892355,
+    "coverage": 0.8205928237129485,
+    "width": 104.20000000000005,
+    "early": 0.07644305772230889
+   },
+   "validated_by": "held-out years 2024+",
+   "publish": true,
+   "thresholds": {
+    "onset": 432.6709899902344,
+    "peak": 525.8785400390625,
+    "end": 1558.86572265625
+   },
+   "driver_model": {
+    "type": "gdd",
+    "base": 5,
+    "upper": 35,
+    "method": "triangle",
+    "start": "01-01"
+   },
+   "driver_label": "degree-days above 5 \u00b0C since Jan 1",
+   "reason": null
   },
   "Fruiting": {
-   "n_train": 0,
-   "n_test": 0,
+   "n_train": 3935,
+   "n_test": 2307,
+   "years": [
+    2008,
+    2026
+   ],
+   "driver": "gdd0",
+   "cv_mae": {
+    "gdd0": 42.669885641677254,
+    "gdd5": 47.12681067344346,
+    "gdd10": 53.87242693773825
+   },
+   "cv_mae_null": 32.06480304955527,
+   "test": {
+    "mae": 36.83615084525358,
+    "coverage": 0.8422193324664066,
+    "width": 117.44646727351538,
+    "early": 0.045080190723883834
+   },
+   "test_null": {
+    "mae": 27.9345470307759,
+    "coverage": 0.8838318162115302,
+    "width": 94.0,
+    "early": 0.05201560468140442
+   },
+   "validated_by": "held-out years 2024+",
    "publish": false,
-   "reason": "no annotated observations"
+   "thresholds": {
+    "onset": NaN,
+    "peak": NaN,
+    "end": NaN
+   },
+   "driver_model": {
+    "type": "gdd",
+    "base": 0,
+    "upper": 35,
+    "method": "triangle",
+    "start": "01-01"
+   },
+   "driver_label": "degree-days above 0 \u00b0C since Jan 1",
+   "reason": "not clearly better than a calendar-only model"
   },
   "Colored Leaves": {
    "n_train": 1107,
@@ -336,7 +847,7 @@
     "start": "08-01"
    },
    "driver_label": "chilling below 15 \u00b0C since Aug 1",
-   "reason": "no better than a calendar-only model"
+   "reason": "not clearly better than a calendar-only model"
   }
  },
  "barberry": {
@@ -348,83 +859,445 @@
     2026
    ],
    "publish": false,
-   "reason": "too few training observations"
+   "reason": "too few observations"
   },
   "Flowering": {
-   "n_train": 0,
-   "n_test": 0,
-   "publish": false,
-   "reason": "no annotated observations"
+   "n_train": 316,
+   "n_test": 173,
+   "years": [
+    2011,
+    2026
+   ],
+   "driver": "gdd5",
+   "cv_mae": {
+    "gdd0": 9.816455696202532,
+    "gdd5": 9.110759493670885,
+    "gdd10": 10.155063291139241
+   },
+   "cv_mae_null": 12.262658227848101,
+   "test": {
+    "mae": 5.92485549132948,
+    "coverage": 0.7572254335260116,
+    "width": 16.77456647398844,
+    "early": 0.2023121387283237
+   },
+   "test_null": {
+    "mae": 9.635838150289016,
+    "coverage": 0.8323699421965318,
+    "width": 36.0,
+    "early": 0.09826589595375723
+   },
+   "validated_by": "held-out years 2024+",
+   "publish": true,
+   "thresholds": {
+    "onset": 213.18515014648438,
+    "peak": 275.1388244628906,
+    "end": 355.5999450683594
+   },
+   "driver_model": {
+    "type": "gdd",
+    "base": 5,
+    "upper": 35,
+    "method": "triangle",
+    "start": "01-01"
+   },
+   "driver_label": "degree-days above 5 \u00b0C since Jan 1",
+   "reason": null
   },
   "Fruiting": {
-   "n_train": 0,
-   "n_test": 0,
+   "n_train": 1153,
+   "n_test": 688,
+   "years": [
+    2008,
+    2026
+   ],
+   "driver": "gdd0",
+   "cv_mae": {
+    "gdd0": 55.567215958369474,
+    "gdd5": 60.52298352124892,
+    "gdd10": 65.90372940156115
+   },
+   "cv_mae_null": 39.705984388551606,
+   "test": {
+    "mae": 54.286337209302324,
+    "coverage": 0.8255813953488372,
+    "width": 189.49127906976744,
+    "early": 0.08430232558139535
+   },
+   "test_null": {
+    "mae": 35.37936046511628,
+    "coverage": 0.8459302325581395,
+    "width": 169.6,
+    "early": 0.07848837209302326
+   },
+   "validated_by": "held-out years 2024+",
    "publish": false,
-   "reason": "no annotated observations"
+   "thresholds": {
+    "onset": NaN,
+    "peak": NaN,
+    "end": NaN
+   },
+   "driver_model": {
+    "type": "gdd",
+    "base": 0,
+    "upper": 35,
+    "method": "triangle",
+    "start": "01-01"
+   },
+   "driver_label": "degree-days above 0 \u00b0C since Jan 1",
+   "reason": "not clearly better than a calendar-only model"
   }
  },
  "autumn_olive": {
   "Flowering": {
-   "n_train": 0,
-   "n_test": 0,
-   "publish": false,
-   "reason": "no annotated observations"
+   "n_train": 1070,
+   "n_test": 439,
+   "years": [
+    2008,
+    2026
+   ],
+   "driver": "gdd5",
+   "cv_mae": {
+    "gdd0": 11.12803738317757,
+    "gdd5": 10.555140186915889,
+    "gdd10": 11.441121495327103
+   },
+   "cv_mae_null": 16.020560747663552,
+   "test": {
+    "mae": 12.528473804100228,
+    "coverage": 0.7949886104783599,
+    "width": 19.255125284738043,
+    "early": 0.15034168564920272
+   },
+   "test_null": {
+    "mae": 16.08656036446469,
+    "coverage": 0.8246013667425968,
+    "width": 49.0,
+    "early": 0.13211845102505695
+   },
+   "validated_by": "held-out years 2024+",
+   "publish": true,
+   "thresholds": {
+    "onset": 312.9234313964844,
+    "peak": 390.0139465332031,
+    "end": 507.7174377441406
+   },
+   "driver_model": {
+    "type": "gdd",
+    "base": 5,
+    "upper": 35,
+    "method": "triangle",
+    "start": "01-01"
+   },
+   "driver_label": "degree-days above 5 \u00b0C since Jan 1",
+   "reason": null
   },
   "Fruiting": {
-   "n_train": 0,
-   "n_test": 0,
+   "n_train": 1530,
+   "n_test": 546,
+   "years": [
+    2009,
+    2026
+   ],
+   "driver": "gdd0",
+   "cv_mae": {
+    "gdd0": 31.303267973856208,
+    "gdd5": 33.14967320261438,
+    "gdd10": 37.28954248366013
+   },
+   "cv_mae_null": 28.912418300653595,
+   "test": {
+    "mae": 28.082417582417584,
+    "coverage": 0.847985347985348,
+    "width": 119.0915750915751,
+    "early": 0.06776556776556776
+   },
+   "test_null": {
+    "mae": 23.600732600732602,
+    "coverage": 0.8846153846153846,
+    "width": 98.0,
+    "early": 0.040293040293040296
+   },
+   "validated_by": "held-out years 2024+",
    "publish": false,
-   "reason": "no annotated observations"
+   "thresholds": {
+    "onset": 2063.86767578125,
+    "peak": 3187.7109375,
+    "end": 4046.070068359375
+   },
+   "driver_model": {
+    "type": "gdd",
+    "base": 0,
+    "upper": 35,
+    "method": "triangle",
+    "start": "01-01"
+   },
+   "driver_label": "degree-days above 0 \u00b0C since Jan 1",
+   "reason": "not clearly better than a calendar-only model"
   }
  },
  "russian_olive": {
   "Flowering": {
-   "n_train": 0,
-   "n_test": 0,
+   "n_train": 62,
+   "n_test": 41,
+   "years": [
+    2015,
+    2026
+   ],
    "publish": false,
-   "reason": "no annotated observations"
+   "reason": "too few observations"
   },
   "Fruiting": {
-   "n_train": 0,
-   "n_test": 0,
+   "n_train": 140,
+   "n_test": 108,
+   "years": [
+    2012,
+    2026
+   ],
+   "driver": "gdd0",
+   "cv_mae": {
+    "gdd0": 44.81428571428572,
+    "gdd5": 48.6,
+    "gdd10": 52.92142857142857
+   },
+   "cv_mae_null": 36.75714285714286,
+   "test": {
+    "mae": 57.24074074074074,
+    "coverage": 0.5833333333333334,
+    "width": 106.48148148148148,
+    "early": 0.08333333333333333
+   },
+   "test_null": {
+    "mae": 44.583333333333336,
+    "coverage": 0.7129629629629629,
+    "width": 120.50000000000006,
+    "early": 0.07407407407407407
+   },
+   "validated_by": "held-out years 2024+",
    "publish": false,
-   "reason": "no annotated observations"
+   "thresholds": {
+    "onset": 2138.455322265625,
+    "peak": 3389.901123046875,
+    "end": 4703.83251953125
+   },
+   "driver_model": {
+    "type": "gdd",
+    "base": 0,
+    "upper": 35,
+    "method": "triangle",
+    "start": "01-01"
+   },
+   "driver_label": "degree-days above 0 \u00b0C since Jan 1",
+   "reason": "not clearly better than a calendar-only model"
   }
  },
  "loosestrife": {
   "Flowering": {
-   "n_train": 0,
-   "n_test": 0,
+   "n_train": 2156,
+   "n_test": 1527,
+   "years": [
+    2008,
+    2026
+   ],
+   "driver": "gdd0",
+   "cv_mae": {
+    "gdd0": 24.085343228200372,
+    "gdd5": 24.26252319109462,
+    "gdd10": 27.143320964749535
+   },
+   "cv_mae_null": 18.483766233766232,
+   "test": {
+    "mae": 23.789783889980352,
+    "coverage": 0.831041257367387,
+    "width": 79.41191879502293,
+    "early": 0.08840864440078586
+   },
+   "test_null": {
+    "mae": 19.55009823182711,
+    "coverage": 0.8074656188605108,
+    "width": 61.0,
+    "early": 0.10936476751800916
+   },
+   "validated_by": "held-out years 2024+",
    "publish": false,
-   "reason": "no annotated observations"
+   "thresholds": {
+    "onset": 1736.8834228515625,
+    "peak": 2477.413330078125,
+    "end": 3293.3486328125
+   },
+   "driver_model": {
+    "type": "gdd",
+    "base": 0,
+    "upper": 35,
+    "method": "triangle",
+    "start": "01-01"
+   },
+   "driver_label": "degree-days above 0 \u00b0C since Jan 1",
+   "reason": "not clearly better than a calendar-only model"
   },
   "Fruiting": {
-   "n_train": 0,
+   "n_train": 162,
    "n_test": 0,
+   "years": [
+    2012,
+    2026
+   ],
+   "driver": "gdd0",
+   "cv_mae": {
+    "gdd0": 36.45061728395062,
+    "gdd5": 38.50617283950617,
+    "gdd10": 45.51851851851852
+   },
+   "cv_mae_null": 32.18518518518518,
+   "validated_by": "year-grouped cross-validation (too few records for a held-out test)",
    "publish": false,
-   "reason": "no annotated observations"
+   "thresholds": {
+    "onset": 2153.193603515625,
+    "peak": 3058.877197265625,
+    "end": 3788.455810546875
+   },
+   "driver_model": {
+    "type": "gdd",
+    "base": 0,
+    "upper": 35,
+    "method": "triangle",
+    "start": "01-01"
+   },
+   "driver_label": "degree-days above 0 \u00b0C since Jan 1",
+   "reason": "not clearly better than a calendar-only model"
   }
  },
  "kudzu": {
   "Flowering": {
-   "n_train": 0,
-   "n_test": 0,
+   "n_train": 144,
+   "n_test": 65,
+   "years": [
+    2010,
+    2026
+   ],
+   "driver": "gdd0",
+   "cv_mae": {
+    "gdd0": 20.28472222222222,
+    "gdd5": 22.09027777777778,
+    "gdd10": 25.708333333333332
+   },
+   "cv_mae_null": 18.083333333333332,
+   "test": {
+    "mae": 29.661538461538463,
+    "coverage": 0.47692307692307695,
+    "width": 66.76923076923077,
+    "early": 0.27692307692307694
+   },
+   "test_null": {
+    "mae": 21.907692307692308,
+    "coverage": 0.7384615384615385,
+    "width": 58.0,
+    "early": 0.18461538461538463
+   },
+   "validated_by": "held-out years 2024+",
    "publish": false,
-   "reason": "no annotated observations"
+   "thresholds": {
+    "onset": 3202.98046875,
+    "peak": 3977.939453125,
+    "end": 4915.2265625
+   },
+   "driver_model": {
+    "type": "gdd",
+    "base": 0,
+    "upper": 35,
+    "method": "triangle",
+    "start": "01-01"
+   },
+   "driver_label": "degree-days above 0 \u00b0C since Jan 1",
+   "reason": "not clearly better than a calendar-only model"
   }
  },
  "callery_pear": {
   "Flowering": {
-   "n_train": 0,
-   "n_test": 0,
-   "publish": false,
-   "reason": "no annotated observations"
+   "n_train": 281,
+   "n_test": 311,
+   "years": [
+    2012,
+    2026
+   ],
+   "driver": "gdd0",
+   "cv_mae": {
+    "gdd0": 12.743772241992882,
+    "gdd5": 14.405693950177936,
+    "gdd10": 17.701067615658364
+   },
+   "cv_mae_null": 22.562277580071175,
+   "test": {
+    "mae": 14.109324758842444,
+    "coverage": 0.7459807073954984,
+    "width": 24.488745980707396,
+    "early": 0.18971061093247588
+   },
+   "test_null": {
+    "mae": 18.884244372990352,
+    "coverage": 0.9067524115755627,
+    "width": 58.0,
+    "early": 0.03858520900321544
+   },
+   "validated_by": "held-out years 2024+",
+   "publish": true,
+   "thresholds": {
+    "onset": 391.41015625,
+    "peak": 511.59930419921875,
+    "end": 709.7520141601562
+   },
+   "driver_model": {
+    "type": "gdd",
+    "base": 0,
+    "upper": 35,
+    "method": "triangle",
+    "start": "01-01"
+   },
+   "driver_label": "degree-days above 0 \u00b0C since Jan 1",
+   "reason": null
   },
   "Fruiting": {
-   "n_train": 0,
-   "n_test": 0,
+   "n_train": 224,
+   "n_test": 214,
+   "years": [
+    2009,
+    2026
+   ],
+   "driver": "gdd0",
+   "cv_mae": {
+    "gdd0": 61.82142857142857,
+    "gdd5": 65.05357142857143,
+    "gdd10": 71.54017857142857
+   },
+   "cv_mae_null": 54.07142857142857,
+   "test": {
+    "mae": 60.64485981308411,
+    "coverage": 0.7757009345794392,
+    "width": 194.2196261682243,
+    "early": 0.08411214953271028
+   },
+   "test_null": {
+    "mae": 49.8411214953271,
+    "coverage": 0.794392523364486,
+    "width": 175.70000000000005,
+    "early": 0.11214953271028037
+   },
+   "validated_by": "held-out years 2024+",
    "publish": false,
-   "reason": "no annotated observations"
+   "thresholds": {
+    "onset": 1397.5933837890625,
+    "peak": 4099.36328125,
+    "end": 5591.08984375
+   },
+   "driver_model": {
+    "type": "gdd",
+    "base": 0,
+    "upper": 35,
+    "method": "triangle",
+    "start": "01-01"
+   },
+   "driver_label": "degree-days above 0 \u00b0C since Jan 1",
+   "reason": "not clearly better than a calendar-only model"
   },
   "Colored Leaves": {
    "n_train": 11,
@@ -434,101 +1307,513 @@
     2026
    ],
    "publish": false,
-   "reason": "too few training observations"
+   "reason": "too few observations"
   }
  },
  "stiltgrass": {
   "Flowering": {
-   "n_train": 0,
+   "n_train": 130,
    "n_test": 0,
+   "years": [
+    2009,
+    2026
+   ],
+   "driver": "gdd0",
+   "cv_mae": {
+    "gdd0": 20.576923076923077,
+    "gdd5": 22.415384615384614,
+    "gdd10": 26.053846153846155
+   },
+   "cv_mae_null": 10.015384615384615,
+   "validated_by": "year-grouped cross-validation (too few records for a held-out test)",
    "publish": false,
-   "reason": "no annotated observations"
+   "thresholds": {
+    "onset": 3264.476318359375,
+    "peak": 3710.08203125,
+    "end": 4415.494140625
+   },
+   "driver_model": {
+    "type": "gdd",
+    "base": 0,
+    "upper": 35,
+    "method": "triangle",
+    "start": "01-01"
+   },
+   "driver_label": "degree-days above 0 \u00b0C since Jan 1",
+   "reason": "not clearly better than a calendar-only model"
   }
  },
  "spotted_knapweed": {
   "Flowering": {
-   "n_train": 0,
-   "n_test": 0,
+   "n_train": 774,
+   "n_test": 667,
+   "years": [
+    2008,
+    2026
+   ],
+   "driver": "gdd0",
+   "cv_mae": {
+    "gdd0": 38.21963824289406,
+    "gdd5": 40.83720930232558,
+    "gdd10": 42.5968992248062
+   },
+   "cv_mae_null": 27.863049095607234,
+   "test": {
+    "mae": 35.613193403298354,
+    "coverage": 0.8365817091454273,
+    "width": 123.78410794602699,
+    "early": 0.07646176911544228
+   },
+   "test_null": {
+    "mae": 29.215892053973015,
+    "coverage": 0.7841079460269865,
+    "width": 91.70000000000005,
+    "early": 0.09745127436281859
+   },
+   "validated_by": "held-out years 2024+",
    "publish": false,
-   "reason": "no annotated observations"
+   "thresholds": {
+    "onset": 1457.5906982421875,
+    "peak": 2232.576171875,
+    "end": 3586.446533203125
+   },
+   "driver_model": {
+    "type": "gdd",
+    "base": 0,
+    "upper": 35,
+    "method": "triangle",
+    "start": "01-01"
+   },
+   "driver_label": "degree-days above 0 \u00b0C since Jan 1",
+   "reason": "not clearly better than a calendar-only model"
   },
   "Fruiting": {
-   "n_train": 0,
+   "n_train": 146,
    "n_test": 0,
+   "years": [
+    2018,
+    2026
+   ],
+   "driver": "gdd0",
+   "cv_mae": {
+    "gdd0": 43.38356164383562,
+    "gdd5": 46.43150684931507,
+    "gdd10": 48.93150684931507
+   },
+   "cv_mae_null": 38.47260273972603,
+   "validated_by": "year-grouped cross-validation (too few records for a held-out test)",
    "publish": false,
-   "reason": "no annotated observations"
+   "thresholds": {
+    "onset": 1707.4844970703125,
+    "peak": 2626.346435546875,
+    "end": 3913.7421875
+   },
+   "driver_model": {
+    "type": "gdd",
+    "base": 0,
+    "upper": 35,
+    "method": "triangle",
+    "start": "01-01"
+   },
+   "driver_label": "degree-days above 0 \u00b0C since Jan 1",
+   "reason": "not clearly better than a calendar-only model"
   }
  },
  "yellow_starthistle": {
   "Flowering": {
-   "n_train": 0,
-   "n_test": 0,
+   "n_train": 373,
+   "n_test": 278,
+   "years": [
+    2013,
+    2026
+   ],
+   "driver": "gdd10",
+   "cv_mae": {
+    "gdd0": 46.24664879356568,
+    "gdd5": 46.19571045576407,
+    "gdd10": 46.09383378016086
+   },
+   "cv_mae_null": 47.64477211796247,
+   "test": {
+    "mae": 39.04676258992806,
+    "coverage": 0.8093525179856115,
+    "width": 129.87410071942446,
+    "early": 0.06115107913669065
+   },
+   "test_null": {
+    "mae": 35.71223021582734,
+    "coverage": 0.89568345323741,
+    "width": 149.4,
+    "early": 0.0683453237410072
+   },
+   "validated_by": "held-out years 2024+",
    "publish": false,
-   "reason": "no annotated observations"
+   "thresholds": {
+    "onset": 635.5934448242188,
+    "peak": 1261.056884765625,
+    "end": 2044.2427978515625
+   },
+   "driver_model": {
+    "type": "gdd",
+    "base": 10,
+    "upper": 35,
+    "method": "triangle",
+    "start": "01-01"
+   },
+   "driver_label": "degree-days above 10 \u00b0C since Jan 1",
+   "reason": "not clearly better than a calendar-only model"
   }
  },
  "leafy_spurge": {
   "Flowering": {
-   "n_train": 0,
+   "n_train": 186,
    "n_test": 0,
+   "years": [
+    2009,
+    2026
+   ],
+   "driver": "gdd0",
+   "cv_mae": {
+    "gdd0": 23.365591397849464,
+    "gdd5": 23.908602150537636,
+    "gdd10": 24.811827956989248
+   },
+   "cv_mae_null": 25.123655913978496,
+   "validated_by": "year-grouped cross-validation (too few records for a held-out test)",
    "publish": false,
-   "reason": "no annotated observations"
+   "thresholds": {
+    "onset": 621.2205200195312,
+    "peak": 990.9639282226562,
+    "end": 2111.4150390625
+   },
+   "driver_model": {
+    "type": "gdd",
+    "base": 0,
+    "upper": 35,
+    "method": "triangle",
+    "start": "01-01"
+   },
+   "driver_label": "degree-days above 0 \u00b0C since Jan 1",
+   "reason": "not clearly better than a calendar-only model"
   }
  },
  "cheatgrass": {
   "Flowering": {
-   "n_train": 0,
-   "n_test": 0,
+   "n_train": 36,
+   "n_test": 17,
+   "years": [
+    2018,
+    2026
+   ],
    "publish": false,
-   "reason": "no annotated observations"
+   "reason": "too few observations"
   },
   "Fruiting": {
-   "n_train": 0,
-   "n_test": 0,
-   "publish": false,
-   "reason": "no annotated observations"
+   "n_train": 107,
+   "n_test": 112,
+   "years": [
+    2013,
+    2026
+   ],
+   "driver": "gdd0",
+   "cv_mae": {
+    "gdd0": 34.22429906542056,
+    "gdd5": 35.05607476635514,
+    "gdd10": 35.22429906542056
+   },
+   "cv_mae_null": 38.271028037383175,
+   "test": {
+    "mae": 49.25,
+    "coverage": 0.7232142857142857,
+    "width": 106.53571428571429,
+    "early": 0.044642857142857144
+   },
+   "test_null": {
+    "mae": 59.732142857142854,
+    "coverage": 0.5357142857142857,
+    "width": 125.60000000000005,
+    "early": 0.24107142857142858
+   },
+   "validated_by": "held-out years 2024+",
+   "publish": true,
+   "thresholds": {
+    "onset": 712.928466796875,
+    "peak": 1412.9852294921875,
+    "end": 3627.59228515625
+   },
+   "driver_model": {
+    "type": "gdd",
+    "base": 0,
+    "upper": 35,
+    "method": "triangle",
+    "start": "01-01"
+   },
+   "driver_label": "degree-days above 0 \u00b0C since Jan 1",
+   "reason": null
   }
  },
  "canada_thistle": {
   "Flowering": {
-   "n_train": 0,
-   "n_test": 0,
+   "n_train": 1089,
+   "n_test": 765,
+   "years": [
+    2008,
+    2026
+   ],
+   "driver": "gdd5",
+   "cv_mae": {
+    "gdd0": 28.446280991735538,
+    "gdd5": 28.272727272727273,
+    "gdd10": 29.47382920110193
+   },
+   "cv_mae_null": 27.348025711662075,
+   "test": {
+    "mae": 31.147712418300653,
+    "coverage": 0.7830065359477124,
+    "width": 102.75816993464052,
+    "early": 0.1084967320261438
+   },
+   "test_null": {
+    "mae": 29.406535947712417,
+    "coverage": 0.7908496732026143,
+    "width": 92.0,
+    "early": 0.11241830065359477
+   },
+   "validated_by": "held-out years 2024+",
    "publish": false,
-   "reason": "no annotated observations"
+   "thresholds": {
+    "onset": 811.7259521484375,
+    "peak": 1185.3778076171875,
+    "end": 2355.337158203125
+   },
+   "driver_model": {
+    "type": "gdd",
+    "base": 5,
+    "upper": 35,
+    "method": "triangle",
+    "start": "01-01"
+   },
+   "driver_label": "degree-days above 5 \u00b0C since Jan 1",
+   "reason": "not clearly better than a calendar-only model"
   },
   "Fruiting": {
-   "n_train": 0,
-   "n_test": 0,
+   "n_train": 315,
+   "n_test": 304,
+   "years": [
+    2011,
+    2026
+   ],
+   "driver": "gdd10",
+   "cv_mae": {
+    "gdd0": 30.97142857142857,
+    "gdd5": 30.466666666666665,
+    "gdd10": 30.38095238095238
+   },
+   "cv_mae_null": 29.176190476190477,
+   "test": {
+    "mae": 34.74671052631579,
+    "coverage": 0.7828947368421053,
+    "width": 110.83223684210526,
+    "early": 0.08552631578947369
+   },
+   "test_null": {
+    "mae": 31.355263157894736,
+    "coverage": 0.7664473684210527,
+    "width": 90.60000000000002,
+    "early": 0.06907894736842106
+   },
+   "validated_by": "held-out years 2024+",
    "publish": false,
-   "reason": "no annotated observations"
+   "thresholds": {
+    "onset": 566.7110595703125,
+    "peak": 927.74755859375,
+    "end": 1632.7642822265625
+   },
+   "driver_model": {
+    "type": "gdd",
+    "base": 10,
+    "upper": 35,
+    "method": "triangle",
+    "start": "01-01"
+   },
+   "driver_label": "degree-days above 10 \u00b0C since Jan 1",
+   "reason": "not clearly better than a calendar-only model"
   }
  },
  "wild_parsnip": {
   "Flowering": {
-   "n_train": 0,
-   "n_test": 0,
+   "n_train": 440,
+   "n_test": 188,
+   "years": [
+    2011,
+    2026
+   ],
+   "driver": "gdd5",
+   "cv_mae": {
+    "gdd0": 21.30909090909091,
+    "gdd5": 21.1,
+    "gdd10": 21.275
+   },
+   "cv_mae_null": 19.043181818181818,
+   "test": {
+    "mae": 18.98936170212766,
+    "coverage": 0.8617021276595744,
+    "width": 57.23936170212766,
+    "early": 0.05319148936170213
+   },
+   "test_null": {
+    "mae": 16.648936170212767,
+    "coverage": 0.8351063829787234,
+    "width": 55.0,
+    "early": 0.09042553191489362
+   },
+   "validated_by": "held-out years 2024+",
    "publish": false,
-   "reason": "no annotated observations"
+   "thresholds": {
+    "onset": 598.3887939453125,
+    "peak": 929.303466796875,
+    "end": 1501.1300048828125
+   },
+   "driver_model": {
+    "type": "gdd",
+    "base": 5,
+    "upper": 35,
+    "method": "triangle",
+    "start": "01-01"
+   },
+   "driver_label": "degree-days above 5 \u00b0C since Jan 1",
+   "reason": "not clearly better than a calendar-only model"
   },
   "Fruiting": {
-   "n_train": 0,
-   "n_test": 0,
+   "n_train": 246,
+   "n_test": 61,
+   "years": [
+    2011,
+    2026
+   ],
+   "driver": "gdd0",
+   "cv_mae": {
+    "gdd0": 24.853658536585368,
+    "gdd5": 24.857723577235774,
+    "gdd10": 26.024390243902438
+   },
+   "cv_mae_null": 20.715447154471544,
+   "test": {
+    "mae": 19.39344262295082,
+    "coverage": 0.8032786885245902,
+    "width": 71.06557377049181,
+    "early": 0.16393442622950818
+   },
+   "test_null": {
+    "mae": 18.540983606557376,
+    "coverage": 0.8524590163934426,
+    "width": 55.0,
+    "early": 0.13114754098360656
+   },
+   "validated_by": "held-out years 2024+",
    "publish": false,
-   "reason": "no annotated observations"
+   "thresholds": {
+    "onset": 1395.8817138671875,
+    "peak": 1965.176513671875,
+    "end": 2744.139404296875
+   },
+   "driver_model": {
+    "type": "gdd",
+    "base": 0,
+    "upper": 35,
+    "method": "triangle",
+    "start": "01-01"
+   },
+   "driver_label": "degree-days above 0 \u00b0C since Jan 1",
+   "reason": "not clearly better than a calendar-only model"
   }
  },
  "bittersweet": {
   "Flowering": {
-   "n_train": 0,
-   "n_test": 0,
+   "n_train": 341,
+   "n_test": 100,
+   "years": [
+    2010,
+    2026
+   ],
+   "driver": "gdd10",
+   "cv_mae": {
+    "gdd0": 11.680351906158357,
+    "gdd5": 10.442815249266863,
+    "gdd10": 9.859237536656892
+   },
+   "cv_mae_null": 14.033724340175953,
+   "test": {
+    "mae": 17.09,
+    "coverage": 0.79,
+    "width": 18.57,
+    "early": 0.12
+   },
+   "test_null": {
+    "mae": 16.75,
+    "coverage": 0.75,
+    "width": 37.0,
+    "early": 0.14
+   },
+   "validated_by": "held-out years 2024+",
    "publish": false,
-   "reason": "no annotated observations"
+   "thresholds": {
+    "onset": 183.27224731445312,
+    "peak": 239.28126525878906,
+    "end": 318.888427734375
+   },
+   "driver_model": {
+    "type": "gdd",
+    "base": 10,
+    "upper": 35,
+    "method": "triangle",
+    "start": "01-01"
+   },
+   "driver_label": "degree-days above 10 \u00b0C since Jan 1",
+   "reason": "not clearly better than a calendar-only model"
   },
   "Fruiting": {
-   "n_train": 0,
-   "n_test": 0,
+   "n_train": 4925,
+   "n_test": 1501,
+   "years": [
+    2008,
+    2026
+   ],
+   "driver": "gdd0",
+   "cv_mae": {
+    "gdd0": 52.1736040609137,
+    "gdd5": 56.633096446700506,
+    "gdd10": 62.795736040609135
+   },
+   "cv_mae_null": 35.798781725888325,
+   "test": {
+    "mae": 50.04063957361759,
+    "coverage": 0.8114590273151232,
+    "width": 137.9213857428381,
+    "early": 0.08394403730846102
+   },
+   "test_null": {
+    "mae": 34.97601598934044,
+    "coverage": 0.8381079280479681,
+    "width": 120.0,
+    "early": 0.07861425716189208
+   },
+   "validated_by": "held-out years 2024+",
    "publish": false,
-   "reason": "no annotated observations"
+   "thresholds": {
+    "onset": NaN,
+    "peak": NaN,
+    "end": NaN
+   },
+   "driver_model": {
+    "type": "gdd",
+    "base": 0,
+    "upper": 35,
+    "method": "triangle",
+    "start": "01-01"
+   },
+   "driver_label": "degree-days above 0 \u00b0C since Jan 1",
+   "reason": "not clearly better than a calendar-only model"
   }
  },
  "buckthorn": {
@@ -540,19 +1825,93 @@
     2026
    ],
    "publish": false,
-   "reason": "too few training observations"
+   "reason": "too few observations"
   },
   "Flowering": {
-   "n_train": 0,
-   "n_test": 0,
-   "publish": false,
-   "reason": "no annotated observations"
+   "n_train": 112,
+   "n_test": 46,
+   "years": [
+    2010,
+    2026
+   ],
+   "driver": "gdd10",
+   "cv_mae": {
+    "gdd0": 14.294642857142858,
+    "gdd5": 12.973214285714286,
+    "gdd10": 12.116071428571429
+   },
+   "cv_mae_null": 7.669642857142857,
+   "test": {
+    "mae": 11.369565217391305,
+    "coverage": 0.782608695652174,
+    "width": 17.456521739130434,
+    "early": 0.10869565217391304
+   },
+   "test_null": {
+    "mae": 12.847826086956522,
+    "coverage": 0.6521739130434783,
+    "width": 21.900000000000006,
+    "early": 0.21739130434782608
+   },
+   "validated_by": "held-out years 2024+",
+   "publish": true,
+   "thresholds": {
+    "onset": 132.7179412841797,
+    "peak": 178.32530212402344,
+    "end": 259.12451171875
+   },
+   "driver_model": {
+    "type": "gdd",
+    "base": 10,
+    "upper": 35,
+    "method": "triangle",
+    "start": "01-01"
+   },
+   "driver_label": "degree-days above 10 \u00b0C since Jan 1",
+   "reason": null
   },
   "Fruiting": {
-   "n_train": 0,
-   "n_test": 0,
+   "n_train": 1830,
+   "n_test": 779,
+   "years": [
+    2010,
+    2026
+   ],
+   "driver": "gdd0",
+   "cv_mae": {
+    "gdd0": 33.7551912568306,
+    "gdd5": 35.37540983606557,
+    "gdd10": 40.23879781420765
+   },
+   "cv_mae_null": 28.140437158469947,
+   "test": {
+    "mae": 34.10526315789474,
+    "coverage": 0.7278562259306803,
+    "width": 115.28883183568678,
+    "early": 0.08600770218228498
+   },
+   "test_null": {
+    "mae": 29.161745827984596,
+    "coverage": 0.79204107830552,
+    "width": 98.0,
+    "early": 0.08087291399229782
+   },
+   "validated_by": "held-out years 2024+",
    "publish": false,
-   "reason": "no annotated observations"
+   "thresholds": {
+    "onset": 1610.64794921875,
+    "peak": 3032.55908203125,
+    "end": 3755.407470703125
+   },
+   "driver_model": {
+    "type": "gdd",
+    "base": 0,
+    "upper": 35,
+    "method": "triangle",
+    "start": "01-01"
+   },
+   "driver_label": "degree-days above 0 \u00b0C since Jan 1",
+   "reason": "not clearly better than a calendar-only model"
   },
   "Colored Leaves": {
    "n_train": 9,
@@ -562,21 +1921,95 @@
     2026
    ],
    "publish": false,
-   "reason": "too few training observations"
+   "reason": "too few observations"
   }
  },
  "glossy_buckthorn": {
   "Flowering": {
-   "n_train": 0,
-   "n_test": 0,
+   "n_train": 608,
+   "n_test": 151,
+   "years": [
+    2012,
+    2026
+   ],
+   "driver": "gdd5",
+   "cv_mae": {
+    "gdd0": 26.24342105263158,
+    "gdd5": 25.875,
+    "gdd10": 25.879934210526315
+   },
+   "cv_mae_null": 22.20230263157895,
+   "test": {
+    "mae": 21.90728476821192,
+    "coverage": 0.847682119205298,
+    "width": 67.51655629139073,
+    "early": 0.06622516556291391
+   },
+   "test_null": {
+    "mae": 20.794701986754966,
+    "coverage": 0.8145695364238411,
+    "width": 68.30000000000007,
+    "early": 0.08609271523178808
+   },
+   "validated_by": "held-out years 2024+",
    "publish": false,
-   "reason": "no annotated observations"
+   "thresholds": {
+    "onset": 410.94110107421875,
+    "peak": 663.1265258789062,
+    "end": 1455.2822265625
+   },
+   "driver_model": {
+    "type": "gdd",
+    "base": 5,
+    "upper": 35,
+    "method": "triangle",
+    "start": "01-01"
+   },
+   "driver_label": "degree-days above 5 \u00b0C since Jan 1",
+   "reason": "not clearly better than a calendar-only model"
   },
   "Fruiting": {
-   "n_train": 0,
-   "n_test": 0,
+   "n_train": 2335,
+   "n_test": 582,
+   "years": [
+    2008,
+    2026
+   ],
+   "driver": "gdd0",
+   "cv_mae": {
+    "gdd0": 27.093790149892932,
+    "gdd5": 27.206423982869378,
+    "gdd10": 27.450963597430405
+   },
+   "cv_mae_null": 27.225695931477517,
+   "test": {
+    "mae": 28.575601374570446,
+    "coverage": 0.7697594501718213,
+    "width": 98.76632302405498,
+    "early": 0.13573883161512026
+   },
+   "test_null": {
+    "mae": 28.391752577319586,
+    "coverage": 0.802405498281787,
+    "width": 91.0,
+    "early": 0.1254295532646048
+   },
+   "validated_by": "held-out years 2024+",
    "publish": false,
-   "reason": "no annotated observations"
+   "thresholds": {
+    "onset": 1443.4317626953125,
+    "peak": 2140.478515625,
+    "end": 3327.016845703125
+   },
+   "driver_model": {
+    "type": "gdd",
+    "base": 0,
+    "upper": 35,
+    "method": "triangle",
+    "start": "01-01"
+   },
+   "driver_label": "degree-days above 0 \u00b0C since Jan 1",
+   "reason": "not clearly better than a calendar-only model"
   }
  },
  "norway_maple": {
@@ -621,13 +2054,50 @@
     "start": "01-01"
    },
    "driver_label": "degree-days above 10 \u00b0C since Jan 1",
-   "reason": "no better than a calendar-only model"
+   "reason": "not clearly better than a calendar-only model"
   },
   "Flowering": {
-   "n_train": 0,
-   "n_test": 0,
+   "n_train": 476,
+   "n_test": 137,
+   "years": [
+    2010,
+    2026
+   ],
+   "driver": "gdd10",
+   "cv_mae": {
+    "gdd0": 14.84873949579832,
+    "gdd5": 13.455882352941176,
+    "gdd10": 13.27310924369748
+   },
+   "cv_mae_null": 7.819327731092437,
+   "test": {
+    "mae": 10.656934306569344,
+    "coverage": 0.8175182481751825,
+    "width": 21.27007299270073,
+    "early": 0.12408759124087591
+   },
+   "test_null": {
+    "mae": 6.635036496350365,
+    "coverage": 0.8175182481751825,
+    "width": 22.0,
+    "early": 0.13138686131386862
+   },
+   "validated_by": "held-out years 2024+",
    "publish": false,
-   "reason": "no annotated observations"
+   "thresholds": {
+    "onset": 34.01879119873047,
+    "peak": 63.711204528808594,
+    "end": 97.13671875
+   },
+   "driver_model": {
+    "type": "gdd",
+    "base": 10,
+    "upper": 35,
+    "method": "triangle",
+    "start": "01-01"
+   },
+   "driver_label": "degree-days above 10 \u00b0C since Jan 1",
+   "reason": "not clearly better than a calendar-only model"
   },
   "Colored Leaves": {
    "n_train": 138,
@@ -668,31 +2138,97 @@
     "start": "08-01"
    },
    "driver_label": "chilling below 15 \u00b0C since Aug 1",
-   "reason": "no better than a calendar-only model"
+   "reason": "not clearly better than a calendar-only model"
   }
  },
  "johnsongrass": {
   "Flowering": {
-   "n_train": 0,
+   "n_train": 201,
    "n_test": 0,
+   "years": [
+    2015,
+    2026
+   ],
+   "driver": "gdd10",
+   "cv_mae": {
+    "gdd0": 62.243781094527364,
+    "gdd5": 61.76119402985075,
+    "gdd10": 61.74626865671642
+   },
+   "cv_mae_null": 63.47014925373134,
+   "validated_by": "year-grouped cross-validation (too few records for a held-out test)",
    "publish": false,
-   "reason": "no annotated observations"
+   "thresholds": {
+    "onset": 759.5288696289062,
+    "peak": 1658.046142578125,
+    "end": 3713.97021484375
+   },
+   "driver_model": {
+    "type": "gdd",
+    "base": 10,
+    "upper": 35,
+    "method": "triangle",
+    "start": "01-01"
+   },
+   "driver_label": "degree-days above 10 \u00b0C since Jan 1",
+   "reason": "not clearly better than a calendar-only model"
   }
  },
  "giant_hogweed": {
   "Flowering": {
-   "n_train": 0,
-   "n_test": 0,
+   "n_train": 6,
+   "n_test": 1,
+   "years": [
+    2019,
+    2025
+   ],
    "publish": false,
-   "reason": "no annotated observations"
+   "reason": "too few observations"
   }
  },
  "lesser_celandine": {
   "Flowering": {
-   "n_train": 0,
-   "n_test": 0,
-   "publish": false,
-   "reason": "no annotated observations"
+   "n_train": 5676,
+   "n_test": 3840,
+   "years": [
+    2008,
+    2026
+   ],
+   "driver": "gdd0",
+   "cv_mae": {
+    "gdd0": 12.9830866807611,
+    "gdd5": 13.140591966173362,
+    "gdd10": 14.581747709654687
+   },
+   "cv_mae_null": 14.128964059196617,
+   "test": {
+    "mae": 10.9609375,
+    "coverage": 0.8453125,
+    "width": 34.82109375,
+    "early": 0.09921875
+   },
+   "test_null": {
+    "mae": 14.0671875,
+    "coverage": 0.8229166666666666,
+    "width": 45.0,
+    "early": 0.07473958333333333
+   },
+   "validated_by": "held-out years 2024+",
+   "publish": true,
+   "thresholds": {
+    "onset": 294.78680419921875,
+    "peak": 451.79254150390625,
+    "end": 664.6119384765625
+   },
+   "driver_model": {
+    "type": "gdd",
+    "base": 0,
+    "upper": 35,
+    "method": "triangle",
+    "start": "01-01"
+   },
+   "driver_label": "degree-days above 0 \u00b0C since Jan 1",
+   "reason": null
   }
  },
  "burning_bush": {
@@ -704,73 +2240,325 @@
     2026
    ],
    "publish": false,
-   "reason": "too few training observations"
+   "reason": "too few observations"
   },
   "Fruiting": {
-   "n_train": 0,
-   "n_test": 0,
+   "n_train": 672,
+   "n_test": 500,
+   "years": [
+    2009,
+    2026
+   ],
+   "driver": "gdd0",
+   "cv_mae": {
+    "gdd0": 42.46875,
+    "gdd5": 48.395833333333336,
+    "gdd10": 54.75595238095238
+   },
+   "cv_mae_null": 22.413690476190474,
+   "test": {
+    "mae": 41.82,
+    "coverage": 0.816,
+    "width": 113.06,
+    "early": 0.088
+   },
+   "test_null": {
+    "mae": 25.434,
+    "coverage": 0.774,
+    "width": 71.89999999999998,
+    "early": 0.158
+   },
+   "validated_by": "held-out years 2024+",
    "publish": false,
-   "reason": "no annotated observations"
+   "thresholds": {
+    "onset": 3180.485595703125,
+    "peak": 4019.546630859375,
+    "end": 4892.64453125
+   },
+   "driver_model": {
+    "type": "gdd",
+    "base": 0,
+    "upper": 35,
+    "method": "triangle",
+    "start": "01-01"
+   },
+   "driver_label": "degree-days above 0 \u00b0C since Jan 1",
+   "reason": "not clearly better than a calendar-only model"
   },
   "Colored Leaves": {
-   "n_train": 82,
-   "n_test": 459,
+   "n_train": 541,
+   "n_test": 0,
    "years": [
     2010,
     2026
    ],
+   "driver": "cold15_p13",
+   "cv_mae": {
+    "cold15_aug1": 15.589648798521257,
+    "cold15_p13": 15.548983364140481,
+    "cold10_aug1": 17.796672828096117
+   },
+   "cv_mae_null": 14.728280961182994,
+   "validated_by": "year-grouped cross-validation (too few records for a held-out test)",
    "publish": false,
-   "reason": "too few training observations"
+   "thresholds": {
+    "onset": 4.6494140625,
+    "peak": 86.3544921875,
+    "end": 194.2958984375
+   },
+   "driver_model": {
+    "type": "cold",
+    "base": 15,
+    "start": {
+     "daylength": 13,
+     "decreasing": true
+    }
+   },
+   "driver_label": "chilling below 15 \u00b0C once days are shorter than 13 h",
+   "reason": "not clearly better than a calendar-only model"
   }
  },
  "chinese_privet": {
   "Flowering": {
-   "n_train": 0,
-   "n_test": 0,
+   "n_train": 2413,
+   "n_test": 567,
+   "years": [
+    2008,
+    2026
+   ],
+   "driver": "gdd0",
+   "cv_mae": {
+    "gdd0": 10.875259013675922,
+    "gdd5": 12.540406133443845,
+    "gdd10": 14.380024865312889
+   },
+   "cv_mae_null": 11.632407791131373,
+   "test": {
+    "mae": 10.594356261022927,
+    "coverage": 0.7354497354497355,
+    "width": 26.506172839506174,
+    "early": 0.1746031746031746
+   },
+   "test_null": {
+    "mae": 10.742504409171076,
+    "coverage": 0.6790123456790124,
+    "width": 34.0,
+    "early": 0.291005291005291
+   },
+   "validated_by": "held-out years 2024+",
    "publish": false,
-   "reason": "no annotated observations"
+   "thresholds": {
+    "onset": 1342.560302734375,
+    "peak": 1513.4046630859375,
+    "end": 1911.0189208984375
+   },
+   "driver_model": {
+    "type": "gdd",
+    "base": 0,
+    "upper": 35,
+    "method": "triangle",
+    "start": "01-01"
+   },
+   "driver_label": "degree-days above 0 \u00b0C since Jan 1",
+   "reason": "not clearly better than a calendar-only model"
   },
   "Fruiting": {
-   "n_train": 0,
-   "n_test": 0,
+   "n_train": 1661,
+   "n_test": 260,
+   "years": [
+    2011,
+    2026
+   ],
+   "driver": "gdd0",
+   "cv_mae": {
+    "gdd0": 62.873570138470804,
+    "gdd5": 65.05538832028898,
+    "gdd10": 68.28296207104154
+   },
+   "cv_mae_null": 59.03491872366045,
+   "test": {
+    "mae": 79.38076923076923,
+    "coverage": 0.6115384615384616,
+    "width": 195.2576923076923,
+    "early": 0.25769230769230766
+   },
+   "test_null": {
+    "mae": 85.25,
+    "coverage": 0.5807692307692308,
+    "width": 198.0,
+    "early": 0.3038461538461538
+   },
+   "validated_by": "held-out years 2024+",
    "publish": false,
-   "reason": "no annotated observations"
+   "thresholds": {
+    "onset": 1786.82421875,
+    "peak": 4895.6884765625,
+    "end": 6670.77392578125
+   },
+   "driver_model": {
+    "type": "gdd",
+    "base": 0,
+    "upper": 35,
+    "method": "triangle",
+    "start": "01-01"
+   },
+   "driver_label": "degree-days above 0 \u00b0C since Jan 1",
+   "reason": "not clearly better than a calendar-only model"
   }
  },
  "english_ivy": {
   "Flowering": {
-   "n_train": 0,
-   "n_test": 0,
+   "n_train": 26,
+   "n_test": 8,
+   "years": [
+    2016,
+    2026
+   ],
    "publish": false,
-   "reason": "no annotated observations"
+   "reason": "too few observations"
   },
   "Fruiting": {
-   "n_train": 0,
-   "n_test": 0,
+   "n_train": 35,
+   "n_test": 14,
+   "years": [
+    2012,
+    2026
+   ],
    "publish": false,
-   "reason": "no annotated observations"
+   "reason": "too few observations"
   }
  },
  "pepperweed": {
   "Flowering": {
-   "n_train": 0,
-   "n_test": 0,
+   "n_train": 121,
+   "n_test": 205,
+   "years": [
+    2014,
+    2026
+   ],
+   "driver": "gdd10",
+   "cv_mae": {
+    "gdd0": 44.09090909090909,
+    "gdd5": 43.743801652892564,
+    "gdd10": 43.413223140495866
+   },
+   "cv_mae_null": 42.892561983471076,
+   "test": {
+    "mae": 45.77560975609756,
+    "coverage": 0.7560975609756098,
+    "width": 135.25365853658536,
+    "early": 0.04878048780487805
+   },
+   "test_null": {
+    "mae": 41.18536585365854,
+    "coverage": 0.8585365853658536,
+    "width": 150.0,
+    "early": 0.08780487804878048
+   },
+   "validated_by": "held-out years 2024+",
    "publish": false,
-   "reason": "no annotated observations"
+   "thresholds": {
+    "onset": 460.30560302734375,
+    "peak": 904.6614990234375,
+    "end": 1997.8363037109375
+   },
+   "driver_model": {
+    "type": "gdd",
+    "base": 10,
+    "upper": 35,
+    "method": "triangle",
+    "start": "01-01"
+   },
+   "driver_label": "degree-days above 10 \u00b0C since Jan 1",
+   "reason": "not clearly better than a calendar-only model"
   }
  },
  "scotch_broom": {
   "Flowering": {
-   "n_train": 0,
-   "n_test": 0,
+   "n_train": 688,
+   "n_test": 338,
+   "years": [
+    2009,
+    2026
+   ],
+   "driver": "gdd0",
+   "cv_mae": {
+    "gdd0": 30.450581395348838,
+    "gdd5": 30.95639534883721,
+    "gdd10": 32.56104651162791
+   },
+   "cv_mae_null": 22.691860465116278,
+   "test": {
+    "mae": 37.65976331360947,
+    "coverage": 0.7366863905325444,
+    "width": 58.6094674556213,
+    "early": 0.14792899408284024
+   },
+   "test_null": {
+    "mae": 30.846153846153847,
+    "coverage": 0.6804733727810651,
+    "width": 55.30000000000007,
+    "early": 0.20710059171597633
+   },
+   "validated_by": "held-out years 2024+",
    "publish": false,
-   "reason": "no annotated observations"
+   "thresholds": {
+    "onset": 600.2965087890625,
+    "peak": 1005.3525390625,
+    "end": 1390.824951171875
+   },
+   "driver_model": {
+    "type": "gdd",
+    "base": 0,
+    "upper": 35,
+    "method": "triangle",
+    "start": "01-01"
+   },
+   "driver_label": "degree-days above 0 \u00b0C since Jan 1",
+   "reason": "not clearly better than a calendar-only model"
   },
   "Fruiting": {
-   "n_train": 0,
-   "n_test": 0,
+   "n_train": 204,
+   "n_test": 89,
+   "years": [
+    2012,
+    2026
+   ],
+   "driver": "gdd10",
+   "cv_mae": {
+    "gdd0": 52.35294117647059,
+    "gdd5": 52.205882352941174,
+    "gdd10": 50.71078431372549
+   },
+   "cv_mae_null": 48.1421568627451,
+   "test": {
+    "mae": 44.26966292134831,
+    "coverage": 0.8314606741573034,
+    "width": 159.96629213483146,
+    "early": 0.10112359550561797
+   },
+   "test_null": {
+    "mae": 42.71348314606742,
+    "coverage": 0.797752808988764,
+    "width": 140.10000000000002,
+    "early": 0.10112359550561797
+   },
+   "validated_by": "held-out years 2024+",
    "publish": false,
-   "reason": "no annotated observations"
+   "thresholds": {
+    "onset": 141.96792602539062,
+    "peak": 393.9766540527344,
+    "end": 1116.9835205078125
+   },
+   "driver_model": {
+    "type": "gdd",
+    "base": 10,
+    "upper": 35,
+    "method": "triangle",
+    "start": "01-01"
+   },
+   "driver_label": "degree-days above 10 \u00b0C since Jan 1",
+   "reason": "not clearly better than a calendar-only model"
   }
  },
  "himalayan_blackberry": {
@@ -789,16 +2577,90 @@
  },
  "chinese_tallow": {
   "Flowering": {
-   "n_train": 0,
-   "n_test": 0,
+   "n_train": 603,
+   "n_test": 95,
+   "years": [
+    2009,
+    2026
+   ],
+   "driver": "gdd10",
+   "cv_mae": {
+    "gdd0": 16.52238805970149,
+    "gdd5": 16.326699834162522,
+    "gdd10": 16.00995024875622
+   },
+   "cv_mae_null": 17.703150912106135,
+   "test": {
+    "mae": 17.88421052631579,
+    "coverage": 0.8210526315789474,
+    "width": 35.8421052631579,
+    "early": 0.08421052631578947
+   },
+   "test_null": {
+    "mae": 9.642105263157895,
+    "coverage": 0.9473684210526315,
+    "width": 52.0,
+    "early": 0.010526315789473684
+   },
+   "validated_by": "held-out years 2024+",
    "publish": false,
-   "reason": "no annotated observations"
+   "thresholds": {
+    "onset": 805.0264282226562,
+    "peak": 1038.834228515625,
+    "end": 1331.003662109375
+   },
+   "driver_model": {
+    "type": "gdd",
+    "base": 10,
+    "upper": 35,
+    "method": "triangle",
+    "start": "01-01"
+   },
+   "driver_label": "degree-days above 10 \u00b0C since Jan 1",
+   "reason": "not clearly better than a calendar-only model"
   },
   "Fruiting": {
-   "n_train": 0,
-   "n_test": 0,
+   "n_train": 869,
+   "n_test": 152,
+   "years": [
+    2008,
+    2026
+   ],
+   "driver": "gdd0",
+   "cv_mae": {
+    "gdd0": 57.109321058688145,
+    "gdd5": 57.80897583429229,
+    "gdd10": 59.94821634062141
+   },
+   "cv_mae_null": 56.3084004602992,
+   "test": {
+    "mae": 55.473684210526315,
+    "coverage": 0.7828947368421053,
+    "width": 165.6578947368421,
+    "early": 0.10526315789473684
+   },
+   "test_null": {
+    "mae": 50.83552631578947,
+    "coverage": 0.8421052631578947,
+    "width": 171.0,
+    "early": 0.09210526315789473
+   },
+   "validated_by": "held-out years 2024+",
    "publish": false,
-   "reason": "no annotated observations"
+   "thresholds": {
+    "onset": 2897.822265625,
+    "peak": 5697.9248046875,
+    "end": 7034.875
+   },
+   "driver_model": {
+    "type": "gdd",
+    "base": 0,
+    "upper": 35,
+    "method": "triangle",
+    "start": "01-01"
+   },
+   "driver_label": "degree-days above 0 \u00b0C since Jan 1",
+   "reason": "not clearly better than a calendar-only model"
   },
   "Colored Leaves": {
    "n_train": 27,
@@ -808,81 +2670,319 @@
     2026
    ],
    "publish": false,
-   "reason": "too few training observations"
+   "reason": "too few observations"
   }
  },
  "cogongrass": {
   "Flowering": {
-   "n_train": 0,
-   "n_test": 0,
+   "n_train": 16,
+   "n_test": 21,
+   "years": [
+    2018,
+    2026
+   ],
    "publish": false,
-   "reason": "no annotated observations"
+   "reason": "too few observations"
   }
  },
  "mile_a_minute": {
   "Flowering": {
-   "n_train": 0,
-   "n_test": 0,
+   "n_train": 11,
+   "n_test": 3,
+   "years": [
+    2012,
+    2024
+   ],
    "publish": false,
-   "reason": "no annotated observations"
+   "reason": "too few observations"
   },
   "Fruiting": {
-   "n_train": 0,
-   "n_test": 0,
+   "n_train": 546,
+   "n_test": 235,
+   "years": [
+    2010,
+    2026
+   ],
+   "driver": "gdd0",
+   "cv_mae": {
+    "gdd0": 24.483516483516482,
+    "gdd5": 28.998168498168496,
+    "gdd10": 35.276556776556774
+   },
+   "cv_mae_null": 14.214285714285714,
+   "test": {
+    "mae": 42.736170212765956,
+    "coverage": 0.7659574468085106,
+    "width": 85.49787234042553,
+    "early": 0.2
+   },
+   "test_null": {
+    "mae": 19.140425531914893,
+    "coverage": 0.7574468085106383,
+    "width": 41.0,
+    "early": 0.17446808510638298
+   },
+   "validated_by": "held-out years 2024+",
    "publish": false,
-   "reason": "no annotated observations"
+   "thresholds": {
+    "onset": 3215.1376953125,
+    "peak": 3955.79736328125,
+    "end": 4468.84765625
+   },
+   "driver_model": {
+    "type": "gdd",
+    "base": 0,
+    "upper": 35,
+    "method": "triangle",
+    "start": "01-01"
+   },
+   "driver_label": "degree-days above 0 \u00b0C since Jan 1",
+   "reason": "not clearly better than a calendar-only model"
   }
  },
  "teasel": {
   "Flowering": {
-   "n_train": 0,
-   "n_test": 0,
+   "n_train": 337,
+   "n_test": 247,
+   "years": [
+    2008,
+    2026
+   ],
+   "driver": "gdd0",
+   "cv_mae": {
+    "gdd0": 24.887240356083087,
+    "gdd5": 25.287833827893174,
+    "gdd10": 26.682492581602375
+   },
+   "cv_mae_null": 23.47181008902077,
+   "test": {
+    "mae": 23.242914979757085,
+    "coverage": 0.7894736842105263,
+    "width": 73.3076923076923,
+    "early": 0.05668016194331984
+   },
+   "test_null": {
+    "mae": 20.923076923076923,
+    "coverage": 0.8340080971659919,
+    "width": 67.4,
+    "early": 0.06477732793522267
+   },
+   "validated_by": "held-out years 2024+",
    "publish": false,
-   "reason": "no annotated observations"
+   "thresholds": {
+    "onset": 1889.4132080078125,
+    "peak": 2361.33056640625,
+    "end": 3465.346923828125
+   },
+   "driver_model": {
+    "type": "gdd",
+    "base": 0,
+    "upper": 35,
+    "method": "triangle",
+    "start": "01-01"
+   },
+   "driver_label": "degree-days above 0 \u00b0C since Jan 1",
+   "reason": "not clearly better than a calendar-only model"
   }
  },
  "poison_hemlock": {
   "Flowering": {
-   "n_train": 0,
-   "n_test": 0,
+   "n_train": 1686,
+   "n_test": 1553,
+   "years": [
+    2008,
+    2026
+   ],
+   "driver": "gdd0",
+   "cv_mae": {
+    "gdd0": 27.48932384341637,
+    "gdd5": 28.3564650059312,
+    "gdd10": 28.510083036773427
+   },
+   "cv_mae_null": 27.927046263345197,
+   "test": {
+    "mae": 27.274951706374758,
+    "coverage": 0.8473921442369607,
+    "width": 71.74887314874437,
+    "early": 0.0669671603348358
+   },
+   "test_null": {
+    "mae": 25.066323245331617,
+    "coverage": 0.8564069542820347,
+    "width": 88.0,
+    "early": 0.0643915003219575
+   },
+   "validated_by": "held-out years 2024+",
    "publish": false,
-   "reason": "no annotated observations"
+   "thresholds": {
+    "onset": NaN,
+    "peak": NaN,
+    "end": NaN
+   },
+   "driver_model": {
+    "type": "gdd",
+    "base": 0,
+    "upper": 35,
+    "method": "triangle",
+    "start": "01-01"
+   },
+   "driver_label": "degree-days above 0 \u00b0C since Jan 1",
+   "reason": "not clearly better than a calendar-only model"
   },
   "Fruiting": {
-   "n_train": 0,
-   "n_test": 0,
+   "n_train": 454,
+   "n_test": 359,
+   "years": [
+    2010,
+    2026
+   ],
+   "driver": "gdd10",
+   "cv_mae": {
+    "gdd0": 34.93832599118943,
+    "gdd5": 34.24669603524229,
+    "gdd10": 32.16740088105727
+   },
+   "cv_mae_null": 37.370044052863435,
+   "test": {
+    "mae": 41.807799442896936,
+    "coverage": 0.6796657381615598,
+    "width": 100.32033426183844,
+    "early": 0.1615598885793872
+   },
+   "test_null": {
+    "mae": 43.089136490250695,
+    "coverage": 0.6963788300835655,
+    "width": 125.69999999999999,
+    "early": 0.12813370473537605
+   },
+   "validated_by": "held-out years 2024+",
    "publish": false,
-   "reason": "no annotated observations"
+   "thresholds": {
+    "onset": 341.5841979980469,
+    "peak": 625.6805419921875,
+    "end": 1494.177490234375
+   },
+   "driver_model": {
+    "type": "gdd",
+    "base": 10,
+    "upper": 35,
+    "method": "triangle",
+    "start": "01-01"
+   },
+   "driver_label": "degree-days above 10 \u00b0C since Jan 1",
+   "reason": "not clearly better than a calendar-only model"
   }
  },
  "swallowwort": {
   "Flowering": {
-   "n_train": 0,
-   "n_test": 0,
+   "n_train": 182,
+   "n_test": 78,
+   "years": [
+    2011,
+    2026
+   ],
+   "driver": "gdd0",
+   "cv_mae": {
+    "gdd0": 22.39010989010989,
+    "gdd5": 22.417582417582416,
+    "gdd10": 22.543956043956044
+   },
+   "cv_mae_null": 19.53846153846154,
+   "test": {
+    "mae": 22.358974358974358,
+    "coverage": 0.717948717948718,
+    "width": 56.87179487179487,
+    "early": 0.1794871794871795
+   },
+   "test_null": {
+    "mae": 19.923076923076923,
+    "coverage": 0.7307692307692307,
+    "width": 61.900000000000006,
+    "early": 0.19230769230769232
+   },
+   "validated_by": "held-out years 2024+",
    "publish": false,
-   "reason": "no annotated observations"
+   "thresholds": {
+    "onset": 1007.1822509765625,
+    "peak": 1396.38232421875,
+    "end": 2331.791015625
+   },
+   "driver_model": {
+    "type": "gdd",
+    "base": 0,
+    "upper": 35,
+    "method": "triangle",
+    "start": "01-01"
+   },
+   "driver_label": "degree-days above 0 \u00b0C since Jan 1",
+   "reason": "not clearly better than a calendar-only model"
   },
   "Fruiting": {
-   "n_train": 0,
-   "n_test": 0,
+   "n_train": 99,
+   "n_test": 30,
+   "years": [
+    2015,
+    2026
+   ],
    "publish": false,
-   "reason": "no annotated observations"
+   "reason": "too few observations"
   }
  },
  "yellow_flag": {
   "Flowering": {
-   "n_train": 0,
-   "n_test": 0,
+   "n_train": 794,
+   "n_test": 600,
+   "years": [
+    2009,
+    2026
+   ],
+   "driver": "gdd5",
+   "cv_mae": {
+    "gdd0": 13.210327455919396,
+    "gdd5": 12.895465994962217,
+    "gdd10": 14.324937027707808
+   },
+   "cv_mae_null": 14.270780856423174,
+   "test": {
+    "mae": 13.731666666666667,
+    "coverage": 0.8266666666666667,
+    "width": 34.038333333333334,
+    "early": 0.09
+   },
+   "test_null": {
+    "mae": 15.138333333333334,
+    "coverage": 0.815,
+    "width": 47.0,
+    "early": 0.125
+   },
+   "validated_by": "held-out years 2024+",
    "publish": false,
-   "reason": "no annotated observations"
+   "thresholds": {
+    "onset": 431.08587646484375,
+    "peak": 606.56787109375,
+    "end": 846.0708618164062
+   },
+   "driver_model": {
+    "type": "gdd",
+    "base": 5,
+    "upper": 35,
+    "method": "triangle",
+    "start": "01-01"
+   },
+   "driver_label": "degree-days above 5 \u00b0C since Jan 1",
+   "reason": "not clearly better than a calendar-only model"
   }
  },
  "tamarisk": {
   "Flowering": {
-   "n_train": 0,
-   "n_test": 0,
+   "n_train": 85,
+   "n_test": 43,
+   "years": [
+    2011,
+    2026
+   ],
    "publish": false,
-   "reason": "no annotated observations"
+   "reason": "too few observations"
   }
  }
 }
