@@ -1649,7 +1649,7 @@
     "region_error": 83.30000000000001
    },
    "validated_by": "held-out years 2024+",
-   "publish": true,
+   "publish": false,
    "thresholds": {
     "onset": 712.928466796875,
     "peak": 1412.9852294921875,
@@ -1663,7 +1663,7 @@
     "start": "01-01"
    },
    "driver_label": "degree-days above 0 \u00b0C since Jan 1",
-   "reason": null
+   "reason": "not clearly better than a calendar-only model"
   }
  },
  "canada_thistle": {
