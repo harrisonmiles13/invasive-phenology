@@ -34,6 +34,7 @@ TEST_START = 2024
 MIN_TRAIN, MIN_TEST = 100, 30
 SKILL = 0.9          # publish only if error is at most 90% of the calendar model's
 MIN_COVERAGE = 0.7   # and the onset-end window holds at least 70% of test records
+MAX_ERROR = 28       # and its typical error is within four weeks
 Q = {"onset": 0.10, "peak": 0.50, "end": 0.90}
 
 _g = lambda b: {"type": "gdd", "base": b, "upper": 35, "method": "triangle", "start": "01-01"}
@@ -146,7 +147,7 @@ def null_score(train_doy, doy):
 def region_keys(year, cell):
     """Group observations by year and 2° block, the scale managers plan at."""
     if cell is None:
-        return year.astype(np.int64)
+        return None
     i, j = cell // GRID["ncols"], cell % GRID["ncols"]
     return year.astype(np.int64) * 100000 + (i // 24) * 100 + (j // 24)
 
@@ -201,7 +202,7 @@ def fit_stage(curves, doy, year, stage, cell=None):
         on = pred_doy(curves[eval_sel, :, k], th["onset"])
         pk = pred_doy(curves[eval_sel, :, k], th["peak"])
         nul_on, nul_pk = np.quantile(doy[fit_sel], Q["onset"]), np.median(doy[fit_sel])
-        g = group_error(doy[eval_sel], on, pk, keys[eval_sel], nul_on, nul_pk)
+        g = group_error(doy[eval_sel], on, pk, keys[eval_sel], nul_on, nul_pk) if keys is not None else (np.nan, np.nan, 0)
         obs_mae = float(np.mean(np.abs(doy[eval_sel] - pk)))
         return g, obs_mae, th
 
@@ -236,13 +237,15 @@ def fit_stage(curves, doy, year, stage, cell=None):
         res["test_null"]["region_error"] = gn
         res["validated_by"] = f"held-out years {TEST_START}+"
         if ng >= 5:
-            skill = gm <= SKILL * gn
-        else:
-            skill = res["test"]["mae"] <= SKILL * res["test_null"]["mae"]
+            skill = gm <= SKILL * gn and gm <= MAX_ERROR
+        else:  # few region-years: per-record test, and no worse where regions exist
+            skill = res["test"]["mae"] <= SKILL * res["test_null"]["mae"] and res["test"]["mae"] <= MAX_ERROR
+            if ng:
+                skill = skill and gm <= gn
         skill = skill and res["test"]["coverage"] >= MIN_COVERAGE
     else:
         res["validated_by"] = "year-grouped cross-validation (too few records for a held-out test)"
-        skill = res["cv_error_null"] is not None and cv[best] <= SKILL * res["cv_error_null"]
+        skill = res["cv_error_null"] is not None and cv[best] <= SKILL * res["cv_error_null"] and cv[best] <= MAX_ERROR
     all_th = thresholds(x_all[:, k])
     res.update({"publish": bool(skill), "thresholds": all_th, "driver_model": CANDIDATES[k]["model"],
                 "driver_label": CANDIDATES[k]["label"],

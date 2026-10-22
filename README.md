@@ -42,7 +42,8 @@ across the contiguous United States. Load it any day to see:
   Error is scored per region-year (2° block × year): observed onset (10th
   percentile) and peak (median) dates against predicted ones. On held-out years
   (2024 onward) a model is published only if that error is at most 90% of a
-  calendar-only model's and its onset–end window holds at least 70% of records.
+  calendar-only model's, is within four weeks, and its onset–end window holds at
+  least 70% of records.
 - **Validation** (`site/data/validation.json`): published models are checked
   against iNaturalist records of the matching stage (share observed before the
   predicted onset); fitted models report held-out error, coverage and window
