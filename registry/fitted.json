@@ -19,40 +19,43 @@
     2008,
     2026
    ],
-   "driver": "gdd10",
-   "cv_mae": {
-    "gdd0": 17.01323729803387,
-    "gdd5": 16.523262604633054,
-    "gdd10": 16.412497566673157
+   "driver": "gdd5",
+   "cv_error": {
+    "gdd0": 9.487835164835165,
+    "gdd5": 9.11909684065934,
+    "gdd10": 9.146489812271062
    },
-   "cv_mae_null": 14.232042047887873,
+   "cv_error_null": 9.432955013736263,
    "test": {
-    "mae": 14.576612903225806,
-    "coverage": 0.8291788856304986,
-    "width": 42.799853372434015,
-    "early": 0.11546920821114369
+    "mae": 14.368401759530792,
+    "coverage": 0.8401759530791789,
+    "width": 43.51539589442815,
+    "early": 0.10080645161290322,
+    "region_error": 7.262280701754387,
+    "regions": 57
    },
    "test_null": {
     "mae": 18.44941348973607,
     "coverage": 0.7133431085043989,
     "width": 44.0,
-    "early": 0.25146627565982405
+    "early": 0.25146627565982405,
+    "region_error": 12.28421052631579
    },
    "validated_by": "held-out years 2024+",
    "publish": true,
    "thresholds": {
-    "onset": 178.7599639892578,
-    "peak": 358.3874816894531,
-    "end": 573.182861328125
+    "onset": 405.5107421875,
+    "peak": 696.921630859375,
+    "end": 1011.4420776367188
    },
    "driver_model": {
     "type": "gdd",
-    "base": 10,
+    "base": 5,
     "upper": 35,
     "method": "triangle",
     "start": "01-01"
    },
-   "driver_label": "degree-days above 10 \u00b0C since Jan 1",
+   "driver_label": "degree-days above 5 \u00b0C since Jan 1",
    "reason": null
   },
   "Adult": {
@@ -63,26 +66,33 @@
     2026
    ],
    "driver": "gdd5",
-   "cv_mae": {
-    "gdd0": 12.706019191625472,
-    "gdd5": 12.242803140447805,
-    "gdd10": 12.375981389938936
+   "cv_error": {
+    "gdd0": 7.522387076148831,
+    "gdd5": 6.630483974094547,
+    "gdd10": 6.6864890086469355,
+    "shortday": 8.69674367783579,
+    "cold15_aug1": 198.35029897933927,
+    "cold15_p13": 198.35029897933927,
+    "cold10_aug1": 198.35029897933927
    },
-   "cv_mae_null": 10.855190462343705,
+   "cv_error_null": 8.776993696496831,
    "test": {
-    "mae": 11.32798325191905,
+    "mae": 11.32728541521284,
     "coverage": 0.8297278436845779,
-    "width": 29.743196092114445,
-    "early": 0.05303558967201675
+    "width": 29.732030704815074,
+    "early": 0.05303558967201675,
+    "region_error": 8.30888888888889,
+    "regions": 45
    },
    "test_null": {
     "mae": 12.453593859036985,
     "coverage": 0.6545708304256804,
     "width": 32.0,
-    "early": 0.2784368457780879
+    "early": 0.2784368457780879,
+    "region_error": 10.412222222222221
    },
    "validated_by": "held-out years 2024+",
-   "publish": false,
+   "publish": true,
    "thresholds": {
     "onset": 1019.2060546875,
     "peak": 1274.76171875,
@@ -96,7 +106,7 @@
     "start": "01-01"
    },
    "driver_label": "degree-days above 5 \u00b0C since Jan 1",
-   "reason": "not clearly better than a calendar-only model"
+   "reason": null
   }
  },
  "btm": {
@@ -117,29 +127,29 @@
     2022,
     2026
    ],
-   "driver": "gdd0",
-   "cv_mae": {
-    "gdd0": 24.450704225352112,
-    "gdd5": 25.78672032193159,
-    "gdd10": 27.764587525150905
+   "driver": "shortday",
+   "cv_error": {
+    "gdd0": 13.131874999999999,
+    "gdd5": 14.105982142857144,
+    "gdd10": 14.59526785714286,
+    "shortday": 12.802410714285715,
+    "cold15_aug1": 200.875625,
+    "cold15_p13": 200.875625,
+    "cold10_aug1": 200.875625
    },
-   "cv_mae_null": 23.249496981891348,
+   "cv_error_null": 14.998839285714286,
    "validated_by": "year-grouped cross-validation (too few records for a held-out test)",
-   "publish": false,
+   "publish": true,
    "thresholds": {
-    "onset": 1573.9033203125,
-    "peak": 2656.841552734375,
-    "end": 3734.99365234375
+    "onset": 0.8042758703231812,
+    "peak": 2.0509517192840576,
+    "end": 3.6883535385131836
    },
    "driver_model": {
-    "type": "gdd",
-    "base": 0,
-    "upper": 35,
-    "method": "triangle",
-    "start": "01-01"
+    "type": "shortday"
    },
-   "driver_label": "degree-days above 0 \u00b0C since Jan 1",
-   "reason": "not clearly better than a calendar-only model"
+   "driver_label": "day length shortening after midsummer",
+   "reason": null
   }
  },
  "esb": {
@@ -151,29 +161,36 @@
     2026
    ],
    "driver": "gdd10",
-   "cv_mae": {
-    "gdd0": 62.07086614173228,
-    "gdd5": 61.94488188976378,
-    "gdd10": 61.889763779527556
+   "cv_error": {
+    "gdd0": 43.78333333333333,
+    "gdd5": 42.78333333333333,
+    "gdd10": 39.449999999999996,
+    "shortday": 81.55,
+    "cold15_aug1": 133.38333333333333,
+    "cold15_p13": 133.38333333333333,
+    "cold10_aug1": 133.38333333333333
    },
-   "cv_mae_null": 64.86614173228347,
+   "cv_error_null": 43.28333333333334,
    "test": {
     "mae": 65.38805970149254,
     "coverage": 0.8507462686567164,
-    "width": 247.02985074626866,
-    "early": 0.07462686567164178
+    "width": 247.044776119403,
+    "early": 0.07462686567164178,
+    "region_error": 49.2,
+    "regions": 1
    },
    "test_null": {
     "mae": 66.02985074626865,
     "coverage": 0.746268656716418,
     "width": 212.99999999999997,
-    "early": 0.1791044776119403
+    "early": 0.1791044776119403,
+    "region_error": 47.5
    },
    "validated_by": "held-out years 2024+",
    "publish": false,
    "thresholds": {
     "onset": 41.021053314208984,
-    "peak": 598.7139892578125,
+    "peak": 598.44775390625,
     "end": 1591.112060546875
    },
    "driver_model": {
@@ -217,28 +234,28 @@
     2017,
     2026
    ],
-   "driver": "gdd10",
-   "cv_mae": {
-    "gdd0": 42.6219512195122,
-    "gdd5": 42.5,
-    "gdd10": 42.1219512195122
+   "driver": "gdd0",
+   "cv_error": {
+    "gdd0": 22.05,
+    "gdd5": 22.55,
+    "gdd10": 23.55
    },
-   "cv_mae_null": 43.8780487804878,
+   "cv_error_null": 23.5,
    "validated_by": "year-grouped cross-validation (too few records for a held-out test)",
    "publish": false,
    "thresholds": {
-    "onset": 111.27001953125,
-    "peak": 312.9353942871094,
-    "end": 1377.266357421875
+    "onset": 629.47509765625,
+    "peak": 1118.361083984375,
+    "end": 3095.057373046875
    },
    "driver_model": {
     "type": "gdd",
-    "base": 10,
+    "base": 0,
     "upper": 35,
     "method": "triangle",
     "start": "01-01"
    },
-   "driver_label": "degree-days above 10 \u00b0C since Jan 1",
+   "driver_label": "degree-days above 0 \u00b0C since Jan 1",
    "reason": "not clearly better than a calendar-only model"
   },
   "Flowering": {
@@ -249,29 +266,32 @@
     2026
    ],
    "driver": "gdd10",
-   "cv_mae": {
-    "gdd0": 13.513513513513514,
-    "gdd5": 12.972972972972974,
-    "gdd10": 12.094594594594595
+   "cv_error": {
+    "gdd0": 13.361895846335205,
+    "gdd5": 12.725218125527721,
+    "gdd10": 11.893838234274362
    },
-   "cv_mae_null": 14.763513513513514,
+   "cv_error_null": null,
    "test": {
     "mae": 17.979166666666668,
     "coverage": 0.6875,
     "width": 29.625,
-    "early": 0.10416666666666667
+    "early": 0.10416666666666667,
+    "region_error": NaN,
+    "regions": 0
    },
    "test_null": {
     "mae": 17.541666666666668,
     "coverage": 0.7291666666666666,
     "width": 44.0,
-    "early": 0.22916666666666666
+    "early": 0.22916666666666666,
+    "region_error": NaN
    },
    "validated_by": "held-out years 2024+",
    "publish": false,
    "thresholds": {
     "onset": 368.1225891113281,
-    "peak": 487.5401306152344,
+    "peak": 487.5406188964844,
     "end": 740.9539184570312
    },
    "driver_model": {
@@ -291,41 +311,48 @@
     2008,
     2026
    ],
-   "driver": "gdd10",
-   "cv_mae": {
-    "gdd0": 35.31772908366534,
-    "gdd5": 35.05179282868526,
-    "gdd10": 34.864541832669325
+   "driver": "gdd5",
+   "cv_error": {
+    "gdd0": 16.429499999999997,
+    "gdd5": 16.427833333333332,
+    "gdd10": 16.57616666666667,
+    "shortday": 17.127833333333335,
+    "cold15_aug1": 202.86350000000002,
+    "cold15_p13": 202.86350000000002,
+    "cold10_aug1": 202.86350000000002
    },
-   "cv_mae_null": 35.16035856573705,
+   "cv_error_null": 16.713833333333334,
    "test": {
-    "mae": 33.3855421686747,
+    "mae": 33.82831325301205,
     "coverage": 0.8072289156626506,
-    "width": 147.51807228915663,
-    "early": 0.10843373493975904
+    "width": 147.4578313253012,
+    "early": 0.11144578313253012,
+    "region_error": 10.914285714285715,
+    "regions": 7
    },
    "test_null": {
     "mae": 32.78313253012048,
     "coverage": 0.8373493975903614,
     "width": 113.0,
-    "early": 0.08132530120481928
+    "early": 0.08132530120481928,
+    "region_error": 21.807142857142857
    },
    "validated_by": "held-out years 2024+",
-   "publish": false,
+   "publish": true,
    "thresholds": {
-    "onset": 732.9588623046875,
-    "peak": 1240.35791015625,
-    "end": 2089.69140625
+    "onset": 1261.092041015625,
+    "peak": 1958.31787109375,
+    "end": 3172.36669921875
    },
    "driver_model": {
     "type": "gdd",
-    "base": 10,
+    "base": 5,
     "upper": 35,
     "method": "triangle",
     "start": "01-01"
    },
-   "driver_label": "degree-days above 10 \u00b0C since Jan 1",
-   "reason": "not clearly better than a calendar-only model"
+   "driver_label": "degree-days above 5 \u00b0C since Jan 1",
+   "reason": null
   },
   "Colored Leaves": {
    "n_train": 14,
@@ -347,26 +374,29 @@
     2026
    ],
    "driver": "gdd5",
-   "cv_mae": {
-    "gdd0": 12.911056207535516,
-    "gdd5": 12.687152563310686,
-    "gdd10": 13.460778258184064
+   "cv_error": {
+    "gdd0": 7.304091478696742,
+    "gdd5": 6.837456140350878,
+    "gdd10": 7.9983082706766915
    },
-   "cv_mae_null": 11.897467572575664,
+   "cv_error_null": 9.659542606516291,
    "test": {
     "mae": 11.572318007662835,
     "coverage": 0.8199233716475096,
     "width": 28.84147509578544,
-    "early": 0.06848659003831417
+    "early": 0.06848659003831417,
+    "region_error": 6.926923076923077,
+    "regions": 65
    },
    "test_null": {
     "mae": 10.993773946360154,
     "coverage": 0.8304597701149425,
     "width": 38.0,
-    "early": 0.08620689655172414
+    "early": 0.08620689655172414,
+    "region_error": 9.892307692307693
    },
    "validated_by": "held-out years 2024+",
-   "publish": false,
+   "publish": true,
    "thresholds": {
     "onset": 209.30770874023438,
     "peak": 316.02471923828125,
@@ -380,7 +410,7 @@
     "start": "01-01"
    },
    "driver_label": "degree-days above 5 \u00b0C since Jan 1",
-   "reason": "not clearly better than a calendar-only model"
+   "reason": null
   },
   "Fruiting": {
    "n_train": 666,
@@ -390,30 +420,33 @@
     2026
    ],
    "driver": "gdd0",
-   "cv_mae": {
-    "gdd0": 24.72822822822823,
-    "gdd5": 24.846846846846848,
-    "gdd10": 25.13213213213213
+   "cv_error": {
+    "gdd0": 30.6625,
+    "gdd5": 30.985416666666666,
+    "gdd10": 31.85833333333333
    },
-   "cv_mae_null": 27.39189189189189,
+   "cv_error_null": 39.65416666666667,
    "test": {
     "mae": 22.241304347826087,
     "coverage": 0.8434782608695652,
-    "width": 73.39565217391305,
-    "early": 0.10869565217391304
+    "width": 73.38913043478261,
+    "early": 0.10869565217391304,
+    "region_error": 12.213157894736844,
+    "regions": 19
    },
    "test_null": {
     "mae": 19.14782608695652,
     "coverage": 0.8869565217391304,
     "width": 85.0,
-    "early": 0.07173913043478261
+    "early": 0.07173913043478261,
+    "region_error": 12.571052631578949
    },
    "validated_by": "held-out years 2024+",
    "publish": false,
    "thresholds": {
     "onset": 608.5003662109375,
     "peak": 916.1666259765625,
-    "end": 1891.597412109375
+    "end": 1892.009033203125
    },
    "driver_model": {
     "type": "gdd",
@@ -434,41 +467,44 @@
     2008,
     2026
    ],
-   "driver": "gdd0",
-   "cv_mae": {
-    "gdd0": 28.240825688073393,
-    "gdd5": 31.89908256880734,
-    "gdd10": 42.16284403669725
+   "driver": "shortday",
+   "cv_error": {
+    "gdd0": 24.533333333333335,
+    "gdd5": 26.987499999999997,
+    "gdd10": 35.4625,
+    "shortday": 8.383333333333333,
+    "cold15_aug1": 247.74166666666665,
+    "cold15_p13": 247.74166666666665,
+    "cold10_aug1": 247.74166666666665
    },
-   "cv_mae_null": 14.545871559633028,
+   "cv_error_null": 9.733333333333334,
    "test": {
-    "mae": 23.713513513513515,
-    "coverage": 0.8108108108108109,
-    "width": 82.81621621621622,
-    "early": 0.07027027027027027
+    "mae": 15.52972972972973,
+    "coverage": 0.7945945945945946,
+    "width": 42.027027027027025,
+    "early": 0.12972972972972974,
+    "region_error": 5.240000000000004,
+    "regions": 5
    },
    "test_null": {
     "mae": 15.845945945945946,
     "coverage": 0.8054054054054054,
     "width": 43.0,
-    "early": 0.11351351351351352
+    "early": 0.11351351351351352,
+    "region_error": 6.190000000000003
    },
    "validated_by": "held-out years 2024+",
-   "publish": false,
+   "publish": true,
    "thresholds": {
-    "onset": 2401.177490234375,
-    "peak": 3076.43310546875,
-    "end": 3790.140625
+    "onset": 2.273951530456543,
+    "peak": 3.0082995891571045,
+    "end": 4.148796558380127
    },
    "driver_model": {
-    "type": "gdd",
-    "base": 0,
-    "upper": 35,
-    "method": "triangle",
-    "start": "01-01"
+    "type": "shortday"
    },
-   "driver_label": "degree-days above 0 \u00b0C since Jan 1",
-   "reason": "not clearly better than a calendar-only model"
+   "driver_label": "day length shortening after midsummer",
+   "reason": null
   },
   "Fruiting": {
    "n_train": 193,
@@ -477,40 +513,43 @@
     2008,
     2026
    ],
-   "driver": "gdd0",
-   "cv_mae": {
-    "gdd0": 47.134715025906736,
-    "gdd5": 53.87564766839378,
-    "gdd10": 60.13989637305699
+   "driver": "shortday",
+   "cv_error": {
+    "gdd0": 35.135416666666664,
+    "gdd5": 36.572916666666664,
+    "gdd10": 44.05,
+    "shortday": 11.616666666666662,
+    "cold15_aug1": 138.74791666666667,
+    "cold15_p13": 138.72708333333333,
+    "cold10_aug1": 138.21666666666667
    },
-   "cv_mae_null": 22.702072538860104,
+   "cv_error_null": 12.058333333333326,
    "test": {
-    "mae": 40.81578947368421,
-    "coverage": 0.9605263157894737,
-    "width": 116.11842105263158,
-    "early": 0.013157894736842105
+    "mae": 22.63157894736842,
+    "coverage": 0.7368421052631579,
+    "width": 77.0657894736842,
+    "early": 0.13157894736842105,
+    "region_error": 12.700000000000003,
+    "regions": 2
    },
    "test_null": {
     "mae": 22.473684210526315,
     "coverage": 0.75,
     "width": 72.60000000000002,
-    "early": 0.11842105263157894
+    "early": 0.11842105263157894,
+    "region_error": 13.200000000000003
    },
    "validated_by": "held-out years 2024+",
    "publish": false,
    "thresholds": {
-    "onset": 2986.447265625,
-    "peak": 3672.2861328125,
-    "end": 4513.263671875
+    "onset": 3.5018839836120605,
+    "peak": 4.563472747802734,
+    "end": 6.5939412117004395
    },
    "driver_model": {
-    "type": "gdd",
-    "base": 0,
-    "upper": 35,
-    "method": "triangle",
-    "start": "01-01"
+    "type": "shortday"
    },
-   "driver_label": "degree-days above 0 \u00b0C since Jan 1",
+   "driver_label": "day length shortening after midsummer",
    "reason": "not clearly better than a calendar-only model"
   }
  },
@@ -522,40 +561,43 @@
     2008,
     2026
    ],
-   "driver": "gdd10",
-   "cv_mae": {
-    "gdd0": 9.974769230769231,
-    "gdd5": 9.041846153846153,
-    "gdd10": 8.916307692307692
+   "driver": "gdd5",
+   "cv_error": {
+    "gdd0": 4.717232142857143,
+    "gdd5": 3.0610565476190477,
+    "gdd10": 3.354047619047619
    },
-   "cv_mae_null": 13.518153846153846,
+   "cv_error_null": 15.656190476190478,
    "test": {
-    "mae": 7.8044806517311605,
-    "coverage": 0.8404616429056347,
-    "width": 17.855397148676172,
-    "early": 0.08010862186014936
+    "mae": 7.196877121520706,
+    "coverage": 0.8560760353021045,
+    "width": 17.44467073998642,
+    "early": 0.11133740665308893,
+    "region_error": 2.801612903225806,
+    "regions": 62
    },
    "test_null": {
     "mae": 13.572301425661914,
     "coverage": 0.8126272912423625,
     "width": 44.0,
-    "early": 0.13238289205702647
+    "early": 0.13238289205702647,
+    "region_error": 14.987903225806452
    },
    "validated_by": "held-out years 2024+",
    "publish": true,
    "thresholds": {
-    "onset": 252.02647399902344,
-    "peak": 318.2384033203125,
-    "end": 393.50848388671875
+    "onset": 555.8121948242188,
+    "peak": 653.8158569335938,
+    "end": 773.7706298828125
    },
    "driver_model": {
     "type": "gdd",
-    "base": 10,
+    "base": 5,
     "upper": 35,
     "method": "triangle",
     "start": "01-01"
    },
-   "driver_label": "degree-days above 10 \u00b0C since Jan 1",
+   "driver_label": "degree-days above 5 \u00b0C since Jan 1",
    "reason": null
   },
   "Fruiting": {
@@ -566,23 +608,30 @@
     2026
    ],
    "driver": "gdd0",
-   "cv_mae": {
-    "gdd0": 56.96437659033079,
-    "gdd5": 61.504664970313826,
-    "gdd10": 66.73621713316369
+   "cv_error": {
+    "gdd0": 41.02385858585859,
+    "gdd5": 43.629706349206344,
+    "gdd10": 49.822137806637805,
+    "shortday": 93.80285786435786,
+    "cold15_aug1": 110.27388961038962,
+    "cold15_p13": 110.22338455988456,
+    "cold10_aug1": 243.28859379509382
    },
-   "cv_mae_null": 45.942324003392706,
+   "cv_error_null": 35.69831673881674,
    "test": {
-    "mae": 51.31447225244831,
+    "mae": 51.313384113166485,
     "coverage": 0.8628944504896626,
-    "width": 185.07290533188248,
-    "early": 0.051142546245919476
+    "width": 184.9923830250272,
+    "early": 0.051142546245919476,
+    "region_error": 42.580000000000005,
+    "regions": 30
    },
    "test_null": {
     "mae": 39.964091403699676,
     "coverage": 0.8770402611534276,
     "width": 176.2,
-    "early": 0.058759521218716
+    "early": 0.058759521218716,
+    "region_error": 33.47666666666666
    },
    "validated_by": "held-out years 2024+",
    "publish": false,
@@ -611,29 +660,32 @@
     2026
    ],
    "driver": "gdd0",
-   "cv_mae": {
-    "gdd0": 41.76243781094527,
-    "gdd5": 42.4521144278607,
-    "gdd10": 43.0634328358209
+   "cv_error": {
+    "gdd0": 10.5425,
+    "gdd5": 11.700227272727274,
+    "gdd10": 13.083409090909091
    },
-   "cv_mae_null": 44.75373134328358,
+   "cv_error_null": 23.78253787878788,
    "test": {
-    "mae": 39.38785046728972,
+    "mae": 39.38901869158879,
     "coverage": 0.7207943925233645,
-    "width": 130.96144859813083,
-    "early": 0.20093457943925233
+    "width": 130.9532710280374,
+    "early": 0.20093457943925233,
+    "region_error": 12.180357142857144,
+    "regions": 28
    },
    "test_null": {
     "mae": 44.1553738317757,
     "coverage": 0.764018691588785,
     "width": 156.0,
-    "early": 0.1647196261682243
+    "early": 0.1647196261682243,
+    "region_error": 24.93035714285714
    },
    "validated_by": "held-out years 2024+",
    "publish": true,
    "thresholds": {
     "onset": 1216.52001953125,
-    "peak": 1560.010009765625,
+    "peak": 1559.873291015625,
     "end": 4220.54541015625
    },
    "driver_model": {
@@ -653,40 +705,43 @@
     2008,
     2026
    ],
-   "driver": "gdd0",
-   "cv_mae": {
-    "gdd0": 46.32359550561798,
-    "gdd5": 51.89887640449438,
-    "gdd10": 57.22696629213483
+   "driver": "shortday",
+   "cv_error": {
+    "gdd0": 25.192500000000003,
+    "gdd5": 32.4675,
+    "gdd10": 38.3425,
+    "shortday": 19.7175,
+    "cold15_aug1": 131.76749999999998,
+    "cold15_p13": 131.76749999999998,
+    "cold10_aug1": 131.5425
    },
-   "cv_mae_null": 27.293258426966293,
+   "cv_error_null": 19.0925,
    "test": {
-    "mae": 56.50476190476191,
-    "coverage": 0.6666666666666666,
-    "width": 100.70476190476191,
-    "early": 0.1619047619047619
+    "mae": 43.61904761904762,
+    "coverage": 0.7714285714285715,
+    "width": 88.15238095238095,
+    "early": 0.18095238095238095,
+    "region_error": 15.899999999999997,
+    "regions": 3
    },
    "test_null": {
     "mae": 39.266666666666666,
     "coverage": 0.7333333333333333,
     "width": 84.60000000000002,
-    "early": 0.17142857142857143
+    "early": 0.17142857142857143,
+    "region_error": 16.066666666666663
    },
    "validated_by": "held-out years 2024+",
    "publish": false,
    "thresholds": {
-    "onset": 3769.73583984375,
-    "peak": 4635.7421875,
-    "end": 6089.91650390625
+    "onset": 3.5636818408966064,
+    "peak": 5.588515281677246,
+    "end": 6.55871057510376
    },
    "driver_model": {
-    "type": "gdd",
-    "base": 0,
-    "upper": 35,
-    "method": "triangle",
-    "start": "01-01"
+    "type": "shortday"
    },
-   "driver_label": "degree-days above 0 \u00b0C since Jan 1",
+   "driver_label": "day length shortening after midsummer",
    "reason": "not clearly better than a calendar-only model"
   }
  },
@@ -699,12 +754,12 @@
     2026
    ],
    "driver": "gdd0",
-   "cv_mae": {
-    "gdd0": 17.98941798941799,
-    "gdd5": 18.73015873015873,
-    "gdd10": 20.761904761904763
+   "cv_error": {
+    "gdd0": 6.637499999999999,
+    "gdd5": 8.8625,
+    "gdd10": 12.2375
    },
-   "cv_mae_null": 20.00793650793651,
+   "cv_error_null": 13.1875,
    "validated_by": "year-grouped cross-validation (too few records for a held-out test)",
    "publish": true,
    "thresholds": {
@@ -730,23 +785,26 @@
     2026
    ],
    "driver": "gdd5",
-   "cv_mae": {
-    "gdd0": 18.2147406733394,
-    "gdd5": 17.846223839854414,
-    "gdd10": 18.43221110100091
+   "cv_error": {
+    "gdd0": 4.659351851851851,
+    "gdd5": 4.481944444444445,
+    "gdd10": 4.916481481481481
    },
-   "cv_mae_null": 28.097361237488627,
+   "cv_error_null": 23.54962962962963,
    "test": {
     "mae": 18.463338533541343,
     "coverage": 0.8112324492979719,
-    "width": 73.25741029641186,
-    "early": 0.08580343213728549
+    "width": 73.25429017160687,
+    "early": 0.08580343213728549,
+    "region_error": 3.65,
+    "regions": 24
    },
    "test_null": {
     "mae": 25.057722308892355,
     "coverage": 0.8205928237129485,
     "width": 104.20000000000005,
-    "early": 0.07644305772230889
+    "early": 0.07644305772230889,
+    "region_error": 18.335416666666664
    },
    "validated_by": "held-out years 2024+",
    "publish": true,
@@ -772,24 +830,31 @@
     2008,
     2026
    ],
-   "driver": "gdd0",
-   "cv_mae": {
-    "gdd0": 42.669885641677254,
-    "gdd5": 47.12681067344346,
-    "gdd10": 53.87242693773825
+   "driver": "shortday",
+   "cv_error": {
+    "gdd0": 28.29876984126984,
+    "gdd5": 30.653154761904762,
+    "gdd10": 33.99100198412699,
+    "shortday": 20.09825396825397,
+    "cold15_aug1": 125.7291765873016,
+    "cold15_p13": 125.81489087301586,
+    "cold10_aug1": 226.39465277777776
    },
-   "cv_mae_null": 32.06480304955527,
+   "cv_error_null": 19.86375992063492,
    "test": {
-    "mae": 36.83615084525358,
-    "coverage": 0.8422193324664066,
-    "width": 117.44646727351538,
-    "early": 0.045080190723883834
+    "mae": 28.245773732119638,
+    "coverage": 0.8859991330732553,
+    "width": 96.73211963589077,
+    "early": 0.056783701777199824,
+    "region_error": 19.55983606557377,
+    "regions": 61
    },
    "test_null": {
     "mae": 27.9345470307759,
     "coverage": 0.8838318162115302,
     "width": 94.0,
-    "early": 0.05201560468140442
+    "early": 0.05201560468140442,
+    "region_error": 19.407377049180326
    },
    "validated_by": "held-out years 2024+",
    "publish": false,
@@ -799,13 +864,9 @@
     "end": NaN
    },
    "driver_model": {
-    "type": "gdd",
-    "base": 0,
-    "upper": 35,
-    "method": "triangle",
-    "start": "01-01"
+    "type": "shortday"
    },
-   "driver_label": "degree-days above 0 \u00b0C since Jan 1",
+   "driver_label": "day length shortening after midsummer",
    "reason": "not clearly better than a calendar-only model"
   },
   "Colored Leaves": {
@@ -815,38 +876,43 @@
     2009,
     2026
    ],
-   "driver": "cold15_aug1",
-   "cv_mae": {
-    "cold15_aug1": 24.43721770551039,
-    "cold15_p13": 24.43992773261066,
-    "cold10_aug1": 24.82204155374887
+   "driver": "shortday",
+   "cv_error": {
+    "gdd0": 41.447916666666664,
+    "gdd5": 47.95052083333333,
+    "gdd10": 54.553385416666664,
+    "shortday": 28.3484375,
+    "cold15_aug1": 92.82760416666667,
+    "cold15_p13": 127.57760416666667,
+    "cold10_aug1": 128.08151041666667
    },
-   "cv_mae_null": 22.58084914182475,
+   "cv_error_null": 28.684375,
    "test": {
-    "mae": 39.720504009163804,
-    "coverage": 0.7124856815578465,
-    "width": 73.03780068728523,
-    "early": 0.27376861397479957
+    "mae": 32.8041237113402,
+    "coverage": 0.6471935853379153,
+    "width": 62.31156930126002,
+    "early": 0.33104238258877433,
+    "region_error": 24.51551724137931,
+    "regions": 29
    },
    "test_null": {
     "mae": 31.970217640320733,
     "coverage": 0.6449026345933563,
     "width": 59.0,
-    "early": 0.3241695303550974
+    "early": 0.3241695303550974,
+    "region_error": 24.11896551724138
    },
    "validated_by": "held-out years 2024+",
    "publish": false,
    "thresholds": {
-    "onset": 0.0,
-    "peak": 36.59130859375,
-    "end": 228.81875610351562
+    "onset": 3.5369365215301514,
+    "peak": 5.1123046875,
+    "end": 6.183896064758301
    },
    "driver_model": {
-    "type": "cold",
-    "base": 15,
-    "start": "08-01"
+    "type": "shortday"
    },
-   "driver_label": "chilling below 15 \u00b0C since Aug 1",
+   "driver_label": "day length shortening after midsummer",
    "reason": "not clearly better than a calendar-only model"
   }
  },
@@ -869,23 +935,26 @@
     2026
    ],
    "driver": "gdd5",
-   "cv_mae": {
-    "gdd0": 9.816455696202532,
-    "gdd5": 9.110759493670885,
-    "gdd10": 10.155063291139241
+   "cv_error": {
+    "gdd0": 6.479166666666666,
+    "gdd5": 4.718749999999999,
+    "gdd10": 6.196875
    },
-   "cv_mae_null": 12.262658227848101,
+   "cv_error_null": 11.354166666666668,
    "test": {
     "mae": 5.92485549132948,
     "coverage": 0.7572254335260116,
     "width": 16.77456647398844,
-    "early": 0.2023121387283237
+    "early": 0.2023121387283237,
+    "region_error": 3.219999999999999,
+    "regions": 5
    },
    "test_null": {
     "mae": 9.635838150289016,
     "coverage": 0.8323699421965318,
     "width": 36.0,
-    "early": 0.09826589595375723
+    "early": 0.09826589595375723,
+    "region_error": 7.0
    },
    "validated_by": "held-out years 2024+",
    "publish": true,
@@ -912,23 +981,30 @@
     2026
    ],
    "driver": "gdd0",
-   "cv_mae": {
-    "gdd0": 55.567215958369474,
-    "gdd5": 60.52298352124892,
-    "gdd10": 65.90372940156115
+   "cv_error": {
+    "gdd0": 47.37678571428572,
+    "gdd5": 51.44035714285714,
+    "gdd10": 55.581517857142856,
+    "shortday": 82.52294642857143,
+    "cold15_aug1": 108.2955357142857,
+    "cold15_p13": 108.31919642857142,
+    "cold10_aug1": 108.85357142857143
    },
-   "cv_mae_null": 39.705984388551606,
+   "cv_error_null": 35.71839285714286,
    "test": {
     "mae": 54.286337209302324,
     "coverage": 0.8255813953488372,
-    "width": 189.49127906976744,
-    "early": 0.08430232558139535
+    "width": 189.48982558139534,
+    "early": 0.08430232558139535,
+    "region_error": 47.996,
+    "regions": 25
    },
    "test_null": {
     "mae": 35.37936046511628,
     "coverage": 0.8459302325581395,
     "width": 169.6,
-    "early": 0.07848837209302326
+    "early": 0.07848837209302326,
+    "region_error": 37.78799999999999
    },
    "validated_by": "held-out years 2024+",
    "publish": false,
@@ -957,23 +1033,26 @@
     2026
    ],
    "driver": "gdd5",
-   "cv_mae": {
-    "gdd0": 11.12803738317757,
-    "gdd5": 10.555140186915889,
-    "gdd10": 11.441121495327103
+   "cv_error": {
+    "gdd0": 4.632083333333333,
+    "gdd5": 3.9145833333333337,
+    "gdd10": 5.532499999999999
    },
-   "cv_mae_null": 16.020560747663552,
+   "cv_error_null": 16.004166666666666,
    "test": {
     "mae": 12.528473804100228,
     "coverage": 0.7949886104783599,
     "width": 19.255125284738043,
-    "early": 0.15034168564920272
+    "early": 0.15034168564920272,
+    "region_error": 3.2970588235294116,
+    "regions": 17
    },
    "test_null": {
     "mae": 16.08656036446469,
     "coverage": 0.8246013667425968,
     "width": 49.0,
-    "early": 0.13211845102505695
+    "early": 0.13211845102505695,
+    "region_error": 13.694117647058823
    },
    "validated_by": "held-out years 2024+",
    "publish": true,
@@ -999,40 +1078,43 @@
     2009,
     2026
    ],
-   "driver": "gdd0",
-   "cv_mae": {
-    "gdd0": 31.303267973856208,
-    "gdd5": 33.14967320261438,
-    "gdd10": 37.28954248366013
+   "driver": "shortday",
+   "cv_error": {
+    "gdd0": 20.20468864468865,
+    "gdd5": 21.530833333333337,
+    "gdd10": 23.200837912087913,
+    "shortday": 17.761712454212454,
+    "cold15_aug1": 227.2852014652015,
+    "cold15_p13": 227.2852014652015,
+    "cold10_aug1": 227.2852014652015
    },
-   "cv_mae_null": 28.912418300653595,
+   "cv_error_null": 18.887893772893772,
    "test": {
-    "mae": 28.082417582417584,
-    "coverage": 0.847985347985348,
-    "width": 119.0915750915751,
-    "early": 0.06776556776556776
+    "mae": 23.335164835164836,
+    "coverage": 0.86996336996337,
+    "width": 93.64102564102564,
+    "early": 0.054945054945054944,
+    "region_error": 20.12105263157894,
+    "regions": 19
    },
    "test_null": {
     "mae": 23.600732600732602,
     "coverage": 0.8846153846153846,
     "width": 98.0,
-    "early": 0.040293040293040296
+    "early": 0.040293040293040296,
+    "region_error": 20.713157894736838
    },
    "validated_by": "held-out years 2024+",
    "publish": false,
    "thresholds": {
-    "onset": 2063.86767578125,
-    "peak": 3187.7109375,
-    "end": 4046.070068359375
+    "onset": 1.2459115982055664,
+    "peak": 3.0602803230285645,
+    "end": 4.661993980407715
    },
    "driver_model": {
-    "type": "gdd",
-    "base": 0,
-    "upper": 35,
-    "method": "triangle",
-    "start": "01-01"
+    "type": "shortday"
    },
-   "driver_label": "degree-days above 0 \u00b0C since Jan 1",
+   "driver_label": "day length shortening after midsummer",
    "reason": "not clearly better than a calendar-only model"
   }
  },
@@ -1054,40 +1136,43 @@
     2012,
     2026
    ],
-   "driver": "gdd0",
-   "cv_mae": {
-    "gdd0": 44.81428571428572,
-    "gdd5": 48.6,
-    "gdd10": 52.92142857142857
+   "driver": "shortday",
+   "cv_error": {
+    "gdd0": 43.56997935217447,
+    "gdd5": 46.64303329461866,
+    "gdd10": 50.422386759581876,
+    "shortday": 35.51194283133307,
+    "cold15_aug1": 212.94269260549748,
+    "cold15_p13": 254.3426926054975,
+    "cold10_aug1": 254.3426926054975
    },
-   "cv_mae_null": 36.75714285714286,
+   "cv_error_null": null,
    "test": {
-    "mae": 57.24074074074074,
-    "coverage": 0.5833333333333334,
-    "width": 106.48148148148148,
-    "early": 0.08333333333333333
+    "mae": 44.71296296296296,
+    "coverage": 0.7222222222222222,
+    "width": 130.0,
+    "early": 0.06481481481481481,
+    "region_error": 58.625,
+    "regions": 2
    },
    "test_null": {
     "mae": 44.583333333333336,
     "coverage": 0.7129629629629629,
     "width": 120.50000000000006,
-    "early": 0.07407407407407407
+    "early": 0.07407407407407407,
+    "region_error": 57.025000000000006
    },
    "validated_by": "held-out years 2024+",
    "publish": false,
    "thresholds": {
-    "onset": 2138.455322265625,
-    "peak": 3389.901123046875,
-    "end": 4703.83251953125
+    "onset": 1.2258278131484985,
+    "peak": 3.450754165649414,
+    "end": 6.241935729980469
    },
    "driver_model": {
-    "type": "gdd",
-    "base": 0,
-    "upper": 35,
-    "method": "triangle",
-    "start": "01-01"
+    "type": "shortday"
    },
-   "driver_label": "degree-days above 0 \u00b0C since Jan 1",
+   "driver_label": "day length shortening after midsummer",
    "reason": "not clearly better than a calendar-only model"
   }
  },
@@ -1099,40 +1184,43 @@
     2008,
     2026
    ],
-   "driver": "gdd0",
-   "cv_mae": {
-    "gdd0": 24.085343228200372,
-    "gdd5": 24.26252319109462,
-    "gdd10": 27.143320964749535
+   "driver": "shortday",
+   "cv_error": {
+    "gdd0": 15.515322751322753,
+    "gdd5": 14.199608465608467,
+    "gdd10": 14.592412698412698,
+    "shortday": 8.596566137566137,
+    "cold15_aug1": 209.444328042328,
+    "cold15_p13": 209.444328042328,
+    "cold10_aug1": 209.444328042328
    },
-   "cv_mae_null": 18.483766233766232,
+   "cv_error_null": 8.096169312169312,
    "test": {
-    "mae": 23.789783889980352,
-    "coverage": 0.831041257367387,
-    "width": 79.41191879502293,
-    "early": 0.08840864440078586
+    "mae": 19.392272429600524,
+    "coverage": 0.796332678454486,
+    "width": 60.96791093647675,
+    "early": 0.11787819253438114,
+    "region_error": 11.17608695652174,
+    "regions": 46
    },
    "test_null": {
     "mae": 19.55009823182711,
     "coverage": 0.8074656188605108,
     "width": 61.0,
-    "early": 0.10936476751800916
+    "early": 0.10936476751800916,
+    "region_error": 10.190217391304348
    },
    "validated_by": "held-out years 2024+",
    "publish": false,
    "thresholds": {
-    "onset": 1736.8834228515625,
-    "peak": 2477.413330078125,
-    "end": 3293.3486328125
+    "onset": 0.8955600261688232,
+    "peak": 1.8010568618774414,
+    "end": 3.167123556137085
    },
    "driver_model": {
-    "type": "gdd",
-    "base": 0,
-    "upper": 35,
-    "method": "triangle",
-    "start": "01-01"
+    "type": "shortday"
    },
-   "driver_label": "degree-days above 0 \u00b0C since Jan 1",
+   "driver_label": "day length shortening after midsummer",
    "reason": "not clearly better than a calendar-only model"
   },
   "Fruiting": {
@@ -1142,28 +1230,28 @@
     2012,
     2026
    ],
-   "driver": "gdd0",
-   "cv_mae": {
-    "gdd0": 36.45061728395062,
-    "gdd5": 38.50617283950617,
-    "gdd10": 45.51851851851852
+   "driver": "shortday",
+   "cv_error": {
+    "gdd0": 40.055962276214835,
+    "gdd5": 43.0248294970162,
+    "gdd10": 50.98614396845694,
+    "shortday": 33.701422634271104,
+    "cold15_aug1": 169.16768435635123,
+    "cold15_p13": 208.07053761722082,
+    "cold10_aug1": 250.64866261722082
    },
-   "cv_mae_null": 32.18518518518518,
+   "cv_error_null": null,
    "validated_by": "year-grouped cross-validation (too few records for a held-out test)",
    "publish": false,
    "thresholds": {
-    "onset": 2153.193603515625,
-    "peak": 3058.877197265625,
-    "end": 3788.455810546875
+    "onset": 1.1431944370269775,
+    "peak": 3.2751917839050293,
+    "end": 5.061430931091309
    },
    "driver_model": {
-    "type": "gdd",
-    "base": 0,
-    "upper": 35,
-    "method": "triangle",
-    "start": "01-01"
+    "type": "shortday"
    },
-   "driver_label": "degree-days above 0 \u00b0C since Jan 1",
+   "driver_label": "day length shortening after midsummer",
    "reason": "not clearly better than a calendar-only model"
   }
  },
@@ -1176,23 +1264,30 @@
     2026
    ],
    "driver": "gdd0",
-   "cv_mae": {
-    "gdd0": 20.28472222222222,
-    "gdd5": 22.09027777777778,
-    "gdd10": 25.708333333333332
+   "cv_error": {
+    "gdd0": 11.237499999999997,
+    "gdd5": 11.987499999999997,
+    "gdd10": 14.737499999999997,
+    "shortday": 20.237499999999997,
+    "cold15_aug1": 224.5125,
+    "cold15_p13": 224.5125,
+    "cold10_aug1": 224.5125
    },
-   "cv_mae_null": 18.083333333333332,
+   "cv_error_null": 22.612499999999997,
    "test": {
-    "mae": 29.661538461538463,
+    "mae": 29.646153846153847,
     "coverage": 0.47692307692307695,
-    "width": 66.76923076923077,
-    "early": 0.27692307692307694
+    "width": 64.46153846153847,
+    "early": 0.27692307692307694,
+    "region_error": NaN,
+    "regions": 0
    },
    "test_null": {
     "mae": 21.907692307692308,
     "coverage": 0.7384615384615385,
     "width": 58.0,
-    "early": 0.18461538461538463
+    "early": 0.18461538461538463,
+    "region_error": NaN
    },
    "validated_by": "held-out years 2024+",
    "publish": false,
@@ -1220,40 +1315,43 @@
     2012,
     2026
    ],
-   "driver": "gdd0",
-   "cv_mae": {
-    "gdd0": 12.743772241992882,
-    "gdd5": 14.405693950177936,
-    "gdd10": 17.701067615658364
+   "driver": "gdd5",
+   "cv_error": {
+    "gdd0": 4.800000000000002,
+    "gdd5": 3.2166666666666686,
+    "gdd10": 5.416666666666667
    },
-   "cv_mae_null": 22.562277580071175,
+   "cv_error_null": 19.633333333333336,
    "test": {
-    "mae": 14.109324758842444,
-    "coverage": 0.7459807073954984,
-    "width": 24.488745980707396,
-    "early": 0.18971061093247588
+    "mae": 15.639871382636656,
+    "coverage": 0.7652733118971061,
+    "width": 31.469453376205788,
+    "early": 0.14469453376205788,
+    "region_error": 5.659999999999999,
+    "regions": 5
    },
    "test_null": {
     "mae": 18.884244372990352,
     "coverage": 0.9067524115755627,
     "width": 58.0,
-    "early": 0.03858520900321544
+    "early": 0.03858520900321544,
+    "region_error": 18.889999999999997
    },
    "validated_by": "held-out years 2024+",
    "publish": true,
    "thresholds": {
-    "onset": 391.41015625,
-    "peak": 511.59930419921875,
-    "end": 709.7520141601562
+    "onset": 164.85276794433594,
+    "peak": 229.2336883544922,
+    "end": 415.3663330078125
    },
    "driver_model": {
     "type": "gdd",
-    "base": 0,
+    "base": 5,
     "upper": 35,
     "method": "triangle",
     "start": "01-01"
    },
-   "driver_label": "degree-days above 0 \u00b0C since Jan 1",
+   "driver_label": "degree-days above 5 \u00b0C since Jan 1",
    "reason": null
   },
   "Fruiting": {
@@ -1263,40 +1361,43 @@
     2009,
     2026
    ],
-   "driver": "gdd0",
-   "cv_mae": {
-    "gdd0": 61.82142857142857,
-    "gdd5": 65.05357142857143,
-    "gdd10": 71.54017857142857
+   "driver": "shortday",
+   "cv_error": {
+    "gdd0": 55.54635961513625,
+    "gdd5": 59.3607435748418,
+    "gdd10": 65.39698114425933,
+    "shortday": 47.73027573292006,
+    "cold15_aug1": 231.88798107968486,
+    "cold15_p13": 231.8397052176159,
+    "cold10_aug1": 265.7845328038228
    },
-   "cv_mae_null": 54.07142857142857,
+   "cv_error_null": null,
    "test": {
-    "mae": 60.64485981308411,
-    "coverage": 0.7757009345794392,
-    "width": 194.2196261682243,
-    "early": 0.08411214953271028
+    "mae": 49.822429906542055,
+    "coverage": 0.9252336448598131,
+    "width": 334.89252336448595,
+    "early": 0.0,
+    "region_error": 97.025,
+    "regions": 4
    },
    "test_null": {
     "mae": 49.8411214953271,
     "coverage": 0.794392523364486,
     "width": 175.70000000000005,
-    "early": 0.11214953271028037
+    "early": 0.11214953271028037,
+    "region_error": 26.55
    },
    "validated_by": "held-out years 2024+",
    "publish": false,
    "thresholds": {
-    "onset": 1397.5933837890625,
-    "peak": 4099.36328125,
-    "end": 5591.08984375
+    "onset": 0.0,
+    "peak": 4.183450222015381,
+    "end": 6.085379123687744
    },
    "driver_model": {
-    "type": "gdd",
-    "base": 0,
-    "upper": 35,
-    "method": "triangle",
-    "start": "01-01"
+    "type": "shortday"
    },
-   "driver_label": "degree-days above 0 \u00b0C since Jan 1",
+   "driver_label": "day length shortening after midsummer",
    "reason": "not clearly better than a calendar-only model"
   },
   "Colored Leaves": {
@@ -1318,28 +1419,28 @@
     2009,
     2026
    ],
-   "driver": "gdd0",
-   "cv_mae": {
-    "gdd0": 20.576923076923077,
-    "gdd5": 22.415384615384614,
-    "gdd10": 26.053846153846155
+   "driver": "shortday",
+   "cv_error": {
+    "gdd0": 24.4,
+    "gdd5": 20.65,
+    "gdd10": 19.9,
+    "shortday": 8.899999999999999,
+    "cold15_aug1": 256.9,
+    "cold15_p13": 256.9,
+    "cold10_aug1": 256.9
    },
-   "cv_mae_null": 10.015384615384615,
+   "cv_error_null": 9.424999999999997,
    "validated_by": "year-grouped cross-validation (too few records for a held-out test)",
    "publish": false,
    "thresholds": {
-    "onset": 3264.476318359375,
-    "peak": 3710.08203125,
-    "end": 4415.494140625
+    "onset": 2.865286111831665,
+    "peak": 3.349498748779297,
+    "end": 3.986726999282837
    },
    "driver_model": {
-    "type": "gdd",
-    "base": 0,
-    "upper": 35,
-    "method": "triangle",
-    "start": "01-01"
+    "type": "shortday"
    },
-   "driver_label": "degree-days above 0 \u00b0C since Jan 1",
+   "driver_label": "day length shortening after midsummer",
    "reason": "not clearly better than a calendar-only model"
   }
  },
@@ -1351,40 +1452,43 @@
     2008,
     2026
    ],
-   "driver": "gdd0",
-   "cv_mae": {
-    "gdd0": 38.21963824289406,
-    "gdd5": 40.83720930232558,
-    "gdd10": 42.5968992248062
+   "driver": "shortday",
+   "cv_error": {
+    "gdd0": 21.297833333333333,
+    "gdd5": 21.892833333333332,
+    "gdd10": 23.856166666666663,
+    "shortday": 14.228333333333333,
+    "cold15_aug1": 208.25650000000002,
+    "cold15_p13": 208.25650000000002,
+    "cold10_aug1": 208.25650000000002
    },
-   "cv_mae_null": 27.863049095607234,
+   "cv_error_null": 14.641500000000002,
    "test": {
-    "mae": 35.613193403298354,
-    "coverage": 0.8365817091454273,
-    "width": 123.78410794602699,
-    "early": 0.07646176911544228
+    "mae": 28.928035982008996,
+    "coverage": 0.7631184407796102,
+    "width": 88.45427286356822,
+    "early": 0.1199400299850075,
+    "region_error": 17.156521739130433,
+    "regions": 23
    },
    "test_null": {
     "mae": 29.215892053973015,
     "coverage": 0.7841079460269865,
     "width": 91.70000000000005,
-    "early": 0.09745127436281859
+    "early": 0.09745127436281859,
+    "region_error": 17.843478260869567
    },
    "validated_by": "held-out years 2024+",
    "publish": false,
    "thresholds": {
-    "onset": 1457.5906982421875,
-    "peak": 2232.576171875,
-    "end": 3586.446533203125
+    "onset": 0.7408401370048523,
+    "peak": 1.6479387283325195,
+    "end": 4.494294166564941
    },
    "driver_model": {
-    "type": "gdd",
-    "base": 0,
-    "upper": 35,
-    "method": "triangle",
-    "start": "01-01"
+    "type": "shortday"
    },
-   "driver_label": "degree-days above 0 \u00b0C since Jan 1",
+   "driver_label": "day length shortening after midsummer",
    "reason": "not clearly better than a calendar-only model"
   },
   "Fruiting": {
@@ -1394,28 +1498,28 @@
     2018,
     2026
    ],
-   "driver": "gdd0",
-   "cv_mae": {
-    "gdd0": 43.38356164383562,
-    "gdd5": 46.43150684931507,
-    "gdd10": 48.93150684931507
+   "driver": "shortday",
+   "cv_error": {
+    "gdd0": 49.901722943722945,
+    "gdd5": 56.755720057720055,
+    "gdd10": 60.01373737373738,
+    "shortday": 44.85643578643579,
+    "cold15_aug1": 249.48116017316016,
+    "cold15_p13": 249.48116017316016,
+    "cold10_aug1": 249.48116017316016
    },
-   "cv_mae_null": 38.47260273972603,
+   "cv_error_null": null,
    "validated_by": "year-grouped cross-validation (too few records for a held-out test)",
    "publish": false,
    "thresholds": {
-    "onset": 1707.4844970703125,
-    "peak": 2626.346435546875,
-    "end": 3913.7421875
+    "onset": 0.8363154530525208,
+    "peak": 2.187351703643799,
+    "end": 5.828188896179199
    },
    "driver_model": {
-    "type": "gdd",
-    "base": 0,
-    "upper": 35,
-    "method": "triangle",
-    "start": "01-01"
+    "type": "shortday"
    },
-   "driver_label": "degree-days above 0 \u00b0C since Jan 1",
+   "driver_label": "day length shortening after midsummer",
    "reason": "not clearly better than a calendar-only model"
   }
  },
@@ -1428,23 +1532,30 @@
     2026
    ],
    "driver": "gdd10",
-   "cv_mae": {
-    "gdd0": 46.24664879356568,
-    "gdd5": 46.19571045576407,
-    "gdd10": 46.09383378016086
+   "cv_error": {
+    "gdd0": 16.863541666666666,
+    "gdd5": 17.191666666666666,
+    "gdd10": 15.901041666666668,
+    "shortday": 95.56979166666666,
+    "cold15_aug1": 192.14270833333336,
+    "cold15_p13": 192.14270833333336,
+    "cold10_aug1": 192.14270833333336
    },
-   "cv_mae_null": 47.64477211796247,
+   "cv_error_null": 18.696875000000002,
    "test": {
-    "mae": 39.04676258992806,
+    "mae": 39.05035971223022,
     "coverage": 0.8093525179856115,
-    "width": 129.87410071942446,
-    "early": 0.06115107913669065
+    "width": 129.92805755395685,
+    "early": 0.06115107913669065,
+    "region_error": 16.71,
+    "regions": 5
    },
    "test_null": {
     "mae": 35.71223021582734,
     "coverage": 0.89568345323741,
     "width": 149.4,
-    "early": 0.0683453237410072
+    "early": 0.0683453237410072,
+    "region_error": 12.76
    },
    "validated_by": "held-out years 2024+",
    "publish": false,
@@ -1473,14 +1584,14 @@
     2026
    ],
    "driver": "gdd0",
-   "cv_mae": {
-    "gdd0": 23.365591397849464,
-    "gdd5": 23.908602150537636,
-    "gdd10": 24.811827956989248
+   "cv_error": {
+    "gdd0": 14.641666666666666,
+    "gdd5": 15.475,
+    "gdd10": 17.016666666666666
    },
-   "cv_mae_null": 25.123655913978496,
+   "cv_error_null": 26.48333333333333,
    "validated_by": "year-grouped cross-validation (too few records for a held-out test)",
-   "publish": false,
+   "publish": true,
    "thresholds": {
     "onset": 621.2205200195312,
     "peak": 990.9639282226562,
@@ -1494,7 +1605,7 @@
     "start": "01-01"
    },
    "driver_label": "degree-days above 0 \u00b0C since Jan 1",
-   "reason": "not clearly better than a calendar-only model"
+   "reason": null
   }
  },
  "cheatgrass": {
@@ -1516,23 +1627,26 @@
     2026
    ],
    "driver": "gdd0",
-   "cv_mae": {
-    "gdd0": 34.22429906542056,
-    "gdd5": 35.05607476635514,
-    "gdd10": 35.22429906542056
+   "cv_error": {
+    "gdd0": 41.699244142101286,
+    "gdd5": 42.847286470143615,
+    "gdd10": 43.06151171579743
    },
-   "cv_mae_null": 38.271028037383175,
+   "cv_error_null": null,
    "test": {
     "mae": 49.25,
     "coverage": 0.7232142857142857,
-    "width": 106.53571428571429,
-    "early": 0.044642857142857144
+    "width": 106.57142857142857,
+    "early": 0.044642857142857144,
+    "region_error": 83.425,
+    "regions": 2
    },
    "test_null": {
     "mae": 59.732142857142854,
     "coverage": 0.5357142857142857,
     "width": 125.60000000000005,
-    "early": 0.24107142857142858
+    "early": 0.24107142857142858,
+    "region_error": 83.30000000000001
    },
    "validated_by": "held-out years 2024+",
    "publish": true,
@@ -1560,40 +1674,47 @@
     2008,
     2026
    ],
-   "driver": "gdd5",
-   "cv_mae": {
-    "gdd0": 28.446280991735538,
-    "gdd5": 28.272727272727273,
-    "gdd10": 29.47382920110193
+   "driver": "gdd10",
+   "cv_error": {
+    "gdd0": 15.48309090909091,
+    "gdd5": 13.499939393939394,
+    "gdd10": 12.709333333333333,
+    "shortday": 93.74851515151515,
+    "cold15_aug1": 183.8462424242424,
+    "cold15_p13": 183.8462424242424,
+    "cold10_aug1": 183.8462424242424
    },
-   "cv_mae_null": 27.348025711662075,
+   "cv_error_null": 15.119151515151515,
    "test": {
-    "mae": 31.147712418300653,
-    "coverage": 0.7830065359477124,
-    "width": 102.75816993464052,
-    "early": 0.1084967320261438
+    "mae": 32.29019607843137,
+    "coverage": 0.7581699346405228,
+    "width": 108.0,
+    "early": 0.12679738562091503,
+    "region_error": 14.701785714285714,
+    "regions": 28
    },
    "test_null": {
     "mae": 29.406535947712417,
     "coverage": 0.7908496732026143,
     "width": 92.0,
-    "early": 0.11241830065359477
+    "early": 0.11241830065359477,
+    "region_error": 15.235714285714286
    },
    "validated_by": "held-out years 2024+",
    "publish": false,
    "thresholds": {
-    "onset": 811.7259521484375,
-    "peak": 1185.3778076171875,
-    "end": 2355.337158203125
+    "onset": 412.33465576171875,
+    "peak": 666.322021484375,
+    "end": 1513.9027099609375
    },
    "driver_model": {
     "type": "gdd",
-    "base": 5,
+    "base": 10,
     "upper": 35,
     "method": "triangle",
     "start": "01-01"
    },
-   "driver_label": "degree-days above 5 \u00b0C since Jan 1",
+   "driver_label": "degree-days above 10 \u00b0C since Jan 1",
    "reason": "not clearly better than a calendar-only model"
   },
   "Fruiting": {
@@ -1604,30 +1725,37 @@
     2026
    ],
    "driver": "gdd10",
-   "cv_mae": {
-    "gdd0": 30.97142857142857,
-    "gdd5": 30.466666666666665,
-    "gdd10": 30.38095238095238
+   "cv_error": {
+    "gdd0": 24.40625,
+    "gdd5": 21.82625,
+    "gdd10": 19.98875,
+    "shortday": 21.68125,
+    "cold15_aug1": 203.45125,
+    "cold15_p13": 203.45125,
+    "cold10_aug1": 203.45125
    },
-   "cv_mae_null": 29.176190476190477,
+   "cv_error_null": 24.098749999999995,
    "test": {
-    "mae": 34.74671052631579,
+    "mae": 34.74342105263158,
     "coverage": 0.7828947368421053,
-    "width": 110.83223684210526,
-    "early": 0.08552631578947369
+    "width": 110.77631578947368,
+    "early": 0.08552631578947369,
+    "region_error": 24.66,
+    "regions": 5
    },
    "test_null": {
     "mae": 31.355263157894736,
     "coverage": 0.7664473684210527,
     "width": 90.60000000000002,
-    "early": 0.06907894736842106
+    "early": 0.06907894736842106,
+    "region_error": 26.51
    },
    "validated_by": "held-out years 2024+",
    "publish": false,
    "thresholds": {
     "onset": 566.7110595703125,
     "peak": 927.74755859375,
-    "end": 1632.7642822265625
+    "end": 1631.932861328125
    },
    "driver_model": {
     "type": "gdd",
@@ -1649,23 +1777,30 @@
     2026
    ],
    "driver": "gdd5",
-   "cv_mae": {
-    "gdd0": 21.30909090909091,
-    "gdd5": 21.1,
-    "gdd10": 21.275
+   "cv_error": {
+    "gdd0": 8.590333333333332,
+    "gdd5": 8.198666666666664,
+    "gdd10": 8.720333333333333,
+    "shortday": 90.96366666666668,
+    "cold15_aug1": 181.35533333333333,
+    "cold15_p13": 181.35533333333333,
+    "cold10_aug1": 181.35533333333333
    },
-   "cv_mae_null": 19.043181818181818,
+   "cv_error_null": 10.342,
    "test": {
-    "mae": 18.98936170212766,
+    "mae": 18.98404255319149,
     "coverage": 0.8617021276595744,
     "width": 57.23936170212766,
-    "early": 0.05319148936170213
+    "early": 0.05319148936170213,
+    "region_error": 8.692857142857141,
+    "regions": 7
    },
    "test_null": {
     "mae": 16.648936170212767,
     "coverage": 0.8351063829787234,
     "width": 55.0,
-    "early": 0.09042553191489362
+    "early": 0.09042553191489362,
+    "region_error": 8.907142857142857
    },
    "validated_by": "held-out years 2024+",
    "publish": false,
@@ -1691,40 +1826,47 @@
     2011,
     2026
    ],
-   "driver": "gdd0",
-   "cv_mae": {
-    "gdd0": 24.853658536585368,
-    "gdd5": 24.857723577235774,
-    "gdd10": 26.024390243902438
+   "driver": "gdd10",
+   "cv_error": {
+    "gdd0": 9.495833333333334,
+    "gdd5": 9.641666666666667,
+    "gdd10": 8.945833333333331,
+    "shortday": 12.975,
+    "cold15_aug1": 197.36666666666667,
+    "cold15_p13": 197.36666666666667,
+    "cold10_aug1": 197.36666666666667
    },
-   "cv_mae_null": 20.715447154471544,
+   "cv_error_null": 9.733333333333336,
    "test": {
-    "mae": 19.39344262295082,
+    "mae": 20.0,
     "coverage": 0.8032786885245902,
-    "width": 71.06557377049181,
-    "early": 0.16393442622950818
+    "width": 79.32786885245902,
+    "early": 0.14754098360655737,
+    "region_error": 9.399999999999999,
+    "regions": 2
    },
    "test_null": {
     "mae": 18.540983606557376,
     "coverage": 0.8524590163934426,
     "width": 55.0,
-    "early": 0.13114754098360656
+    "early": 0.13114754098360656,
+    "region_error": 10.899999999999999
    },
    "validated_by": "held-out years 2024+",
    "publish": false,
    "thresholds": {
-    "onset": 1395.8817138671875,
-    "peak": 1965.176513671875,
-    "end": 2744.139404296875
+    "onset": 476.8132629394531,
+    "peak": 800.2099609375,
+    "end": 1209.0400390625
    },
    "driver_model": {
     "type": "gdd",
-    "base": 0,
+    "base": 10,
     "upper": 35,
     "method": "triangle",
     "start": "01-01"
    },
-   "driver_label": "degree-days above 0 \u00b0C since Jan 1",
+   "driver_label": "degree-days above 10 \u00b0C since Jan 1",
    "reason": "not clearly better than a calendar-only model"
   }
  },
@@ -1737,23 +1879,26 @@
     2026
    ],
    "driver": "gdd10",
-   "cv_mae": {
-    "gdd0": 11.680351906158357,
-    "gdd5": 10.442815249266863,
-    "gdd10": 9.859237536656892
+   "cv_error": {
+    "gdd0": 6.083333333333332,
+    "gdd5": 3.8489583333333326,
+    "gdd10": 3.5229166666666667
    },
-   "cv_mae_null": 14.033724340175953,
+   "cv_error_null": 13.648958333333333,
    "test": {
     "mae": 17.09,
     "coverage": 0.79,
     "width": 18.57,
-    "early": 0.12
+    "early": 0.12,
+    "region_error": 2.950000000000003,
+    "regions": 1
    },
    "test_null": {
     "mae": 16.75,
     "coverage": 0.75,
     "width": 37.0,
-    "early": 0.14
+    "early": 0.14,
+    "region_error": 9.200000000000003
    },
    "validated_by": "held-out years 2024+",
    "publish": false,
@@ -1779,24 +1924,31 @@
     2008,
     2026
    ],
-   "driver": "gdd0",
-   "cv_mae": {
-    "gdd0": 52.1736040609137,
-    "gdd5": 56.633096446700506,
-    "gdd10": 62.795736040609135
+   "driver": "shortday",
+   "cv_error": {
+    "gdd0": 35.42186922637166,
+    "gdd5": 38.88928821574061,
+    "gdd10": 43.968687909832965,
+    "shortday": 19.727800399042906,
+    "cold15_aug1": 124.40255946837188,
+    "cold15_p13": 124.3948414997047,
+    "cold10_aug1": 124.95577741432315
    },
-   "cv_mae_null": 35.798781725888325,
+   "cv_error_null": 19.964945604849092,
    "test": {
-    "mae": 50.04063957361759,
-    "coverage": 0.8114590273151232,
-    "width": 137.9213857428381,
-    "early": 0.08394403730846102
+    "mae": 37.82678214523651,
+    "coverage": 0.8374417055296469,
+    "width": 119.92938041305796,
+    "early": 0.08527648234510327,
+    "region_error": 22.880434782608695,
+    "regions": 46
    },
    "test_null": {
     "mae": 34.97601598934044,
     "coverage": 0.8381079280479681,
     "width": 120.0,
-    "early": 0.07861425716189208
+    "early": 0.07861425716189208,
+    "region_error": 20.31195652173913
    },
    "validated_by": "held-out years 2024+",
    "publish": false,
@@ -1806,13 +1958,9 @@
     "end": NaN
    },
    "driver_model": {
-    "type": "gdd",
-    "base": 0,
-    "upper": 35,
-    "method": "triangle",
-    "start": "01-01"
+    "type": "shortday"
    },
-   "driver_label": "degree-days above 0 \u00b0C since Jan 1",
+   "driver_label": "day length shortening after midsummer",
    "reason": "not clearly better than a calendar-only model"
   }
  },
@@ -1835,23 +1983,26 @@
     2026
    ],
    "driver": "gdd10",
-   "cv_mae": {
-    "gdd0": 14.294642857142858,
-    "gdd5": 12.973214285714286,
-    "gdd10": 12.116071428571429
+   "cv_error": {
+    "gdd0": 13.486097820308348,
+    "gdd5": 11.888463583200425,
+    "gdd10": 10.868713450292399
    },
-   "cv_mae_null": 7.669642857142857,
+   "cv_error_null": null,
    "test": {
     "mae": 11.369565217391305,
     "coverage": 0.782608695652174,
     "width": 17.456521739130434,
-    "early": 0.10869565217391304
+    "early": 0.10869565217391304,
+    "region_error": 1.7999999999999972,
+    "regions": 2
    },
    "test_null": {
     "mae": 12.847826086956522,
     "coverage": 0.6521739130434783,
     "width": 21.900000000000006,
-    "early": 0.21739130434782608
+    "early": 0.21739130434782608,
+    "region_error": 3.700000000000003
    },
    "validated_by": "held-out years 2024+",
    "publish": true,
@@ -1877,40 +2028,43 @@
     2010,
     2026
    ],
-   "driver": "gdd0",
-   "cv_mae": {
-    "gdd0": 33.7551912568306,
-    "gdd5": 35.37540983606557,
-    "gdd10": 40.23879781420765
+   "driver": "shortday",
+   "cv_error": {
+    "gdd0": 22.08698198198198,
+    "gdd5": 21.88551801801802,
+    "gdd10": 30.581463963963966,
+    "shortday": 19.960833333333333,
+    "cold15_aug1": 193.29587837837838,
+    "cold15_p13": 232.7711036036036,
+    "cold10_aug1": 232.7711036036036
    },
-   "cv_mae_null": 28.140437158469947,
+   "cv_error_null": 21.127094594594592,
    "test": {
-    "mae": 34.10526315789474,
-    "coverage": 0.7278562259306803,
-    "width": 115.28883183568678,
-    "early": 0.08600770218228498
+    "mae": 29.16816431322208,
+    "coverage": 0.79204107830552,
+    "width": 101.47625160462131,
+    "early": 0.0834403080872914,
+    "region_error": 21.870833333333337,
+    "regions": 24
    },
    "test_null": {
     "mae": 29.161745827984596,
     "coverage": 0.79204107830552,
     "width": 98.0,
-    "early": 0.08087291399229782
+    "early": 0.08087291399229782,
+    "region_error": 21.410416666666666
    },
    "validated_by": "held-out years 2024+",
    "publish": false,
    "thresholds": {
-    "onset": 1610.64794921875,
-    "peak": 3032.55908203125,
-    "end": 3755.407470703125
+    "onset": 0.9517679810523987,
+    "peak": 3.2950727939605713,
+    "end": 5.190500736236572
    },
    "driver_model": {
-    "type": "gdd",
-    "base": 0,
-    "upper": 35,
-    "method": "triangle",
-    "start": "01-01"
+    "type": "shortday"
    },
-   "driver_label": "degree-days above 0 \u00b0C since Jan 1",
+   "driver_label": "day length shortening after midsummer",
    "reason": "not clearly better than a calendar-only model"
   },
   "Colored Leaves": {
@@ -1932,40 +2086,43 @@
     2012,
     2026
    ],
-   "driver": "gdd5",
-   "cv_mae": {
-    "gdd0": 26.24342105263158,
-    "gdd5": 25.875,
-    "gdd10": 25.879934210526315
+   "driver": "gdd10",
+   "cv_error": {
+    "gdd0": 10.649583333333332,
+    "gdd5": 8.026250000000001,
+    "gdd10": 6.459583333333335
    },
-   "cv_mae_null": 22.20230263157895,
+   "cv_error_null": 8.290000000000001,
    "test": {
-    "mae": 21.90728476821192,
-    "coverage": 0.847682119205298,
-    "width": 67.51655629139073,
-    "early": 0.06622516556291391
+    "mae": 21.94039735099338,
+    "coverage": 0.8410596026490066,
+    "width": 65.62251655629139,
+    "early": 0.052980132450331126,
+    "region_error": 5.300000000000001,
+    "regions": 4
    },
    "test_null": {
     "mae": 20.794701986754966,
     "coverage": 0.8145695364238411,
     "width": 68.30000000000007,
-    "early": 0.08609271523178808
+    "early": 0.08609271523178808,
+    "region_error": 6.362500000000001
    },
    "validated_by": "held-out years 2024+",
    "publish": false,
    "thresholds": {
-    "onset": 410.94110107421875,
-    "peak": 663.1265258789062,
-    "end": 1455.2822265625
+    "onset": 179.57240295410156,
+    "peak": 333.60205078125,
+    "end": 883.0980224609375
    },
    "driver_model": {
     "type": "gdd",
-    "base": 5,
+    "base": 10,
     "upper": 35,
     "method": "triangle",
     "start": "01-01"
    },
-   "driver_label": "degree-days above 5 \u00b0C since Jan 1",
+   "driver_label": "degree-days above 10 \u00b0C since Jan 1",
    "reason": "not clearly better than a calendar-only model"
   },
   "Fruiting": {
@@ -1976,26 +2133,33 @@
     2026
    ],
    "driver": "gdd0",
-   "cv_mae": {
-    "gdd0": 27.093790149892932,
-    "gdd5": 27.206423982869378,
-    "gdd10": 27.450963597430405
+   "cv_error": {
+    "gdd0": 13.65893719806763,
+    "gdd5": 14.073657694962042,
+    "gdd10": 14.264173567977915,
+    "shortday": 14.472287784679091,
+    "cold15_aug1": 204.59165113871637,
+    "cold15_p13": 204.59165113871637,
+    "cold10_aug1": 204.59165113871637
    },
-   "cv_mae_null": 27.225695931477517,
+   "cv_error_null": 16.37673740510697,
    "test": {
-    "mae": 28.575601374570446,
+    "mae": 28.567010309278352,
     "coverage": 0.7697594501718213,
-    "width": 98.76632302405498,
-    "early": 0.13573883161512026
+    "width": 98.73195876288659,
+    "early": 0.13573883161512026,
+    "region_error": 9.285294117647059,
+    "regions": 17
    },
    "test_null": {
     "mae": 28.391752577319586,
     "coverage": 0.802405498281787,
     "width": 91.0,
-    "early": 0.1254295532646048
+    "early": 0.1254295532646048,
+    "region_error": 12.847058823529412
    },
    "validated_by": "held-out years 2024+",
-   "publish": false,
+   "publish": true,
    "thresholds": {
     "onset": 1443.4317626953125,
     "peak": 2140.478515625,
@@ -2009,7 +2173,7 @@
     "start": "01-01"
    },
    "driver_label": "degree-days above 0 \u00b0C since Jan 1",
-   "reason": "not clearly better than a calendar-only model"
+   "reason": null
   }
  },
  "norway_maple": {
@@ -2021,23 +2185,26 @@
     2026
    ],
    "driver": "gdd10",
-   "cv_mae": {
-    "gdd0": 13.663551401869158,
-    "gdd5": 11.922118380062305,
-    "gdd10": 10.996884735202492
+   "cv_error": {
+    "gdd0": 9.267083333333332,
+    "gdd5": 6.6170833333333325,
+    "gdd10": 5.505833333333333
    },
-   "cv_mae_null": 7.454828660436137,
+   "cv_error_null": 5.023333333333332,
    "test": {
     "mae": 10.148148148148149,
     "coverage": 0.7037037037037037,
     "width": 18.8,
-    "early": 0.17037037037037037
+    "early": 0.17037037037037037,
+    "region_error": 5.880000000000001,
+    "regions": 5
    },
    "test_null": {
     "mae": 7.022222222222222,
     "coverage": 0.837037037037037,
     "width": 24.0,
-    "early": 0.1037037037037037
+    "early": 0.1037037037037037,
+    "region_error": 4.080000000000001
    },
    "validated_by": "held-out years 2024+",
    "publish": false,
@@ -2063,40 +2230,43 @@
     2010,
     2026
    ],
-   "driver": "gdd10",
-   "cv_mae": {
-    "gdd0": 14.84873949579832,
-    "gdd5": 13.455882352941176,
-    "gdd10": 13.27310924369748
+   "driver": "gdd5",
+   "cv_error": {
+    "gdd0": 8.223,
+    "gdd5": 5.463,
+    "gdd10": 5.713
    },
-   "cv_mae_null": 7.819327731092437,
+   "cv_error_null": 5.365,
    "test": {
-    "mae": 10.656934306569344,
-    "coverage": 0.8175182481751825,
-    "width": 21.27007299270073,
-    "early": 0.12408759124087591
+    "mae": 10.664233576642335,
+    "coverage": 0.8321167883211679,
+    "width": 21.605839416058394,
+    "early": 0.11678832116788321,
+    "region_error": 4.2125,
+    "regions": 4
    },
    "test_null": {
     "mae": 6.635036496350365,
     "coverage": 0.8175182481751825,
     "width": 22.0,
-    "early": 0.13138686131386862
+    "early": 0.13138686131386862,
+    "region_error": 4.0375
    },
    "validated_by": "held-out years 2024+",
    "publish": false,
    "thresholds": {
-    "onset": 34.01879119873047,
-    "peak": 63.711204528808594,
-    "end": 97.13671875
+    "onset": 134.25448608398438,
+    "peak": 195.03256225585938,
+    "end": 277.6861267089844
    },
    "driver_model": {
     "type": "gdd",
-    "base": 10,
+    "base": 5,
     "upper": 35,
     "method": "triangle",
     "start": "01-01"
    },
-   "driver_label": "degree-days above 10 \u00b0C since Jan 1",
+   "driver_label": "degree-days above 5 \u00b0C since Jan 1",
    "reason": "not clearly better than a calendar-only model"
   },
   "Colored Leaves": {
@@ -2107,26 +2277,33 @@
     2026
    ],
    "driver": "cold15_aug1",
-   "cv_mae": {
-    "cold15_aug1": 13.246376811594203,
-    "cold15_p13": 13.246376811594203,
-    "cold10_aug1": 13.898550724637682
+   "cv_error": {
+    "gdd0": 30.224999999999998,
+    "gdd5": 37.349999999999994,
+    "gdd10": 47.099999999999994,
+    "shortday": 8.349999999999998,
+    "cold15_aug1": 6.550000000000001,
+    "cold15_p13": 6.612500000000001,
+    "cold10_aug1": 77.2375
    },
-   "cv_mae_null": 13.956521739130435,
+   "cv_error_null": 9.075,
    "test": {
     "mae": 11.10580204778157,
     "coverage": 0.8600682593856656,
     "width": 38.44027303754266,
-    "early": 0.04778156996587031
+    "early": 0.04778156996587031,
+    "region_error": 6.822222222222223,
+    "regions": 9
    },
    "test_null": {
     "mae": 10.941979522184301,
     "coverage": 0.856655290102389,
     "width": 43.30000000000001,
-    "early": 0.06143344709897611
+    "early": 0.06143344709897611,
+    "region_error": 9.855555555555561
    },
    "validated_by": "held-out years 2024+",
-   "publish": false,
+   "publish": true,
    "thresholds": {
     "onset": 51.7197265625,
     "peak": 167.1396484375,
@@ -2138,7 +2315,7 @@
     "start": "08-01"
    },
    "driver_label": "chilling below 15 \u00b0C since Aug 1",
-   "reason": "not clearly better than a calendar-only model"
+   "reason": null
   }
  },
  "johnsongrass": {
@@ -2150,12 +2327,16 @@
     2026
    ],
    "driver": "gdd10",
-   "cv_mae": {
-    "gdd0": 62.243781094527364,
-    "gdd5": 61.76119402985075,
-    "gdd10": 61.74626865671642
+   "cv_error": {
+    "gdd0": 35.43333333333334,
+    "gdd5": 35.26666666666667,
+    "gdd10": 33.43333333333334,
+    "shortday": 89.13333333333334,
+    "cold15_aug1": 163.96666666666667,
+    "cold15_p13": 163.96666666666667,
+    "cold10_aug1": 163.96666666666667
    },
-   "cv_mae_null": 63.47014925373134,
+   "cv_error_null": 34.01666666666667,
    "validated_by": "year-grouped cross-validation (too few records for a held-out test)",
    "publish": false,
    "thresholds": {
@@ -2195,23 +2376,26 @@
     2026
    ],
    "driver": "gdd0",
-   "cv_mae": {
-    "gdd0": 12.9830866807611,
-    "gdd5": 13.140591966173362,
-    "gdd10": 14.581747709654687
+   "cv_error": {
+    "gdd0": 8.125271918483993,
+    "gdd5": 8.534054451740209,
+    "gdd10": 12.410408685741505
    },
-   "cv_mae_null": 14.128964059196617,
+   "cv_error_null": 14.932240584492908,
    "test": {
     "mae": 10.9609375,
     "coverage": 0.8453125,
     "width": 34.82109375,
-    "early": 0.09921875
+    "early": 0.09921875,
+    "region_error": 5.651204819277108,
+    "regions": 83
    },
    "test_null": {
     "mae": 14.0671875,
     "coverage": 0.8229166666666666,
     "width": 45.0,
-    "early": 0.07473958333333333
+    "early": 0.07473958333333333,
+    "region_error": 14.94578313253012
    },
    "validated_by": "held-out years 2024+",
    "publish": true,
@@ -2249,40 +2433,43 @@
     2009,
     2026
    ],
-   "driver": "gdd0",
-   "cv_mae": {
-    "gdd0": 42.46875,
-    "gdd5": 48.395833333333336,
-    "gdd10": 54.75595238095238
+   "driver": "shortday",
+   "cv_error": {
+    "gdd0": 33.00583333333333,
+    "gdd5": 38.83361111111111,
+    "gdd10": 43.80777777777778,
+    "shortday": 14.176944444444445,
+    "cold15_aug1": 137.09250000000003,
+    "cold15_p13": 137.1036111111111,
+    "cold10_aug1": 138.44944444444445
    },
-   "cv_mae_null": 22.413690476190474,
+   "cv_error_null": 14.316111111111109,
    "test": {
-    "mae": 41.82,
-    "coverage": 0.816,
-    "width": 113.06,
-    "early": 0.088
+    "mae": 34.758,
+    "coverage": 0.752,
+    "width": 75.918,
+    "early": 0.172,
+    "region_error": 20.510714285714283,
+    "regions": 14
    },
    "test_null": {
     "mae": 25.434,
     "coverage": 0.774,
     "width": 71.89999999999998,
-    "early": 0.158
+    "early": 0.158,
+    "region_error": 13.028571428571427
    },
    "validated_by": "held-out years 2024+",
    "publish": false,
    "thresholds": {
-    "onset": 3180.485595703125,
-    "peak": 4019.546630859375,
-    "end": 4892.64453125
+    "onset": 3.2325596809387207,
+    "peak": 4.996145248413086,
+    "end": 6.24082088470459
    },
    "driver_model": {
-    "type": "gdd",
-    "base": 0,
-    "upper": 35,
-    "method": "triangle",
-    "start": "01-01"
+    "type": "shortday"
    },
-   "driver_label": "degree-days above 0 \u00b0C since Jan 1",
+   "driver_label": "day length shortening after midsummer",
    "reason": "not clearly better than a calendar-only model"
   },
   "Colored Leaves": {
@@ -2293,14 +2480,18 @@
     2026
    ],
    "driver": "cold15_p13",
-   "cv_mae": {
-    "cold15_aug1": 15.589648798521257,
-    "cold15_p13": 15.548983364140481,
-    "cold10_aug1": 17.796672828096117
+   "cv_error": {
+    "gdd0": 39.3125,
+    "gdd5": 46.104166666666664,
+    "gdd10": 52.204166666666666,
+    "shortday": 11.033333333333331,
+    "cold15_aug1": 10.174999999999997,
+    "cold15_p13": 10.049999999999997,
+    "cold10_aug1": 147.99583333333334
    },
-   "cv_mae_null": 14.728280961182994,
+   "cv_error_null": 11.733333333333329,
    "validated_by": "year-grouped cross-validation (too few records for a held-out test)",
-   "publish": false,
+   "publish": true,
    "thresholds": {
     "onset": 4.6494140625,
     "peak": 86.3544921875,
@@ -2315,7 +2506,7 @@
     }
    },
    "driver_label": "chilling below 15 \u00b0C once days are shorter than 13 h",
-   "reason": "not clearly better than a calendar-only model"
+   "reason": null
   }
  },
  "chinese_privet": {
@@ -2327,26 +2518,29 @@
     2026
    ],
    "driver": "gdd0",
-   "cv_mae": {
-    "gdd0": 10.875259013675922,
-    "gdd5": 12.540406133443845,
-    "gdd10": 14.380024865312889
+   "cv_error": {
+    "gdd0": 6.884679526355998,
+    "gdd5": 9.367250572956454,
+    "gdd10": 11.680024064171125
    },
-   "cv_mae_null": 11.632407791131373,
+   "cv_error_null": 8.74509434682964,
    "test": {
     "mae": 10.594356261022927,
     "coverage": 0.7354497354497355,
     "width": 26.506172839506174,
-    "early": 0.1746031746031746
+    "early": 0.1746031746031746,
+    "region_error": 6.563157894736841,
+    "regions": 19
    },
    "test_null": {
     "mae": 10.742504409171076,
     "coverage": 0.6790123456790124,
     "width": 34.0,
-    "early": 0.291005291005291
+    "early": 0.291005291005291,
+    "region_error": 7.371052631578946
    },
    "validated_by": "held-out years 2024+",
-   "publish": false,
+   "publish": true,
    "thresholds": {
     "onset": 1342.560302734375,
     "peak": 1513.4046630859375,
@@ -2360,7 +2554,7 @@
     "start": "01-01"
    },
    "driver_label": "degree-days above 0 \u00b0C since Jan 1",
-   "reason": "not clearly better than a calendar-only model"
+   "reason": null
   },
   "Fruiting": {
    "n_train": 1661,
@@ -2370,23 +2564,30 @@
     2026
    ],
    "driver": "gdd0",
-   "cv_mae": {
-    "gdd0": 62.873570138470804,
-    "gdd5": 65.05538832028898,
-    "gdd10": 68.28296207104154
+   "cv_error": {
+    "gdd0": 44.22629504504505,
+    "gdd5": 45.84016516516517,
+    "gdd10": 50.48631756756757,
+    "shortday": 107.51882507507509,
+    "cold15_aug1": 220.83263888888888,
+    "cold15_p13": 220.83263888888888,
+    "cold10_aug1": 220.83263888888888
    },
-   "cv_mae_null": 59.03491872366045,
+   "cv_error_null": 43.88290165165165,
    "test": {
     "mae": 79.38076923076923,
     "coverage": 0.6115384615384616,
     "width": 195.2576923076923,
-    "early": 0.25769230769230766
+    "early": 0.25769230769230766,
+    "region_error": 53.83,
+    "regions": 10
    },
    "test_null": {
     "mae": 85.25,
     "coverage": 0.5807692307692308,
     "width": 198.0,
-    "early": 0.3038461538461538
+    "early": 0.3038461538461538,
+    "region_error": 63.23
    },
    "validated_by": "held-out years 2024+",
    "publish": false,
@@ -2436,40 +2637,43 @@
     2014,
     2026
    ],
-   "driver": "gdd10",
-   "cv_mae": {
-    "gdd0": 44.09090909090909,
-    "gdd5": 43.743801652892564,
-    "gdd10": 43.413223140495866
+   "driver": "gdd0",
+   "cv_error": {
+    "gdd0": 18.72,
+    "gdd5": 19.919999999999998,
+    "gdd10": 19.619999999999997
    },
-   "cv_mae_null": 42.892561983471076,
+   "cv_error_null": 12.379999999999999,
    "test": {
-    "mae": 45.77560975609756,
-    "coverage": 0.7560975609756098,
-    "width": 135.25365853658536,
-    "early": 0.04878048780487805
+    "mae": 44.5609756097561,
+    "coverage": 0.8292682926829268,
+    "width": 154.12682926829268,
+    "early": 0.06829268292682927,
+    "region_error": 35.78333333333333,
+    "regions": 6
    },
    "test_null": {
     "mae": 41.18536585365854,
     "coverage": 0.8585365853658536,
     "width": 150.0,
-    "early": 0.08780487804878048
+    "early": 0.08780487804878048,
+    "region_error": 29.7
    },
    "validated_by": "held-out years 2024+",
    "publish": false,
    "thresholds": {
-    "onset": 460.30560302734375,
-    "peak": 904.6614990234375,
-    "end": 1997.8363037109375
+    "onset": 1620.2210693359375,
+    "peak": 2505.103515625,
+    "end": 4575.6494140625
    },
    "driver_model": {
     "type": "gdd",
-    "base": 10,
+    "base": 0,
     "upper": 35,
     "method": "triangle",
     "start": "01-01"
    },
-   "driver_label": "degree-days above 10 \u00b0C since Jan 1",
+   "driver_label": "degree-days above 0 \u00b0C since Jan 1",
    "reason": "not clearly better than a calendar-only model"
   }
  },
@@ -2482,26 +2686,29 @@
     2026
    ],
    "driver": "gdd0",
-   "cv_mae": {
-    "gdd0": 30.450581395348838,
-    "gdd5": 30.95639534883721,
-    "gdd10": 32.56104651162791
+   "cv_error": {
+    "gdd0": 11.495714285714286,
+    "gdd5": 12.162142857142857,
+    "gdd10": 14.381428571428572
    },
-   "cv_mae_null": 22.691860465116278,
+   "cv_error_null": 10.268571428571429,
    "test": {
     "mae": 37.65976331360947,
     "coverage": 0.7366863905325444,
     "width": 58.6094674556213,
-    "early": 0.14792899408284024
+    "early": 0.14792899408284024,
+    "region_error": 9.611538461538462,
+    "regions": 13
    },
    "test_null": {
     "mae": 30.846153846153847,
     "coverage": 0.6804733727810651,
     "width": 55.30000000000007,
-    "early": 0.20710059171597633
+    "early": 0.20710059171597633,
+    "region_error": 13.061538461538463
    },
    "validated_by": "held-out years 2024+",
-   "publish": false,
+   "publish": true,
    "thresholds": {
     "onset": 600.2965087890625,
     "peak": 1005.3525390625,
@@ -2515,7 +2722,7 @@
     "start": "01-01"
    },
    "driver_label": "degree-days above 0 \u00b0C since Jan 1",
-   "reason": "not clearly better than a calendar-only model"
+   "reason": null
   },
   "Fruiting": {
    "n_train": 204,
@@ -2525,23 +2732,30 @@
     2026
    ],
    "driver": "gdd10",
-   "cv_mae": {
-    "gdd0": 52.35294117647059,
-    "gdd5": 52.205882352941174,
-    "gdd10": 50.71078431372549
+   "cv_error": {
+    "gdd0": 19.072916666666664,
+    "gdd5": 20.20833333333333,
+    "gdd10": 18.947916666666664,
+    "shortday": 111.14583333333334,
+    "cold15_aug1": 168.77083333333337,
+    "cold15_p13": 168.77083333333337,
+    "cold10_aug1": 168.77083333333337
    },
-   "cv_mae_null": 48.1421568627451,
+   "cv_error_null": 19.24583333333333,
    "test": {
-    "mae": 44.26966292134831,
+    "mae": 44.28089887640449,
     "coverage": 0.8314606741573034,
-    "width": 159.96629213483146,
-    "early": 0.10112359550561797
+    "width": 159.93258426966293,
+    "early": 0.10112359550561797,
+    "region_error": 7.999999999999997,
+    "regions": 3
    },
    "test_null": {
     "mae": 42.71348314606742,
     "coverage": 0.797752808988764,
     "width": 140.10000000000002,
-    "early": 0.10112359550561797
+    "early": 0.10112359550561797,
+    "region_error": 14.53333333333333
    },
    "validated_by": "held-out years 2024+",
    "publish": false,
@@ -2584,23 +2798,26 @@
     2026
    ],
    "driver": "gdd10",
-   "cv_mae": {
-    "gdd0": 16.52238805970149,
-    "gdd5": 16.326699834162522,
-    "gdd10": 16.00995024875622
+   "cv_error": {
+    "gdd0": 7.842222222222224,
+    "gdd5": 7.638055555555557,
+    "gdd10": 7.3026388888888905
    },
-   "cv_mae_null": 17.703150912106135,
+   "cv_error_null": 11.403888888888886,
    "test": {
-    "mae": 17.88421052631579,
+    "mae": 17.905263157894737,
     "coverage": 0.8210526315789474,
-    "width": 35.8421052631579,
-    "early": 0.08421052631578947
+    "width": 35.863157894736844,
+    "early": 0.08421052631578947,
+    "region_error": 20.225,
+    "regions": 2
    },
    "test_null": {
     "mae": 9.642105263157895,
     "coverage": 0.9473684210526315,
     "width": 52.0,
-    "early": 0.010526315789473684
+    "early": 0.010526315789473684,
+    "region_error": 6.725000000000001
    },
    "validated_by": "held-out years 2024+",
    "publish": false,
@@ -2627,23 +2844,30 @@
     2026
    ],
    "driver": "gdd0",
-   "cv_mae": {
-    "gdd0": 57.109321058688145,
-    "gdd5": 57.80897583429229,
-    "gdd10": 59.94821634062141
+   "cv_error": {
+    "gdd0": 27.630397727272726,
+    "gdd5": 28.437689393939394,
+    "gdd10": 30.1000946969697,
+    "shortday": 81.22062500000001,
+    "cold15_aug1": 219.05263257575757,
+    "cold15_p13": 219.05263257575757,
+    "cold10_aug1": 219.05263257575757
    },
-   "cv_mae_null": 56.3084004602992,
+   "cv_error_null": 28.397632575757573,
    "test": {
     "mae": 55.473684210526315,
     "coverage": 0.7828947368421053,
-    "width": 165.6578947368421,
-    "early": 0.10526315789473684
+    "width": 165.65131578947367,
+    "early": 0.10526315789473684,
+    "region_error": 35.32,
+    "regions": 5
    },
    "test_null": {
     "mae": 50.83552631578947,
     "coverage": 0.8421052631578947,
     "width": 171.0,
-    "early": 0.09210526315789473
+    "early": 0.09210526315789473,
+    "region_error": 30.82
    },
    "validated_by": "held-out years 2024+",
    "publish": false,
@@ -2703,40 +2927,43 @@
     2010,
     2026
    ],
-   "driver": "gdd0",
-   "cv_mae": {
-    "gdd0": 24.483516483516482,
-    "gdd5": 28.998168498168496,
-    "gdd10": 35.276556776556774
+   "driver": "shortday",
+   "cv_error": {
+    "gdd0": 14.853787878787877,
+    "gdd5": 19.521464646464644,
+    "gdd10": 25.56060606060606,
+    "shortday": 6.868939393939392,
+    "cold15_aug1": 131.29999999999998,
+    "cold15_p13": 131.31515151515154,
+    "cold10_aug1": 261.06136363636364
    },
-   "cv_mae_null": 14.214285714285714,
+   "cv_error_null": 6.882070707070704,
    "test": {
-    "mae": 42.736170212765956,
-    "coverage": 0.7659574468085106,
-    "width": 85.49787234042553,
-    "early": 0.2
+    "mae": 19.327659574468086,
+    "coverage": 0.7574468085106383,
+    "width": 44.191489361702125,
+    "early": 0.18723404255319148,
+    "region_error": 15.383333333333333,
+    "regions": 9
    },
    "test_null": {
     "mae": 19.140425531914893,
     "coverage": 0.7574468085106383,
     "width": 41.0,
-    "early": 0.17446808510638298
+    "early": 0.17446808510638298,
+    "region_error": 15.27222222222222
    },
    "validated_by": "held-out years 2024+",
    "publish": false,
    "thresholds": {
-    "onset": 3215.1376953125,
-    "peak": 3955.79736328125,
-    "end": 4468.84765625
+    "onset": 2.908270835876465,
+    "peak": 4.041092872619629,
+    "end": 4.830150604248047
    },
    "driver_model": {
-    "type": "gdd",
-    "base": 0,
-    "upper": 35,
-    "method": "triangle",
-    "start": "01-01"
+    "type": "shortday"
    },
-   "driver_label": "degree-days above 0 \u00b0C since Jan 1",
+   "driver_label": "day length shortening after midsummer",
    "reason": "not clearly better than a calendar-only model"
   }
  },
@@ -2748,40 +2975,47 @@
     2008,
     2026
    ],
-   "driver": "gdd0",
-   "cv_mae": {
-    "gdd0": 24.887240356083087,
-    "gdd5": 25.287833827893174,
-    "gdd10": 26.682492581602375
+   "driver": "gdd10",
+   "cv_error": {
+    "gdd0": 20.4875,
+    "gdd5": 18.1125,
+    "gdd10": 14.7375,
+    "shortday": 21.7375,
+    "cold15_aug1": 192.2375,
+    "cold15_p13": 192.2375,
+    "cold10_aug1": 192.2375
    },
-   "cv_mae_null": 23.47181008902077,
+   "cv_error_null": 20.6125,
    "test": {
-    "mae": 23.242914979757085,
-    "coverage": 0.7894736842105263,
-    "width": 73.3076923076923,
-    "early": 0.05668016194331984
+    "mae": 25.12145748987854,
+    "coverage": 0.8097165991902834,
+    "width": 86.5506072874494,
+    "early": 0.04048582995951417,
+    "region_error": 8.212500000000002,
+    "regions": 4
    },
    "test_null": {
     "mae": 20.923076923076923,
     "coverage": 0.8340080971659919,
     "width": 67.4,
-    "early": 0.06477732793522267
+    "early": 0.06477732793522267,
+    "region_error": 7.962500000000002
    },
    "validated_by": "held-out years 2024+",
    "publish": false,
    "thresholds": {
-    "onset": 1889.4132080078125,
-    "peak": 2361.33056640625,
-    "end": 3465.346923828125
+    "onset": 593.811767578125,
+    "peak": 929.6028442382812,
+    "end": 1520.82177734375
    },
    "driver_model": {
     "type": "gdd",
-    "base": 0,
+    "base": 10,
     "upper": 35,
     "method": "triangle",
     "start": "01-01"
    },
-   "driver_label": "degree-days above 0 \u00b0C since Jan 1",
+   "driver_label": "degree-days above 10 \u00b0C since Jan 1",
    "reason": "not clearly better than a calendar-only model"
   }
  },
@@ -2794,26 +3028,29 @@
     2026
    ],
    "driver": "gdd0",
-   "cv_mae": {
-    "gdd0": 27.48932384341637,
-    "gdd5": 28.3564650059312,
-    "gdd10": 28.510083036773427
+   "cv_error": {
+    "gdd0": 22.542424242424243,
+    "gdd5": 24.83862470862471,
+    "gdd10": 25.658360528360532
    },
-   "cv_mae_null": 27.927046263345197,
+   "cv_error_null": 25.920407925407925,
    "test": {
     "mae": 27.274951706374758,
     "coverage": 0.8473921442369607,
-    "width": 71.74887314874437,
-    "early": 0.0669671603348358
+    "width": 71.74951706374759,
+    "early": 0.0669671603348358,
+    "region_error": 12.940425531914894,
+    "regions": 47
    },
    "test_null": {
     "mae": 25.066323245331617,
     "coverage": 0.8564069542820347,
     "width": 88.0,
-    "early": 0.0643915003219575
+    "early": 0.0643915003219575,
+    "region_error": 20.497872340425534
    },
    "validated_by": "held-out years 2024+",
-   "publish": false,
+   "publish": true,
    "thresholds": {
     "onset": NaN,
     "peak": NaN,
@@ -2827,7 +3064,7 @@
     "start": "01-01"
    },
    "driver_label": "degree-days above 0 \u00b0C since Jan 1",
-   "reason": "not clearly better than a calendar-only model"
+   "reason": null
   },
   "Fruiting": {
    "n_train": 454,
@@ -2836,41 +3073,44 @@
     2010,
     2026
    ],
-   "driver": "gdd10",
-   "cv_mae": {
-    "gdd0": 34.93832599118943,
-    "gdd5": 34.24669603524229,
-    "gdd10": 32.16740088105727
+   "driver": "gdd0",
+   "cv_error": {
+    "gdd0": 46.693333333333335,
+    "gdd5": 49.196666666666665,
+    "gdd10": 51.98
    },
-   "cv_mae_null": 37.370044052863435,
+   "cv_error_null": 41.15,
    "test": {
-    "mae": 41.807799442896936,
-    "coverage": 0.6796657381615598,
-    "width": 100.32033426183844,
-    "early": 0.1615598885793872
+    "mae": 43.79387186629526,
+    "coverage": 0.7688022284122563,
+    "width": 109.64623955431755,
+    "early": 0.07799442896935933,
+    "region_error": 23.58181818181818,
+    "regions": 11
    },
    "test_null": {
     "mae": 43.089136490250695,
     "coverage": 0.6963788300835655,
     "width": 125.69999999999999,
-    "early": 0.12813370473537605
+    "early": 0.12813370473537605,
+    "region_error": 27.16818181818182
    },
    "validated_by": "held-out years 2024+",
-   "publish": false,
+   "publish": true,
    "thresholds": {
-    "onset": 341.5841979980469,
-    "peak": 625.6805419921875,
-    "end": 1494.177490234375
+    "onset": 1359.5751953125,
+    "peak": 1813.373291015625,
+    "end": 3806.288330078125
    },
    "driver_model": {
     "type": "gdd",
-    "base": 10,
+    "base": 0,
     "upper": 35,
     "method": "triangle",
     "start": "01-01"
    },
-   "driver_label": "degree-days above 10 \u00b0C since Jan 1",
-   "reason": "not clearly better than a calendar-only model"
+   "driver_label": "degree-days above 0 \u00b0C since Jan 1",
+   "reason": null
   }
  },
  "swallowwort": {
@@ -2882,28 +3122,31 @@
     2026
    ],
    "driver": "gdd0",
-   "cv_mae": {
-    "gdd0": 22.39010989010989,
-    "gdd5": 22.417582417582416,
-    "gdd10": 22.543956043956044
+   "cv_error": {
+    "gdd0": 6.962499999999999,
+    "gdd5": 7.587499999999999,
+    "gdd10": 7.024999999999999
    },
-   "cv_mae_null": 19.53846153846154,
+   "cv_error_null": 6.6875,
    "test": {
     "mae": 22.358974358974358,
     "coverage": 0.717948717948718,
-    "width": 56.87179487179487,
-    "early": 0.1794871794871795
+    "width": 56.88461538461539,
+    "early": 0.1794871794871795,
+    "region_error": 5.0,
+    "regions": 3
    },
    "test_null": {
     "mae": 19.923076923076923,
     "coverage": 0.7307692307692307,
     "width": 61.900000000000006,
-    "early": 0.19230769230769232
+    "early": 0.19230769230769232,
+    "region_error": 7.349999999999999
    },
    "validated_by": "held-out years 2024+",
    "publish": false,
    "thresholds": {
-    "onset": 1007.1822509765625,
+    "onset": 1007.1627197265625,
     "peak": 1396.38232421875,
     "end": 2331.791015625
    },
@@ -2937,30 +3180,33 @@
     2026
    ],
    "driver": "gdd5",
-   "cv_mae": {
-    "gdd0": 13.210327455919396,
-    "gdd5": 12.895465994962217,
-    "gdd10": 14.324937027707808
+   "cv_error": {
+    "gdd0": 11.567499999999999,
+    "gdd5": 11.541666666666668,
+    "gdd10": 12.485833333333332
    },
-   "cv_mae_null": 14.270780856423174,
+   "cv_error_null": 17.205000000000002,
    "test": {
     "mae": 13.731666666666667,
     "coverage": 0.8266666666666667,
-    "width": 34.038333333333334,
-    "early": 0.09
+    "width": 34.03666666666667,
+    "early": 0.09,
+    "region_error": 7.366666666666667,
+    "regions": 21
    },
    "test_null": {
     "mae": 15.138333333333334,
     "coverage": 0.815,
     "width": 47.0,
-    "early": 0.125
+    "early": 0.125,
+    "region_error": 13.085714285714285
    },
    "validated_by": "held-out years 2024+",
-   "publish": false,
+   "publish": true,
    "thresholds": {
     "onset": 431.08587646484375,
-    "peak": 606.56787109375,
-    "end": 846.0708618164062
+    "peak": 606.5654296875,
+    "end": 846.0734252929688
    },
    "driver_model": {
     "type": "gdd",
@@ -2970,7 +3216,7 @@
     "start": "01-01"
    },
    "driver_label": "degree-days above 5 \u00b0C since Jan 1",
-   "reason": "not clearly better than a calendar-only model"
+   "reason": null
   }
  },
  "tamarisk": {
