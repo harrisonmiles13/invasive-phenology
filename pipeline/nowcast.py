@@ -205,7 +205,7 @@ def main():
         for k, acc in accs.items():
             if acc.t in ("gdd", "cold") and k in clim_coef:
                 acc.value = (acc.value + clim_increment(clim_coef[k], dd)).astype(np.float32)
-            elif acc.t == "photoperiod":
+            elif acc.t in ("photoperiod", "shortday"):
                 acc.step(dd, None, None, None)
         record(dd, SRC_PROJ)
         if dd == today_doy and general_today is None:

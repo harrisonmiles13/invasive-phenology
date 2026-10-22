@@ -487,14 +487,19 @@
     else if (m.type === "cold") how = `${Math.round(state.units === "F" ? m.threshold * 1.8 : m.threshold)} chilling ${ddUnit()} below ${state.units === "F" ? Math.round(m.base * 1.8 + 32) + " °F" : m.base + " °C"}, counted from ${typeof m.start === "string" ? fmtISO("2021-" + m.start) : `when days fall below ${m.start.daylength} h`}.`;
     else if (m.type === "precip") how = `At least ${(m.mm / 25.4).toFixed(1)} in. (${Math.round(m.mm)} mm) of rain in ${m.window} days, between ${fmtISO("2021-" + m.start)} and ${fmtISO("2021-" + m.end)}.`;
     else if (m.type === "photoperiod") how = `Day length reaches ${m.hours} h.`;
+    else if (m.type === "shortday") how = `Days shorten to ${(16 - m.threshold).toFixed(1)} h of daylight (after midsummer).`;
     parts.push(h("p", {}, h("strong", {}, e.label), `: ${how}`));
     if (e.note) parts.push(h("p", { class: "note" }, e.note));
     if (e.stage && STAGE_ACTIONS[e.stage]) parts.push(h("p", { class: "action" }, STAGE_ACTIONS[e.stage]));
     const stage = e.stage || Object.keys(val).find((st) => val[st].kind === "literature" && val[st].event === e.id);
     const v = stage ? val[stage] : null;
     if (v && v.kind === "fitted" && v.test) {
+      const t = v.test, t0 = v.test_null;
+      const err = t.regions >= 5
+        ? `In held-out years, predicted start and peak dates were off by ${t.region_error.toFixed(0)} days on average across ${t.regions} region-years, against ${t0.region_error.toFixed(0)} days for a single calendar date.`
+        : `In held-out years the peak date was off by ${t.mae.toFixed(0)} days on average, against ${t0.mae.toFixed(0)} days for a single calendar date.`;
       parts.push(h("p", { class: "verdict" }, h("span", { class: "badge fitted" }, "Fitted"),
-        ` from ${(v.n_train + v.n_test).toLocaleString()} iNaturalist ${stage.toLowerCase()} records. On held-out years the peak date was off by ${v.test.mae.toFixed(0)} days on average, against ${v.test_null.mae.toFixed(0)} days for a single calendar date. ${Math.round(v.test.coverage * 100)}% of records fell between the predicted start and end.`));
+        ` from ${(v.n_train + v.n_test).toLocaleString()} iNaturalist ${stage.toLowerCase()} records (${v.driver_label}). ${err} ${Math.round(t.coverage * 100)}% of records fell between the predicted start and end.`));
     } else if (v && v.kind === "fitted") {
       parts.push(h("p", { class: "verdict" }, h("span", { class: "badge fitted" }, "Fitted"), ` from ${(v.n_train || 0).toLocaleString()} iNaturalist records; ${v.validated_by}.`));
     } else if (v && v.kind === "literature" && v.n) {

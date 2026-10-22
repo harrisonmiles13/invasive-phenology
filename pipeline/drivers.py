@@ -13,6 +13,10 @@ A phenological event is the first day a *driver* crosses a threshold. Drivers:
             the first day inside [start, end] the total reaches `mm`.
   photoperiod  the day day length first reaches `hours` (increasing) or falls
             below it (decreasing).
+  shortday  after the summer solstice, how far day length has fallen below
+            16 h (16 - hours of daylight); a threshold of x means "days have
+            shortened to 16 - x hours". Used for late-season stages that
+            respond to shortening days rather than heat.
 
 Model specs are plain dicts so the same registry drives the Python grid
 engine and the JavaScript point model (site/js/model.js).
@@ -115,6 +119,10 @@ class Accumulator:
             inc = f(tmax, tmin, self.m["base"], self.m.get("upper"))
         elif t == "cold":
             inc = np.maximum(0.0, self.m["base"] - (tmax + tmin) / 2)
+        elif t == "shortday":
+            dl = np.broadcast_to(daylength(self.lat, doy), self.value.shape)
+            self.value = np.where(doy > 172, np.maximum(0.0, 16.0 - dl), 0.0).astype(np.float32)
+            return self.value
         elif t == "photoperiod":
             dl = np.broadcast_to(daylength(self.lat, doy), self.value.shape)
             if self.m.get("direction") == "decreasing":

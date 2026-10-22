@@ -41,6 +41,8 @@ CANDIDATES = [
     {"id": "gdd0", "family": "gdd", "label": "degree-days above 0 °C since Jan 1", "model": _g(0)},
     {"id": "gdd5", "family": "gdd", "label": "degree-days above 5 °C since Jan 1", "model": _g(5)},
     {"id": "gdd10", "family": "gdd", "label": "degree-days above 10 °C since Jan 1", "model": _g(10)},
+    {"id": "shortday", "family": "day", "label": "day length shortening after midsummer",
+     "model": {"type": "shortday"}},
     {"id": "cold15_aug1", "family": "cold", "label": "chilling below 15 °C since Aug 1",
      "model": {"type": "cold", "base": 15, "start": "08-01"}},
     {"id": "cold15_p13", "family": "cold", "label": "chilling below 15 °C once days are shorter than 13 h",
@@ -48,10 +50,6 @@ CANDIDATES = [
     {"id": "cold10_aug1", "family": "cold", "label": "chilling below 10 °C since Aug 1",
      "model": {"type": "cold", "base": 10, "start": "08-01"}},
 ]
-
-
-def family(stage):
-    return "cold" if stage == "Colored Leaves" else "gdd"
 
 
 def in_season(stage, doy):
@@ -145,10 +143,48 @@ def null_score(train_doy, doy):
             "width": float(q["end"] - q["onset"]), "early": float(np.mean(doy < q["onset"]))}
 
 
-def fit_stage(curves, doy, year, stage):
-    cands = [k for k, c in enumerate(CANDIDATES) if c["family"] == family(stage)]
+def region_keys(year, cell):
+    """Group observations by year and 2° block, the scale managers plan at."""
+    if cell is None:
+        return year.astype(np.int64)
+    i, j = cell // GRID["ncols"], cell % GRID["ncols"]
+    return year.astype(np.int64) * 100000 + (i // 24) * 100 + (j // 24)
+
+
+def group_error(doy, pred_on, pred_pk, keys, null_on, null_pk, min_n=8):
+    """Mean |error| of onset (10th pct) and peak (median) per region-year group.
+
+    Returns (model error, calendar-model error, number of groups)."""
+    em, en = [], []
+    for g in np.unique(keys):
+        sel = keys == g
+        if sel.sum() < min_n:
+            continue
+        o_on, o_pk = np.quantile(doy[sel], Q["onset"]), np.median(doy[sel])
+        em.append((abs(o_on - np.median(pred_on[sel])) + abs(o_pk - np.median(pred_pk[sel]))) / 2)
+        en.append((abs(o_on - null_on) + abs(o_pk - null_pk)) / 2)
+    return (float(np.mean(em)) if em else np.nan, float(np.mean(en)) if en else np.nan, len(em))
+
+
+def candidates_for(stage, doy):
+    """Heat drivers for everything; day-length and chilling drivers too for
+    stages that peak after midsummer."""
+    late = stage == "Colored Leaves" or np.median(doy) > 182
+    return [k for k, c in enumerate(CANDIDATES) if c["family"] == "gdd" or (late and c["family"] in ("cold", "day"))]
+
+
+def fit_stage(curves, doy, year, stage, cell=None):
+    """Choose a driver, fit onset/peak/end thresholds and validate them.
+
+    Error is measured per region-year group (2° block x year): the observed
+    10th-percentile and median dates against the predicted onset and peak.
+    That is the signal a manager plans on, and it is not swamped by the
+    weeks-long spread of single records within a stage."""
+    cands = candidates_for(stage, doy)
     ok = ~np.isnan(curves[:, 0, cands[0]])
     curves, doy, year = curves[ok], doy[ok], year[ok]
+    cell = cell[ok] if cell is not None else None
+    keys = region_keys(year, cell)
     x_all = curves[np.arange(len(doy)), doy - 1]  # (n, n_candidates)
     train = year < TEST_START
     if (train.sum() < MIN_TRAIN or len(np.unique(year[train])) < 3) and len(doy) >= MIN_TRAIN + MIN_TEST \
@@ -159,38 +195,54 @@ def fit_stage(curves, doy, year, stage):
            "years": [int(year.min()), int(year.max())] if len(year) else None}
     if train.sum() < MIN_TRAIN or len(np.unique(year[train])) < 3:
         return {**res, "publish": False, "reason": "too few observations"}
+
+    def evaluate(k, fit_sel, eval_sel):
+        th = thresholds(x_all[fit_sel, k])
+        on = pred_doy(curves[eval_sel, :, k], th["onset"])
+        pk = pred_doy(curves[eval_sel, :, k], th["peak"])
+        nul_on, nul_pk = np.quantile(doy[fit_sel], Q["onset"]), np.median(doy[fit_sel])
+        g = group_error(doy[eval_sel], on, pk, keys[eval_sel], nul_on, nul_pk)
+        obs_mae = float(np.mean(np.abs(doy[eval_sel] - pk)))
+        return g, obs_mae, th
+
     # Driver choice: year-grouped CV on training years.
     tr_years = np.unique(year[train])
     folds = np.array_split(np.random.default_rng(0).permutation(tr_years), min(5, len(tr_years)))
-    cv = {}
+    cv, cv_null = {}, []
     for k in cands:
-        errs = []
+        gm, gn, om = [], [], []
         for f in folds:
             va = train & np.isin(year, f)
             fi = train & ~va
             if va.sum() == 0 or fi.sum() < 20:
                 continue
-            th = thresholds(x_all[fi, k])
-            errs.append(np.abs(doy[va] - pred_doy(curves[va, :, k], th["peak"])))
-        cv[CANDIDATES[k]["id"]] = float(np.mean(np.concatenate(errs))) if errs else np.inf
+            (m, n0, ng), o, _ = evaluate(k, fi, va)
+            om.append(o)
+            if ng:
+                gm.append(m)
+                gn.append(n0)
+        use_groups = len(gm) >= 2
+        cv[CANDIDATES[k]["id"]] = float(np.mean(gm)) if use_groups else (float(np.mean(om)) if om else np.inf)
+        if k == cands[0]:
+            cv_null = gn if use_groups else []
     best = min(cv, key=cv.get)
     k = next(i for i, c in enumerate(CANDIDATES) if c["id"] == best)
-    th_train = thresholds(x_all[train, k])
-    cv_null = []
-    for f in folds:
-        va = train & np.isin(year, f)
-        fi = train & ~va
-        if va.sum() and fi.sum() >= 20:
-            cv_null.append(np.abs(doy[va] - np.median(doy[fi])))
-    res.update({"driver": best, "cv_mae": cv, "cv_mae_null": float(np.mean(np.concatenate(cv_null)))})
+    res.update({"driver": best, "cv_error": cv, "cv_error_null": float(np.mean(cv_null)) if cv_null else None})
     if test.sum() >= MIN_TEST:
+        (gm, gn, ng), _, th_train = evaluate(k, train, test)
         res["test"] = score(curves[test, :, k], doy[test], th_train)
+        res["test"]["region_error"], res["test"]["regions"] = gm, ng
         res["test_null"] = null_score(doy[train], doy[test])
+        res["test_null"]["region_error"] = gn
         res["validated_by"] = f"held-out years {TEST_START}+"
-        skill = (res["test"]["mae"] <= SKILL * res["test_null"]["mae"]) and res["test"]["coverage"] >= MIN_COVERAGE
+        if ng >= 5:
+            skill = gm <= SKILL * gn
+        else:
+            skill = res["test"]["mae"] <= SKILL * res["test_null"]["mae"]
+        skill = skill and res["test"]["coverage"] >= MIN_COVERAGE
     else:
         res["validated_by"] = "year-grouped cross-validation (too few records for a held-out test)"
-        skill = cv[best] <= SKILL * res["cv_mae_null"]
+        skill = res["cv_error_null"] is not None and cv[best] <= SKILL * res["cv_error_null"]
     all_th = thresholds(x_all[:, k])
     res.update({"publish": bool(skill), "thresholds": all_th, "driver_model": CANDIDATES[k]["model"],
                 "driver_label": CANDIDATES[k]["label"],
@@ -212,12 +264,12 @@ def fit():
                                                      "reason": "no annotated observations"}
                 continue
             cur = curves_for(idx, obs)
-            r = fit_stage(cur, obs["doy"][idx], obs["year"][idx], st)
+            r = fit_stage(cur, obs["doy"][idx], obs["year"][idx], st, obs["cell"][idx])
             out.setdefault(sp["id"], {})[st] = r
             t = r.get("test", {})
             print(f"{sp['id']:>18} {st:<18} n={r['n_train']}+{r['n_test']} driver={r.get('driver')} "
-                  f"publish={r['publish']} mae={t.get('mae', r.get('cv_mae', {}).get(r.get('driver'), float('nan'))):.1f} "
-                  f"null={r.get('test_null', {}).get('mae', r.get('cv_mae_null', float('nan'))):.1f}", flush=True)
+                  f"publish={r['publish']} region_err={t.get('region_error')} "
+                  f"null={r.get('test_null', {}).get('region_error')} groups={t.get('regions')}", flush=True)
     with open(registry.FITTED, "w", encoding="utf-8") as f:
         json.dump(out, f, indent=1, default=float)
 
@@ -257,7 +309,7 @@ def validate():
         for st, r in fitted.get(sp["id"], {}).items():
             out.setdefault(sp["id"], {})[st] = {"kind": "fitted", **{k: r.get(k) for k in (
                 "n_train", "n_test", "driver", "driver_label", "publish", "reason", "test", "test_null",
-                "validated_by", "cv_mae_null", "years")}, "cv_mae": (r.get("cv_mae") or {}).get(r.get("driver"))}
+                "validated_by", "cv_error_null", "years")}, "cv_error": (r.get("cv_error") or {}).get(r.get("driver"))}
     path = os.path.join(HERE, "..", "site", "data", "validation.json")
     with open(path, "w", encoding="utf-8") as f:
         json.dump(out, f, indent=1, default=float)

@@ -69,7 +69,7 @@ reg, fitted = registry.load()
 ids = [s["id"] for s in reg["species"]]
 check(len(ids) == len(set(ids)), "species ids unique")
 for e in registry.all_events():
-    check(e["model"]["type"] in ("gdd", "cold", "precip", "photoperiod"), f"{e['key']}: driver type")
+    check(e["model"]["type"] in ("gdd", "cold", "precip", "photoperiod", "shortday"), f"{e['key']}: driver type")
     check(e["source"] in reg["sources"], f"{e['key']}: unknown source {e['source']}")
 
 # JS helpers.
