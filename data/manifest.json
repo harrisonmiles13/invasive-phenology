@@ -1,0 +1,2374 @@
+{
+ "years": {
+  "2023": {
+   "last_date": "2023-12-31",
+   "complete": true,
+   "final": true
+  },
+  "2024": {
+   "last_date": "2024-12-31",
+   "complete": true,
+   "final": true
+  },
+  "2025": {
+   "last_date": "2025-12-31",
+   "complete": true,
+   "final": true
+  }
+ },
+ "normal_period": [
+  1991,
+  2020
+ ],
+ "obs_counts": {
+  "slf": 30000,
+  "eab": 180,
+  "alb": 3,
+  "jb": 5419,
+  "lbam": 157,
+  "bmsb": 3464,
+  "buffelgrass": 35,
+  "spongy": 12743,
+  "btm": 546,
+  "esb": 199,
+  "hwa": 24,
+  "toh": 1949,
+  "garlic_mustard": 6462,
+  "knotweed": 921,
+  "multiflora_rose": 5592,
+  "jap_honeysuckle": 3074,
+  "amur_honeysuckle": 10254,
+  "barberry": 2713,
+  "autumn_olive": 3589,
+  "russian_olive": 484,
+  "loosestrife": 3864,
+  "kudzu": 209,
+  "callery_pear": 1171,
+  "stiltgrass": 130,
+  "spotted_knapweed": 1596,
+  "yellow_starthistle": 662,
+  "leafy_spurge": 186,
+  "cheatgrass": 288,
+  "canada_thistle": 2492,
+  "wild_parsnip": 935,
+  "bittersweet": 7632,
+  "buckthorn": 3014,
+  "glossy_buckthorn": 3682,
+  "norway_maple": 1501,
+  "johnsongrass": 202,
+  "giant_hogweed": 7,
+  "lesser_celandine": 9539,
+  "burning_bush": 1832,
+  "chinese_privet": 5266,
+  "english_ivy": 142,
+  "pepperweed": 326,
+  "scotch_broom": 1346,
+  "himalayan_blackberry": 0,
+  "chinese_tallow": 1948,
+  "cogongrass": 40,
+  "mile_a_minute": 795,
+  "teasel": 585,
+  "poison_hemlock": 4109,
+  "swallowwort": 391,
+  "yellow_flag": 1394,
+  "tamarisk": 135
+ },
+ "tiles": [
+  "0_0",
+  "0_1",
+  "0_2",
+  "0_3",
+  "0_4",
+  "0_5",
+  "0_6",
+  "0_7",
+  "0_8",
+  "0_9",
+  "0_10",
+  "0_11",
+  "0_12",
+  "0_13",
+  "0_14",
+  "0_20",
+  "0_21",
+  "1_0",
+  "1_1",
+  "1_2",
+  "1_3",
+  "1_4",
+  "1_5",
+  "1_6",
+  "1_7",
+  "1_8",
+  "1_9",
+  "1_10",
+  "1_11",
+  "1_12",
+  "1_13",
+  "1_14",
+  "1_15",
+  "1_18",
+  "1_19",
+  "1_20",
+  "1_21",
+  "2_0",
+  "2_1",
+  "2_2",
+  "2_3",
+  "2_4",
+  "2_5",
+  "2_6",
+  "2_7",
+  "2_8",
+  "2_9",
+  "2_10",
+  "2_11",
+  "2_12",
+  "2_13",
+  "2_14",
+  "2_15",
+  "2_16",
+  "2_17",
+  "2_18",
+  "2_19",
+  "2_20",
+  "2_21",
+  "3_0",
+  "3_1",
+  "3_2",
+  "3_3",
+  "3_4",
+  "3_5",
+  "3_6",
+  "3_7",
+  "3_8",
+  "3_9",
+  "3_10",
+  "3_11",
+  "3_12",
+  "3_13",
+  "3_14",
+  "3_15",
+  "3_16",
+  "3_17",
+  "3_18",
+  "3_19",
+  "3_20",
+  "4_0",
+  "4_1",
+  "4_2",
+  "4_3",
+  "4_4",
+  "4_5",
+  "4_6",
+  "4_7",
+  "4_8",
+  "4_9",
+  "4_10",
+  "4_11",
+  "4_12",
+  "4_13",
+  "4_14",
+  "4_15",
+  "4_16",
+  "4_17",
+  "4_18",
+  "5_1",
+  "5_2",
+  "5_3",
+  "5_4",
+  "5_5",
+  "5_6",
+  "5_7",
+  "5_8",
+  "5_9",
+  "5_10",
+  "5_11",
+  "5_12",
+  "5_13",
+  "5_14",
+  "5_15",
+  "5_16",
+  "5_17",
+  "5_18",
+  "6_1",
+  "6_2",
+  "6_3",
+  "6_4",
+  "6_5",
+  "6_6",
+  "6_7",
+  "6_8",
+  "6_9",
+  "6_10",
+  "6_11",
+  "6_12",
+  "6_13",
+  "6_14",
+  "6_15",
+  "6_16",
+  "6_17",
+  "7_7",
+  "7_8",
+  "7_9",
+  "7_10",
+  "7_11",
+  "7_12",
+  "7_13",
+  "7_14",
+  "7_15",
+  "7_16",
+  "8_9",
+  "8_10",
+  "8_15",
+  "8_16",
+  "9_16"
+ ],
+ "tile": 32,
+ "tile_events": [
+  "slf.hatch_first",
+  "slf.hatch",
+  "slf.mid_nymph",
+  "slf.adult",
+  "slf.ovip_first",
+  "slf.ovip_50",
+  "eab.adult_first",
+  "eab.adult",
+  "eab.ovip_first",
+  "eab.hatch",
+  "alb.adult_first",
+  "alb.adult",
+  "alb.flight25",
+  "jb.pupation",
+  "jb.adult_first",
+  "jb.adult",
+  "jb.ovip",
+  "lbam.adult_first",
+  "lbam.adult",
+  "lbam.ovip",
+  "bmsb.biofix",
+  "bmsb.ovip",
+  "bmsb.adult_g1",
+  "buffelgrass.greenup_possible",
+  "buffelgrass.greenup_likely",
+  "spongy.larva_onset",
+  "spongy.larva_peak",
+  "spongy.larva_end",
+  "spongy.adult_onset",
+  "spongy.adult_peak",
+  "spongy.adult_end",
+  "btm.adult_onset",
+  "btm.adult_peak",
+  "btm.adult_end",
+  "toh.fruiting_onset",
+  "toh.fruiting_peak",
+  "toh.fruiting_end",
+  "garlic_mustard.flowering_onset",
+  "garlic_mustard.flowering_peak",
+  "garlic_mustard.flowering_end",
+  "knotweed.flowering_onset",
+  "knotweed.flowering_peak",
+  "knotweed.flowering_end",
+  "multiflora_rose.flowering_onset",
+  "multiflora_rose.flowering_peak",
+  "multiflora_rose.flowering_end",
+  "jap_honeysuckle.flowering_onset",
+  "jap_honeysuckle.flowering_peak",
+  "jap_honeysuckle.flowering_end",
+  "amur_honeysuckle.breaking_leaf_buds_onset",
+  "amur_honeysuckle.breaking_leaf_buds_peak",
+  "amur_honeysuckle.breaking_leaf_buds_end",
+  "amur_honeysuckle.flowering_onset",
+  "amur_honeysuckle.flowering_peak",
+  "amur_honeysuckle.flowering_end",
+  "barberry.flowering_onset",
+  "barberry.flowering_peak",
+  "barberry.flowering_end",
+  "autumn_olive.flowering_onset",
+  "autumn_olive.flowering_peak",
+  "autumn_olive.flowering_end",
+  "callery_pear.flowering_onset",
+  "callery_pear.flowering_peak",
+  "callery_pear.flowering_end",
+  "leafy_spurge.flowering_onset",
+  "leafy_spurge.flowering_peak",
+  "leafy_spurge.flowering_end",
+  "buckthorn.flowering_onset",
+  "buckthorn.flowering_peak",
+  "buckthorn.flowering_end",
+  "glossy_buckthorn.fruiting_onset",
+  "glossy_buckthorn.fruiting_peak",
+  "glossy_buckthorn.fruiting_end",
+  "norway_maple.colored_leaves_onset",
+  "norway_maple.colored_leaves_peak",
+  "norway_maple.colored_leaves_end",
+  "lesser_celandine.flowering_onset",
+  "lesser_celandine.flowering_peak",
+  "lesser_celandine.flowering_end",
+  "burning_bush.colored_leaves_onset",
+  "burning_bush.colored_leaves_peak",
+  "burning_bush.colored_leaves_end",
+  "chinese_privet.flowering_onset",
+  "chinese_privet.flowering_peak",
+  "chinese_privet.flowering_end",
+  "scotch_broom.flowering_onset",
+  "scotch_broom.flowering_peak",
+  "scotch_broom.flowering_end",
+  "poison_hemlock.flowering_onset",
+  "poison_hemlock.flowering_peak",
+  "poison_hemlock.flowering_end",
+  "poison_hemlock.fruiting_onset",
+  "poison_hemlock.fruiting_peak",
+  "poison_hemlock.fruiting_end",
+  "yellow_flag.flowering_onset",
+  "yellow_flag.flowering_peak",
+  "yellow_flag.flowering_end"
+ ],
+ "tile_species": [
+  "slf",
+  "eab",
+  "alb",
+  "jb",
+  "lbam",
+  "bmsb",
+  "buffelgrass",
+  "spongy",
+  "btm",
+  "esb",
+  "hwa",
+  "toh",
+  "garlic_mustard",
+  "knotweed",
+  "multiflora_rose",
+  "jap_honeysuckle",
+  "amur_honeysuckle",
+  "barberry",
+  "autumn_olive",
+  "russian_olive",
+  "loosestrife",
+  "kudzu",
+  "callery_pear",
+  "stiltgrass",
+  "spotted_knapweed",
+  "yellow_starthistle",
+  "leafy_spurge",
+  "cheatgrass",
+  "canada_thistle",
+  "wild_parsnip",
+  "bittersweet",
+  "buckthorn",
+  "glossy_buckthorn",
+  "norway_maple",
+  "johnsongrass",
+  "giant_hogweed",
+  "lesser_celandine",
+  "burning_bush",
+  "chinese_privet",
+  "english_ivy",
+  "pepperweed",
+  "scotch_broom",
+  "himalayan_blackberry",
+  "chinese_tallow",
+  "cogongrass",
+  "mile_a_minute",
+  "teasel",
+  "poison_hemlock",
+  "swallowwort",
+  "yellow_flag",
+  "tamarisk"
+ ],
+ "current": {
+  "year": 2026,
+  "today": "2026-10-24",
+  "today_doy": 297,
+  "obs_through": "2026-10-21",
+  "forecast_through_doy": 307,
+  "nbm_cycle": "2026-10-24"
+ },
+ "grid": {
+  "nrows": 298,
+  "ncols": 692,
+  "north": 49.375003814697266,
+  "west": -124.70834350585938,
+  "dlat": 0.08333587646484375,
+  "dlon": 0.083343505859375
+ },
+ "built": "2026-10-24T16:55Z",
+ "sources": {
+  "ddrp": {
+   "cite": "DDRP species parameter files (Barker & Coop, Oregon State University), github.com/bbarker505/ddrp_v3",
+   "url": "https://github.com/bbarker505/ddrp_v3",
+   "note": "First = earliest overwintering cohort (xdist1); typical = mean cohort (distro_mean); later stages add the published stage durations."
+  },
+  "usu_bmsb": {
+   "cite": "Utah State University Extension, Brown marmorated stink bug fact sheet (13.5 h day-length biofix, base 57.2 °F); Nielsen et al. 2008 Environ. Entomol. (538 DD egg to adult)",
+   "url": "https://digitalcommons.usu.edu/cgi/viewcontent.cgi?article=2906&context=extension_curall"
+  },
+  "npn_buffelgrass": {
+   "cite": "USA-NPN Buffelgrass Pheno Forecast (Gerst et al. 2021, Ecol. Solutions & Evidence; thresholds from Wallace et al. 2016)",
+   "url": "https://besjournals.onlinelibrary.wiley.com/doi/full/10.1002/2688-8319.12109"
+  },
+  "inat_fit": {
+   "cite": "Fitted in this project from research-grade iNaturalist observations with phenology annotations (CC0 / CC BY / CC BY-NC)",
+   "url": "https://www.inaturalist.org"
+  },
+  "ddrp_slf": {
+   "cite": "Barker, Beyer & Coop 2025, Real-time integrative mapping of the phenology and climatic suitability for the spotted lanternfly, Insects 16:790 (DDRP SLF parameter file)",
+   "url": "https://doi.org/10.3390/insects16080790",
+   "note": "First = earliest overwintering cohort (xdist1); typical = mean cohort (distro_mean); later stages add the published stage durations."
+  }
+ },
+ "drivers": [
+  {
+   "id": "agdd50",
+   "label": "Degree-days, base 50 °F (10 °C)",
+   "model": {
+    "type": "gdd",
+    "base": 10,
+    "method": "average",
+    "start": "01-01"
+   }
+  },
+  {
+   "id": "agdd32",
+   "label": "Degree-days, base 32 °F (0 °C)",
+   "model": {
+    "type": "gdd",
+    "base": 0,
+    "method": "average",
+    "start": "01-01"
+   }
+  }
+ ],
+ "species": [
+  {
+   "id": "slf",
+   "common": "Spotted lanternfly",
+   "scientific": "Lycorma delicatula",
+   "group": "insect",
+   "regions": null,
+   "inat_name": "Lycorma delicatula",
+   "has_range": true,
+   "events": [
+    {
+     "id": "hatch_first",
+     "label": "First egg hatch",
+     "phase": "emergence",
+     "stage": null,
+     "quantile": null,
+     "source": "ddrp_slf",
+     "note": null,
+     "model": {
+      "type": "gdd",
+      "base": 10,
+      "upper": 35,
+      "method": "triangle",
+      "start": "01-01",
+      "threshold": 135
+     }
+    },
+    {
+     "id": "hatch",
+     "label": "Egg hatch",
+     "phase": "emergence",
+     "stage": null,
+     "quantile": null,
+     "source": "ddrp_slf",
+     "note": null,
+     "model": {
+      "type": "gdd",
+      "base": 10,
+      "upper": 35,
+      "method": "triangle",
+      "start": "01-01",
+      "threshold": 202
+     }
+    },
+    {
+     "id": "mid_nymph",
+     "label": "Nymphs halfway developed",
+     "phase": "development",
+     "stage": null,
+     "quantile": null,
+     "source": "ddrp_slf",
+     "note": null,
+     "model": {
+      "type": "gdd",
+      "base": 10,
+      "upper": 35,
+      "method": "triangle",
+      "start": "01-01",
+      "threshold": 644
+     }
+    },
+    {
+     "id": "adult",
+     "label": "First adults",
+     "phase": "emergence",
+     "stage": null,
+     "quantile": null,
+     "source": "ddrp_slf",
+     "note": null,
+     "model": {
+      "type": "gdd",
+      "base": 10,
+      "upper": 35,
+      "method": "triangle",
+      "start": "01-01",
+      "threshold": 1092
+     }
+    },
+    {
+     "id": "ovip_first",
+     "label": "First egg laying",
+     "phase": "reproduction",
+     "stage": null,
+     "quantile": null,
+     "source": "ddrp_slf",
+     "note": null,
+     "model": {
+      "type": "gdd",
+      "base": 10,
+      "upper": 35,
+      "method": "triangle",
+      "start": "01-01",
+      "threshold": 1722
+     }
+    },
+    {
+     "id": "ovip_50",
+     "label": "50% egg laying",
+     "phase": "reproduction",
+     "stage": null,
+     "quantile": null,
+     "source": "ddrp_slf",
+     "note": null,
+     "model": {
+      "type": "gdd",
+      "base": 10,
+      "upper": 35,
+      "method": "triangle",
+      "start": "01-01",
+      "threshold": 1868
+     }
+    }
+   ]
+  },
+  {
+   "id": "eab",
+   "common": "Emerald ash borer",
+   "scientific": "Agrilus planipennis",
+   "group": "insect",
+   "regions": null,
+   "inat_name": "Agrilus planipennis",
+   "has_range": true,
+   "events": [
+    {
+     "id": "adult_first",
+     "label": "First adult emergence",
+     "phase": "emergence",
+     "stage": null,
+     "quantile": null,
+     "source": "ddrp",
+     "note": null,
+     "model": {
+      "type": "gdd",
+      "base": 12.2,
+      "upper": 36,
+      "method": "triangle",
+      "start": "01-01",
+      "threshold": 195
+     }
+    },
+    {
+     "id": "adult",
+     "label": "Adult emergence (typical)",
+     "phase": "emergence",
+     "stage": null,
+     "quantile": null,
+     "source": "ddrp",
+     "note": null,
+     "model": {
+      "type": "gdd",
+      "base": 12.2,
+      "upper": 36,
+      "method": "triangle",
+      "start": "01-01",
+      "threshold": 335
+     }
+    },
+    {
+     "id": "ovip_first",
+     "label": "First egg laying",
+     "phase": "reproduction",
+     "stage": null,
+     "quantile": null,
+     "source": "ddrp",
+     "note": null,
+     "model": {
+      "type": "gdd",
+      "base": 12.2,
+      "upper": 36,
+      "method": "triangle",
+      "start": "01-01",
+      "threshold": 267
+     }
+    },
+    {
+     "id": "hatch",
+     "label": "Egg hatch (typical)",
+     "phase": "emergence",
+     "stage": null,
+     "quantile": null,
+     "source": "ddrp",
+     "note": null,
+     "model": {
+      "type": "gdd",
+      "base": 12.2,
+      "upper": 36,
+      "method": "triangle",
+      "start": "01-01",
+      "threshold": 579
+     }
+    }
+   ]
+  },
+  {
+   "id": "alb",
+   "common": "Asian longhorned beetle",
+   "scientific": "Anoplophora glabripennis",
+   "group": "insect",
+   "regions": null,
+   "inat_name": "Anoplophora glabripennis",
+   "has_range": true,
+   "events": [
+    {
+     "id": "adult_first",
+     "label": "First adult emergence",
+     "phase": "emergence",
+     "stage": null,
+     "quantile": null,
+     "source": "ddrp",
+     "note": null,
+     "model": {
+      "type": "gdd",
+      "base": 10,
+      "upper": 35,
+      "method": "average",
+      "start": "01-01",
+      "threshold": 285
+     }
+    },
+    {
+     "id": "adult",
+     "label": "Adult emergence (typical)",
+     "phase": "emergence",
+     "stage": null,
+     "quantile": null,
+     "source": "ddrp",
+     "note": null,
+     "model": {
+      "type": "gdd",
+      "base": 10,
+      "upper": 35,
+      "method": "average",
+      "start": "01-01",
+      "threshold": 505
+     }
+    },
+    {
+     "id": "flight25",
+     "label": "25% adult flight",
+     "phase": "reproduction",
+     "stage": null,
+     "quantile": null,
+     "source": "ddrp",
+     "note": null,
+     "model": {
+      "type": "gdd",
+      "base": 10,
+      "upper": 35,
+      "method": "average",
+      "start": "01-01",
+      "threshold": 715
+     }
+    }
+   ]
+  },
+  {
+   "id": "jb",
+   "common": "Japanese beetle",
+   "scientific": "Popillia japonica",
+   "group": "insect",
+   "regions": null,
+   "inat_name": "Popillia japonica",
+   "has_range": true,
+   "events": [
+    {
+     "id": "pupation",
+     "label": "Spring pupation (typical)",
+     "phase": "development",
+     "stage": null,
+     "quantile": null,
+     "source": "ddrp",
+     "note": null,
+     "model": {
+      "type": "gdd",
+      "base": 10,
+      "upper": 33.3,
+      "method": "triangle",
+      "start": "01-01",
+      "threshold": 535
+     }
+    },
+    {
+     "id": "adult_first",
+     "label": "First adults",
+     "phase": "emergence",
+     "stage": null,
+     "quantile": null,
+     "source": "ddrp",
+     "note": null,
+     "model": {
+      "type": "gdd",
+      "base": 10,
+      "upper": 33.3,
+      "method": "triangle",
+      "start": "01-01",
+      "threshold": 485
+     }
+    },
+    {
+     "id": "adult",
+     "label": "Adult emergence (typical)",
+     "phase": "emergence",
+     "stage": null,
+     "quantile": null,
+     "source": "ddrp",
+     "note": null,
+     "model": {
+      "type": "gdd",
+      "base": 10,
+      "upper": 33.3,
+      "method": "triangle",
+      "start": "01-01",
+      "threshold": 685
+     }
+    },
+    {
+     "id": "ovip",
+     "label": "Egg laying (typical)",
+     "phase": "reproduction",
+     "stage": null,
+     "quantile": null,
+     "source": "ddrp",
+     "note": null,
+     "model": {
+      "type": "gdd",
+      "base": 10,
+      "upper": 33.3,
+      "method": "triangle",
+      "start": "01-01",
+      "threshold": 817
+     }
+    }
+   ]
+  },
+  {
+   "id": "lbam",
+   "common": "Light brown apple moth",
+   "scientific": "Epiphyas postvittana",
+   "group": "insect",
+   "regions": "California; later generations not modeled",
+   "inat_name": "Epiphyas postvittana",
+   "has_range": true,
+   "events": [
+    {
+     "id": "adult_first",
+     "label": "First spring flight",
+     "phase": "emergence",
+     "stage": null,
+     "quantile": null,
+     "source": "ddrp",
+     "note": null,
+     "model": {
+      "type": "gdd",
+      "base": 7.2,
+      "upper": 31.1,
+      "method": "triangle",
+      "start": "01-01",
+      "threshold": 228
+     }
+    },
+    {
+     "id": "adult",
+     "label": "Spring flight (typical)",
+     "phase": "emergence",
+     "stage": null,
+     "quantile": null,
+     "source": "ddrp",
+     "note": null,
+     "model": {
+      "type": "gdd",
+      "base": 7.2,
+      "upper": 31.1,
+      "method": "triangle",
+      "start": "01-01",
+      "threshold": 338
+     }
+    },
+    {
+     "id": "ovip",
+     "label": "First-generation egg laying",
+     "phase": "reproduction",
+     "stage": null,
+     "quantile": null,
+     "source": "ddrp",
+     "note": null,
+     "model": {
+      "type": "gdd",
+      "base": 7.2,
+      "upper": 31.1,
+      "method": "triangle",
+      "start": "01-01",
+      "threshold": 360
+     }
+    }
+   ]
+  },
+  {
+   "id": "bmsb",
+   "common": "Brown marmorated stink bug",
+   "scientific": "Halyomorpha halys",
+   "group": "insect",
+   "regions": null,
+   "inat_name": "Halyomorpha halys",
+   "has_range": true,
+   "events": [
+    {
+     "id": "biofix",
+     "label": "Day length reaches 13.5 h",
+     "phase": "cue",
+     "stage": null,
+     "quantile": null,
+     "source": "usu_bmsb",
+     "note": null,
+     "model": {
+      "type": "photoperiod",
+      "hours": 13.5,
+      "direction": "increasing"
+     }
+    },
+    {
+     "id": "ovip",
+     "label": "Egg laying begins",
+     "phase": "reproduction",
+     "stage": null,
+     "quantile": null,
+     "source": "usu_bmsb",
+     "note": "170 °F·days (base 57.2 °F) after the 13.5 h day-length biofix",
+     "model": {
+      "type": "gdd",
+      "base": 14,
+      "upper": null,
+      "method": "triangle",
+      "start": {
+       "daylength": 13.5
+      },
+      "threshold": 94.4
+     }
+    },
+    {
+     "id": "adult_g1",
+     "label": "First-generation adults",
+     "phase": "emergence",
+     "stage": null,
+     "quantile": null,
+     "source": "usu_bmsb",
+     "note": "1,134 °F·days after the biofix",
+     "model": {
+      "type": "gdd",
+      "base": 14,
+      "upper": null,
+      "method": "triangle",
+      "start": {
+       "daylength": 13.5
+      },
+      "threshold": 630
+     }
+    }
+   ]
+  },
+  {
+   "id": "buffelgrass",
+   "common": "Buffelgrass",
+   "scientific": "Cenchrus ciliaris",
+   "group": "plant",
+   "regions": "Southwest; only the June–October rain season is modeled",
+   "inat_name": "Cenchrus ciliaris",
+   "has_range": true,
+   "events": [
+    {
+     "id": "greenup_possible",
+     "label": "Summer green-up possible",
+     "phase": "emergence",
+     "stage": null,
+     "quantile": null,
+     "source": "npn_buffelgrass",
+     "note": "≥ 1 in. of rain in 24 days: 50% greenness may follow in 1–2 weeks",
+     "model": {
+      "type": "precip",
+      "window": 24,
+      "mm": 25.4,
+      "start": "06-01",
+      "end": "10-31"
+     }
+    },
+    {
+     "id": "greenup_likely",
+     "label": "Summer green-up likely (treatable)",
+     "phase": "emergence",
+     "stage": null,
+     "quantile": null,
+     "source": "npn_buffelgrass",
+     "note": "≥ 1.7 in. in 24 days: >50% greenness likely; glyphosate works best on green plants",
+     "model": {
+      "type": "precip",
+      "window": 24,
+      "mm": 43.2,
+      "start": "06-01",
+      "end": "10-31"
+     }
+    }
+   ]
+  },
+  {
+   "id": "spongy",
+   "common": "Spongy moth",
+   "scientific": "Lymantria dispar",
+   "group": "insect",
+   "regions": null,
+   "inat_name": "Lymantria dispar",
+   "has_range": true,
+   "events": [
+    {
+     "id": "larva_onset",
+     "label": "Larva begins",
+     "phase": "development",
+     "stage": "Larva",
+     "quantile": "onset",
+     "source": "inat_fit",
+     "note": null,
+     "model": {
+      "type": "gdd",
+      "base": 5,
+      "upper": 35,
+      "method": "triangle",
+      "start": "01-01",
+      "threshold": 405.51
+     }
+    },
+    {
+     "id": "larva_peak",
+     "label": "Larva peaks",
+     "phase": "development",
+     "stage": "Larva",
+     "quantile": "peak",
+     "source": "inat_fit",
+     "note": null,
+     "model": {
+      "type": "gdd",
+      "base": 5,
+      "upper": 35,
+      "method": "triangle",
+      "start": "01-01",
+      "threshold": 696.92
+     }
+    },
+    {
+     "id": "larva_end",
+     "label": "Larva ends",
+     "phase": "development",
+     "stage": "Larva",
+     "quantile": "end",
+     "source": "inat_fit",
+     "note": null,
+     "model": {
+      "type": "gdd",
+      "base": 5,
+      "upper": 35,
+      "method": "triangle",
+      "start": "01-01",
+      "threshold": 1011.44
+     }
+    },
+    {
+     "id": "adult_onset",
+     "label": "Adult begins",
+     "phase": "emergence",
+     "stage": "Adult",
+     "quantile": "onset",
+     "source": "inat_fit",
+     "note": null,
+     "model": {
+      "type": "gdd",
+      "base": 5,
+      "upper": 35,
+      "method": "triangle",
+      "start": "01-01",
+      "threshold": 1019.21
+     }
+    },
+    {
+     "id": "adult_peak",
+     "label": "Adult peaks",
+     "phase": "emergence",
+     "stage": "Adult",
+     "quantile": "peak",
+     "source": "inat_fit",
+     "note": null,
+     "model": {
+      "type": "gdd",
+      "base": 5,
+      "upper": 35,
+      "method": "triangle",
+      "start": "01-01",
+      "threshold": 1274.76
+     }
+    },
+    {
+     "id": "adult_end",
+     "label": "Adult ends",
+     "phase": "emergence",
+     "stage": "Adult",
+     "quantile": "end",
+     "source": "inat_fit",
+     "note": null,
+     "model": {
+      "type": "gdd",
+      "base": 5,
+      "upper": 35,
+      "method": "triangle",
+      "start": "01-01",
+      "threshold": 1543.3
+     }
+    }
+   ]
+  },
+  {
+   "id": "btm",
+   "common": "Box tree moth",
+   "scientific": "Cydalima perspectalis",
+   "group": "insect",
+   "regions": null,
+   "inat_name": "Cydalima perspectalis",
+   "has_range": true,
+   "events": [
+    {
+     "id": "adult_onset",
+     "label": "Adult begins",
+     "phase": "emergence",
+     "stage": "Adult",
+     "quantile": "onset",
+     "source": "inat_fit",
+     "note": null,
+     "model": {
+      "type": "shortday",
+      "threshold": 0.8
+     }
+    },
+    {
+     "id": "adult_peak",
+     "label": "Adult peaks",
+     "phase": "emergence",
+     "stage": "Adult",
+     "quantile": "peak",
+     "source": "inat_fit",
+     "note": null,
+     "model": {
+      "type": "shortday",
+      "threshold": 2.05
+     }
+    },
+    {
+     "id": "adult_end",
+     "label": "Adult ends",
+     "phase": "emergence",
+     "stage": "Adult",
+     "quantile": "end",
+     "source": "inat_fit",
+     "note": null,
+     "model": {
+      "type": "shortday",
+      "threshold": 3.69
+     }
+    }
+   ]
+  },
+  {
+   "id": "toh",
+   "common": "Tree of heaven",
+   "scientific": "Ailanthus altissima",
+   "group": "plant",
+   "regions": null,
+   "inat_name": "Ailanthus altissima",
+   "has_range": true,
+   "events": [
+    {
+     "id": "fruiting_onset",
+     "label": "Fruiting begins",
+     "phase": "reproduction",
+     "stage": "Fruiting",
+     "quantile": "onset",
+     "source": "inat_fit",
+     "note": null,
+     "model": {
+      "type": "gdd",
+      "base": 5,
+      "upper": 35,
+      "method": "triangle",
+      "start": "01-01",
+      "threshold": 1261.09
+     }
+    },
+    {
+     "id": "fruiting_peak",
+     "label": "Fruiting peaks",
+     "phase": "reproduction",
+     "stage": "Fruiting",
+     "quantile": "peak",
+     "source": "inat_fit",
+     "note": null,
+     "model": {
+      "type": "gdd",
+      "base": 5,
+      "upper": 35,
+      "method": "triangle",
+      "start": "01-01",
+      "threshold": 1958.32
+     }
+    },
+    {
+     "id": "fruiting_end",
+     "label": "Fruiting ends",
+     "phase": "reproduction",
+     "stage": "Fruiting",
+     "quantile": "end",
+     "source": "inat_fit",
+     "note": null,
+     "model": {
+      "type": "gdd",
+      "base": 5,
+      "upper": 35,
+      "method": "triangle",
+      "start": "01-01",
+      "threshold": 3172.37
+     }
+    }
+   ]
+  },
+  {
+   "id": "garlic_mustard",
+   "common": "Garlic mustard",
+   "scientific": "Alliaria petiolata",
+   "group": "plant",
+   "regions": null,
+   "inat_name": "Alliaria petiolata",
+   "has_range": true,
+   "events": [
+    {
+     "id": "flowering_onset",
+     "label": "Flowering begins",
+     "phase": "reproduction",
+     "stage": "Flowering",
+     "quantile": "onset",
+     "source": "inat_fit",
+     "note": null,
+     "model": {
+      "type": "gdd",
+      "base": 5,
+      "upper": 35,
+      "method": "triangle",
+      "start": "01-01",
+      "threshold": 209.31
+     }
+    },
+    {
+     "id": "flowering_peak",
+     "label": "Flowering peaks",
+     "phase": "reproduction",
+     "stage": "Flowering",
+     "quantile": "peak",
+     "source": "inat_fit",
+     "note": null,
+     "model": {
+      "type": "gdd",
+      "base": 5,
+      "upper": 35,
+      "method": "triangle",
+      "start": "01-01",
+      "threshold": 316.02
+     }
+    },
+    {
+     "id": "flowering_end",
+     "label": "Flowering ends",
+     "phase": "reproduction",
+     "stage": "Flowering",
+     "quantile": "end",
+     "source": "inat_fit",
+     "note": null,
+     "model": {
+      "type": "gdd",
+      "base": 5,
+      "upper": 35,
+      "method": "triangle",
+      "start": "01-01",
+      "threshold": 475.88
+     }
+    }
+   ]
+  },
+  {
+   "id": "knotweed",
+   "common": "Japanese knotweed",
+   "scientific": "Reynoutria japonica",
+   "group": "plant",
+   "regions": null,
+   "inat_name": "Reynoutria japonica",
+   "has_range": true,
+   "events": [
+    {
+     "id": "flowering_onset",
+     "label": "Flowering begins",
+     "phase": "reproduction",
+     "stage": "Flowering",
+     "quantile": "onset",
+     "source": "inat_fit",
+     "note": null,
+     "model": {
+      "type": "shortday",
+      "threshold": 2.27
+     }
+    },
+    {
+     "id": "flowering_peak",
+     "label": "Flowering peaks",
+     "phase": "reproduction",
+     "stage": "Flowering",
+     "quantile": "peak",
+     "source": "inat_fit",
+     "note": null,
+     "model": {
+      "type": "shortday",
+      "threshold": 3.01
+     }
+    },
+    {
+     "id": "flowering_end",
+     "label": "Flowering ends",
+     "phase": "reproduction",
+     "stage": "Flowering",
+     "quantile": "end",
+     "source": "inat_fit",
+     "note": null,
+     "model": {
+      "type": "shortday",
+      "threshold": 4.15
+     }
+    }
+   ]
+  },
+  {
+   "id": "multiflora_rose",
+   "common": "Multiflora rose",
+   "scientific": "Rosa multiflora",
+   "group": "plant",
+   "regions": null,
+   "inat_name": "Rosa multiflora",
+   "has_range": true,
+   "events": [
+    {
+     "id": "flowering_onset",
+     "label": "Flowering begins",
+     "phase": "reproduction",
+     "stage": "Flowering",
+     "quantile": "onset",
+     "source": "inat_fit",
+     "note": null,
+     "model": {
+      "type": "gdd",
+      "base": 5,
+      "upper": 35,
+      "method": "triangle",
+      "start": "01-01",
+      "threshold": 555.81
+     }
+    },
+    {
+     "id": "flowering_peak",
+     "label": "Flowering peaks",
+     "phase": "reproduction",
+     "stage": "Flowering",
+     "quantile": "peak",
+     "source": "inat_fit",
+     "note": null,
+     "model": {
+      "type": "gdd",
+      "base": 5,
+      "upper": 35,
+      "method": "triangle",
+      "start": "01-01",
+      "threshold": 653.82
+     }
+    },
+    {
+     "id": "flowering_end",
+     "label": "Flowering ends",
+     "phase": "reproduction",
+     "stage": "Flowering",
+     "quantile": "end",
+     "source": "inat_fit",
+     "note": null,
+     "model": {
+      "type": "gdd",
+      "base": 5,
+      "upper": 35,
+      "method": "triangle",
+      "start": "01-01",
+      "threshold": 773.77
+     }
+    }
+   ]
+  },
+  {
+   "id": "jap_honeysuckle",
+   "common": "Japanese honeysuckle",
+   "scientific": "Lonicera japonica",
+   "group": "plant",
+   "regions": null,
+   "inat_name": "Lonicera japonica",
+   "has_range": true,
+   "events": [
+    {
+     "id": "flowering_onset",
+     "label": "Flowering begins",
+     "phase": "reproduction",
+     "stage": "Flowering",
+     "quantile": "onset",
+     "source": "inat_fit",
+     "note": null,
+     "model": {
+      "type": "gdd",
+      "base": 0,
+      "upper": 35,
+      "method": "triangle",
+      "start": "01-01",
+      "threshold": 1216.52
+     }
+    },
+    {
+     "id": "flowering_peak",
+     "label": "Flowering peaks",
+     "phase": "reproduction",
+     "stage": "Flowering",
+     "quantile": "peak",
+     "source": "inat_fit",
+     "note": null,
+     "model": {
+      "type": "gdd",
+      "base": 0,
+      "upper": 35,
+      "method": "triangle",
+      "start": "01-01",
+      "threshold": 1559.87
+     }
+    },
+    {
+     "id": "flowering_end",
+     "label": "Flowering ends",
+     "phase": "reproduction",
+     "stage": "Flowering",
+     "quantile": "end",
+     "source": "inat_fit",
+     "note": null,
+     "model": {
+      "type": "gdd",
+      "base": 0,
+      "upper": 35,
+      "method": "triangle",
+      "start": "01-01",
+      "threshold": 4220.55
+     }
+    }
+   ]
+  },
+  {
+   "id": "amur_honeysuckle",
+   "common": "Amur honeysuckle",
+   "scientific": "Lonicera maackii",
+   "group": "plant",
+   "regions": null,
+   "inat_name": "Lonicera maackii",
+   "has_range": true,
+   "events": [
+    {
+     "id": "breaking_leaf_buds_onset",
+     "label": "Breaking Leaf Buds begins",
+     "phase": "emergence",
+     "stage": "Breaking Leaf Buds",
+     "quantile": "onset",
+     "source": "inat_fit",
+     "note": null,
+     "model": {
+      "type": "gdd",
+      "base": 0,
+      "upper": 35,
+      "method": "triangle",
+      "start": "01-01",
+      "threshold": 234.88
+     }
+    },
+    {
+     "id": "breaking_leaf_buds_peak",
+     "label": "Breaking Leaf Buds peaks",
+     "phase": "emergence",
+     "stage": "Breaking Leaf Buds",
+     "quantile": "peak",
+     "source": "inat_fit",
+     "note": null,
+     "model": {
+      "type": "gdd",
+      "base": 0,
+      "upper": 35,
+      "method": "triangle",
+      "start": "01-01",
+      "threshold": 377.11
+     }
+    },
+    {
+     "id": "breaking_leaf_buds_end",
+     "label": "Breaking Leaf Buds ends",
+     "phase": "emergence",
+     "stage": "Breaking Leaf Buds",
+     "quantile": "end",
+     "source": "inat_fit",
+     "note": null,
+     "model": {
+      "type": "gdd",
+      "base": 0,
+      "upper": 35,
+      "method": "triangle",
+      "start": "01-01",
+      "threshold": 725.95
+     }
+    },
+    {
+     "id": "flowering_onset",
+     "label": "Flowering begins",
+     "phase": "reproduction",
+     "stage": "Flowering",
+     "quantile": "onset",
+     "source": "inat_fit",
+     "note": null,
+     "model": {
+      "type": "gdd",
+      "base": 5,
+      "upper": 35,
+      "method": "triangle",
+      "start": "01-01",
+      "threshold": 432.67
+     }
+    },
+    {
+     "id": "flowering_peak",
+     "label": "Flowering peaks",
+     "phase": "reproduction",
+     "stage": "Flowering",
+     "quantile": "peak",
+     "source": "inat_fit",
+     "note": null,
+     "model": {
+      "type": "gdd",
+      "base": 5,
+      "upper": 35,
+      "method": "triangle",
+      "start": "01-01",
+      "threshold": 525.88
+     }
+    },
+    {
+     "id": "flowering_end",
+     "label": "Flowering ends",
+     "phase": "reproduction",
+     "stage": "Flowering",
+     "quantile": "end",
+     "source": "inat_fit",
+     "note": null,
+     "model": {
+      "type": "gdd",
+      "base": 5,
+      "upper": 35,
+      "method": "triangle",
+      "start": "01-01",
+      "threshold": 1558.87
+     }
+    }
+   ]
+  },
+  {
+   "id": "barberry",
+   "common": "Japanese barberry",
+   "scientific": "Berberis thunbergii",
+   "group": "plant",
+   "regions": null,
+   "inat_name": "Berberis thunbergii",
+   "has_range": true,
+   "events": [
+    {
+     "id": "flowering_onset",
+     "label": "Flowering begins",
+     "phase": "reproduction",
+     "stage": "Flowering",
+     "quantile": "onset",
+     "source": "inat_fit",
+     "note": null,
+     "model": {
+      "type": "gdd",
+      "base": 5,
+      "upper": 35,
+      "method": "triangle",
+      "start": "01-01",
+      "threshold": 213.19
+     }
+    },
+    {
+     "id": "flowering_peak",
+     "label": "Flowering peaks",
+     "phase": "reproduction",
+     "stage": "Flowering",
+     "quantile": "peak",
+     "source": "inat_fit",
+     "note": null,
+     "model": {
+      "type": "gdd",
+      "base": 5,
+      "upper": 35,
+      "method": "triangle",
+      "start": "01-01",
+      "threshold": 275.14
+     }
+    },
+    {
+     "id": "flowering_end",
+     "label": "Flowering ends",
+     "phase": "reproduction",
+     "stage": "Flowering",
+     "quantile": "end",
+     "source": "inat_fit",
+     "note": null,
+     "model": {
+      "type": "gdd",
+      "base": 5,
+      "upper": 35,
+      "method": "triangle",
+      "start": "01-01",
+      "threshold": 355.6
+     }
+    }
+   ]
+  },
+  {
+   "id": "autumn_olive",
+   "common": "Autumn olive",
+   "scientific": "Elaeagnus umbellata",
+   "group": "plant",
+   "regions": null,
+   "inat_name": "Elaeagnus umbellata",
+   "has_range": true,
+   "events": [
+    {
+     "id": "flowering_onset",
+     "label": "Flowering begins",
+     "phase": "reproduction",
+     "stage": "Flowering",
+     "quantile": "onset",
+     "source": "inat_fit",
+     "note": null,
+     "model": {
+      "type": "gdd",
+      "base": 5,
+      "upper": 35,
+      "method": "triangle",
+      "start": "01-01",
+      "threshold": 312.92
+     }
+    },
+    {
+     "id": "flowering_peak",
+     "label": "Flowering peaks",
+     "phase": "reproduction",
+     "stage": "Flowering",
+     "quantile": "peak",
+     "source": "inat_fit",
+     "note": null,
+     "model": {
+      "type": "gdd",
+      "base": 5,
+      "upper": 35,
+      "method": "triangle",
+      "start": "01-01",
+      "threshold": 390.01
+     }
+    },
+    {
+     "id": "flowering_end",
+     "label": "Flowering ends",
+     "phase": "reproduction",
+     "stage": "Flowering",
+     "quantile": "end",
+     "source": "inat_fit",
+     "note": null,
+     "model": {
+      "type": "gdd",
+      "base": 5,
+      "upper": 35,
+      "method": "triangle",
+      "start": "01-01",
+      "threshold": 507.72
+     }
+    }
+   ]
+  },
+  {
+   "id": "callery_pear",
+   "common": "Callery pear",
+   "scientific": "Pyrus calleryana",
+   "group": "plant",
+   "regions": null,
+   "inat_name": "Pyrus calleryana",
+   "has_range": true,
+   "events": [
+    {
+     "id": "flowering_onset",
+     "label": "Flowering begins",
+     "phase": "reproduction",
+     "stage": "Flowering",
+     "quantile": "onset",
+     "source": "inat_fit",
+     "note": null,
+     "model": {
+      "type": "gdd",
+      "base": 5,
+      "upper": 35,
+      "method": "triangle",
+      "start": "01-01",
+      "threshold": 164.85
+     }
+    },
+    {
+     "id": "flowering_peak",
+     "label": "Flowering peaks",
+     "phase": "reproduction",
+     "stage": "Flowering",
+     "quantile": "peak",
+     "source": "inat_fit",
+     "note": null,
+     "model": {
+      "type": "gdd",
+      "base": 5,
+      "upper": 35,
+      "method": "triangle",
+      "start": "01-01",
+      "threshold": 229.23
+     }
+    },
+    {
+     "id": "flowering_end",
+     "label": "Flowering ends",
+     "phase": "reproduction",
+     "stage": "Flowering",
+     "quantile": "end",
+     "source": "inat_fit",
+     "note": null,
+     "model": {
+      "type": "gdd",
+      "base": 5,
+      "upper": 35,
+      "method": "triangle",
+      "start": "01-01",
+      "threshold": 415.37
+     }
+    }
+   ]
+  },
+  {
+   "id": "leafy_spurge",
+   "common": "Leafy spurge",
+   "scientific": "Euphorbia virgata",
+   "group": "plant",
+   "regions": null,
+   "inat_name": "Euphorbia virgata",
+   "has_range": true,
+   "events": [
+    {
+     "id": "flowering_onset",
+     "label": "Flowering begins",
+     "phase": "reproduction",
+     "stage": "Flowering",
+     "quantile": "onset",
+     "source": "inat_fit",
+     "note": null,
+     "model": {
+      "type": "gdd",
+      "base": 0,
+      "upper": 35,
+      "method": "triangle",
+      "start": "01-01",
+      "threshold": 621.22
+     }
+    },
+    {
+     "id": "flowering_peak",
+     "label": "Flowering peaks",
+     "phase": "reproduction",
+     "stage": "Flowering",
+     "quantile": "peak",
+     "source": "inat_fit",
+     "note": null,
+     "model": {
+      "type": "gdd",
+      "base": 0,
+      "upper": 35,
+      "method": "triangle",
+      "start": "01-01",
+      "threshold": 990.96
+     }
+    },
+    {
+     "id": "flowering_end",
+     "label": "Flowering ends",
+     "phase": "reproduction",
+     "stage": "Flowering",
+     "quantile": "end",
+     "source": "inat_fit",
+     "note": null,
+     "model": {
+      "type": "gdd",
+      "base": 0,
+      "upper": 35,
+      "method": "triangle",
+      "start": "01-01",
+      "threshold": 2111.42
+     }
+    }
+   ]
+  },
+  {
+   "id": "buckthorn",
+   "common": "Common buckthorn",
+   "scientific": "Rhamnus cathartica",
+   "group": "plant",
+   "regions": null,
+   "inat_name": "Rhamnus cathartica",
+   "has_range": true,
+   "events": [
+    {
+     "id": "flowering_onset",
+     "label": "Flowering begins",
+     "phase": "reproduction",
+     "stage": "Flowering",
+     "quantile": "onset",
+     "source": "inat_fit",
+     "note": null,
+     "model": {
+      "type": "gdd",
+      "base": 10,
+      "upper": 35,
+      "method": "triangle",
+      "start": "01-01",
+      "threshold": 132.72
+     }
+    },
+    {
+     "id": "flowering_peak",
+     "label": "Flowering peaks",
+     "phase": "reproduction",
+     "stage": "Flowering",
+     "quantile": "peak",
+     "source": "inat_fit",
+     "note": null,
+     "model": {
+      "type": "gdd",
+      "base": 10,
+      "upper": 35,
+      "method": "triangle",
+      "start": "01-01",
+      "threshold": 178.33
+     }
+    },
+    {
+     "id": "flowering_end",
+     "label": "Flowering ends",
+     "phase": "reproduction",
+     "stage": "Flowering",
+     "quantile": "end",
+     "source": "inat_fit",
+     "note": null,
+     "model": {
+      "type": "gdd",
+      "base": 10,
+      "upper": 35,
+      "method": "triangle",
+      "start": "01-01",
+      "threshold": 259.12
+     }
+    }
+   ]
+  },
+  {
+   "id": "glossy_buckthorn",
+   "common": "Glossy buckthorn",
+   "scientific": "Frangula alnus",
+   "group": "plant",
+   "regions": null,
+   "inat_name": "Frangula alnus",
+   "has_range": true,
+   "events": [
+    {
+     "id": "fruiting_onset",
+     "label": "Fruiting begins",
+     "phase": "reproduction",
+     "stage": "Fruiting",
+     "quantile": "onset",
+     "source": "inat_fit",
+     "note": null,
+     "model": {
+      "type": "gdd",
+      "base": 0,
+      "upper": 35,
+      "method": "triangle",
+      "start": "01-01",
+      "threshold": 1443.43
+     }
+    },
+    {
+     "id": "fruiting_peak",
+     "label": "Fruiting peaks",
+     "phase": "reproduction",
+     "stage": "Fruiting",
+     "quantile": "peak",
+     "source": "inat_fit",
+     "note": null,
+     "model": {
+      "type": "gdd",
+      "base": 0,
+      "upper": 35,
+      "method": "triangle",
+      "start": "01-01",
+      "threshold": 2140.48
+     }
+    },
+    {
+     "id": "fruiting_end",
+     "label": "Fruiting ends",
+     "phase": "reproduction",
+     "stage": "Fruiting",
+     "quantile": "end",
+     "source": "inat_fit",
+     "note": null,
+     "model": {
+      "type": "gdd",
+      "base": 0,
+      "upper": 35,
+      "method": "triangle",
+      "start": "01-01",
+      "threshold": 3327.02
+     }
+    }
+   ]
+  },
+  {
+   "id": "norway_maple",
+   "common": "Norway maple",
+   "scientific": "Acer platanoides",
+   "group": "plant",
+   "regions": null,
+   "inat_name": "Acer platanoides",
+   "has_range": true,
+   "events": [
+    {
+     "id": "colored_leaves_onset",
+     "label": "Colored Leaves begins",
+     "phase": "senescence",
+     "stage": "Colored Leaves",
+     "quantile": "onset",
+     "source": "inat_fit",
+     "note": null,
+     "model": {
+      "type": "cold",
+      "base": 15,
+      "start": "08-01",
+      "threshold": 51.72
+     }
+    },
+    {
+     "id": "colored_leaves_peak",
+     "label": "Colored Leaves peaks",
+     "phase": "senescence",
+     "stage": "Colored Leaves",
+     "quantile": "peak",
+     "source": "inat_fit",
+     "note": null,
+     "model": {
+      "type": "cold",
+      "base": 15,
+      "start": "08-01",
+      "threshold": 167.14
+     }
+    },
+    {
+     "id": "colored_leaves_end",
+     "label": "Colored Leaves ends",
+     "phase": "senescence",
+     "stage": "Colored Leaves",
+     "quantile": "end",
+     "source": "inat_fit",
+     "note": null,
+     "model": {
+      "type": "cold",
+      "base": 15,
+      "start": "08-01",
+      "threshold": 314.57
+     }
+    }
+   ]
+  },
+  {
+   "id": "lesser_celandine",
+   "common": "Lesser celandine",
+   "scientific": "Ficaria verna",
+   "group": "plant",
+   "regions": null,
+   "inat_name": "Ficaria verna",
+   "has_range": true,
+   "events": [
+    {
+     "id": "flowering_onset",
+     "label": "Flowering begins",
+     "phase": "reproduction",
+     "stage": "Flowering",
+     "quantile": "onset",
+     "source": "inat_fit",
+     "note": null,
+     "model": {
+      "type": "gdd",
+      "base": 0,
+      "upper": 35,
+      "method": "triangle",
+      "start": "01-01",
+      "threshold": 294.79
+     }
+    },
+    {
+     "id": "flowering_peak",
+     "label": "Flowering peaks",
+     "phase": "reproduction",
+     "stage": "Flowering",
+     "quantile": "peak",
+     "source": "inat_fit",
+     "note": null,
+     "model": {
+      "type": "gdd",
+      "base": 0,
+      "upper": 35,
+      "method": "triangle",
+      "start": "01-01",
+      "threshold": 451.79
+     }
+    },
+    {
+     "id": "flowering_end",
+     "label": "Flowering ends",
+     "phase": "reproduction",
+     "stage": "Flowering",
+     "quantile": "end",
+     "source": "inat_fit",
+     "note": null,
+     "model": {
+      "type": "gdd",
+      "base": 0,
+      "upper": 35,
+      "method": "triangle",
+      "start": "01-01",
+      "threshold": 664.61
+     }
+    }
+   ]
+  },
+  {
+   "id": "burning_bush",
+   "common": "Burning bush",
+   "scientific": "Euonymus alatus",
+   "group": "plant",
+   "regions": null,
+   "inat_name": "Euonymus alatus",
+   "has_range": true,
+   "events": [
+    {
+     "id": "colored_leaves_onset",
+     "label": "Colored Leaves begins",
+     "phase": "senescence",
+     "stage": "Colored Leaves",
+     "quantile": "onset",
+     "source": "inat_fit",
+     "note": null,
+     "model": {
+      "type": "cold",
+      "base": 15,
+      "start": {
+       "daylength": 13,
+       "decreasing": true
+      },
+      "threshold": 4.65
+     }
+    },
+    {
+     "id": "colored_leaves_peak",
+     "label": "Colored Leaves peaks",
+     "phase": "senescence",
+     "stage": "Colored Leaves",
+     "quantile": "peak",
+     "source": "inat_fit",
+     "note": null,
+     "model": {
+      "type": "cold",
+      "base": 15,
+      "start": {
+       "daylength": 13,
+       "decreasing": true
+      },
+      "threshold": 86.35
+     }
+    },
+    {
+     "id": "colored_leaves_end",
+     "label": "Colored Leaves ends",
+     "phase": "senescence",
+     "stage": "Colored Leaves",
+     "quantile": "end",
+     "source": "inat_fit",
+     "note": null,
+     "model": {
+      "type": "cold",
+      "base": 15,
+      "start": {
+       "daylength": 13,
+       "decreasing": true
+      },
+      "threshold": 194.3
+     }
+    }
+   ]
+  },
+  {
+   "id": "chinese_privet",
+   "common": "Chinese privet",
+   "scientific": "Ligustrum sinense",
+   "group": "plant",
+   "regions": null,
+   "inat_name": "Ligustrum sinense",
+   "has_range": true,
+   "events": [
+    {
+     "id": "flowering_onset",
+     "label": "Flowering begins",
+     "phase": "reproduction",
+     "stage": "Flowering",
+     "quantile": "onset",
+     "source": "inat_fit",
+     "note": null,
+     "model": {
+      "type": "gdd",
+      "base": 0,
+      "upper": 35,
+      "method": "triangle",
+      "start": "01-01",
+      "threshold": 1342.56
+     }
+    },
+    {
+     "id": "flowering_peak",
+     "label": "Flowering peaks",
+     "phase": "reproduction",
+     "stage": "Flowering",
+     "quantile": "peak",
+     "source": "inat_fit",
+     "note": null,
+     "model": {
+      "type": "gdd",
+      "base": 0,
+      "upper": 35,
+      "method": "triangle",
+      "start": "01-01",
+      "threshold": 1513.4
+     }
+    },
+    {
+     "id": "flowering_end",
+     "label": "Flowering ends",
+     "phase": "reproduction",
+     "stage": "Flowering",
+     "quantile": "end",
+     "source": "inat_fit",
+     "note": null,
+     "model": {
+      "type": "gdd",
+      "base": 0,
+      "upper": 35,
+      "method": "triangle",
+      "start": "01-01",
+      "threshold": 1911.02
+     }
+    }
+   ]
+  },
+  {
+   "id": "scotch_broom",
+   "common": "Scotch broom",
+   "scientific": "Cytisus scoparius",
+   "group": "plant",
+   "regions": null,
+   "inat_name": "Cytisus scoparius",
+   "has_range": true,
+   "events": [
+    {
+     "id": "flowering_onset",
+     "label": "Flowering begins",
+     "phase": "reproduction",
+     "stage": "Flowering",
+     "quantile": "onset",
+     "source": "inat_fit",
+     "note": null,
+     "model": {
+      "type": "gdd",
+      "base": 0,
+      "upper": 35,
+      "method": "triangle",
+      "start": "01-01",
+      "threshold": 600.3
+     }
+    },
+    {
+     "id": "flowering_peak",
+     "label": "Flowering peaks",
+     "phase": "reproduction",
+     "stage": "Flowering",
+     "quantile": "peak",
+     "source": "inat_fit",
+     "note": null,
+     "model": {
+      "type": "gdd",
+      "base": 0,
+      "upper": 35,
+      "method": "triangle",
+      "start": "01-01",
+      "threshold": 1005.35
+     }
+    },
+    {
+     "id": "flowering_end",
+     "label": "Flowering ends",
+     "phase": "reproduction",
+     "stage": "Flowering",
+     "quantile": "end",
+     "source": "inat_fit",
+     "note": null,
+     "model": {
+      "type": "gdd",
+      "base": 0,
+      "upper": 35,
+      "method": "triangle",
+      "start": "01-01",
+      "threshold": 1390.82
+     }
+    }
+   ]
+  },
+  {
+   "id": "poison_hemlock",
+   "common": "Poison hemlock",
+   "scientific": "Conium maculatum",
+   "group": "plant",
+   "regions": null,
+   "inat_name": "Conium maculatum",
+   "has_range": true,
+   "events": [
+    {
+     "id": "flowering_onset",
+     "label": "Flowering begins",
+     "phase": "reproduction",
+     "stage": "Flowering",
+     "quantile": "onset",
+     "source": "inat_fit",
+     "note": null,
+     "model": {
+      "type": "gdd",
+      "base": 0,
+      "upper": 35,
+      "method": "triangle",
+      "start": "01-01",
+      "threshold": 1102.95
+     }
+    },
+    {
+     "id": "flowering_peak",
+     "label": "Flowering peaks",
+     "phase": "reproduction",
+     "stage": "Flowering",
+     "quantile": "peak",
+     "source": "inat_fit",
+     "note": null,
+     "model": {
+      "type": "gdd",
+      "base": 0,
+      "upper": 35,
+      "method": "triangle",
+      "start": "01-01",
+      "threshold": 1528.3
+     }
+    },
+    {
+     "id": "flowering_end",
+     "label": "Flowering ends",
+     "phase": "reproduction",
+     "stage": "Flowering",
+     "quantile": "end",
+     "source": "inat_fit",
+     "note": null,
+     "model": {
+      "type": "gdd",
+      "base": 0,
+      "upper": 35,
+      "method": "triangle",
+      "start": "01-01",
+      "threshold": 2377.86
+     }
+    },
+    {
+     "id": "fruiting_onset",
+     "label": "Fruiting begins",
+     "phase": "reproduction",
+     "stage": "Fruiting",
+     "quantile": "onset",
+     "source": "inat_fit",
+     "note": null,
+     "model": {
+      "type": "gdd",
+      "base": 0,
+      "upper": 35,
+      "method": "triangle",
+      "start": "01-01",
+      "threshold": 1359.58
+     }
+    },
+    {
+     "id": "fruiting_peak",
+     "label": "Fruiting peaks",
+     "phase": "reproduction",
+     "stage": "Fruiting",
+     "quantile": "peak",
+     "source": "inat_fit",
+     "note": null,
+     "model": {
+      "type": "gdd",
+      "base": 0,
+      "upper": 35,
+      "method": "triangle",
+      "start": "01-01",
+      "threshold": 1813.37
+     }
+    },
+    {
+     "id": "fruiting_end",
+     "label": "Fruiting ends",
+     "phase": "reproduction",
+     "stage": "Fruiting",
+     "quantile": "end",
+     "source": "inat_fit",
+     "note": null,
+     "model": {
+      "type": "gdd",
+      "base": 0,
+      "upper": 35,
+      "method": "triangle",
+      "start": "01-01",
+      "threshold": 3806.29
+     }
+    }
+   ]
+  },
+  {
+   "id": "yellow_flag",
+   "common": "Yellow flag iris",
+   "scientific": "Iris pseudacorus",
+   "group": "plant",
+   "regions": null,
+   "inat_name": "Iris pseudacorus",
+   "has_range": true,
+   "events": [
+    {
+     "id": "flowering_onset",
+     "label": "Flowering begins",
+     "phase": "reproduction",
+     "stage": "Flowering",
+     "quantile": "onset",
+     "source": "inat_fit",
+     "note": null,
+     "model": {
+      "type": "gdd",
+      "base": 5,
+      "upper": 35,
+      "method": "triangle",
+      "start": "01-01",
+      "threshold": 431.09
+     }
+    },
+    {
+     "id": "flowering_peak",
+     "label": "Flowering peaks",
+     "phase": "reproduction",
+     "stage": "Flowering",
+     "quantile": "peak",
+     "source": "inat_fit",
+     "note": null,
+     "model": {
+      "type": "gdd",
+      "base": 5,
+      "upper": 35,
+      "method": "triangle",
+      "start": "01-01",
+      "threshold": 606.57
+     }
+    },
+    {
+     "id": "flowering_end",
+     "label": "Flowering ends",
+     "phase": "reproduction",
+     "stage": "Flowering",
+     "quantile": "end",
+     "source": "inat_fit",
+     "note": null,
+     "model": {
+      "type": "gdd",
+      "base": 5,
+      "upper": 35,
+      "method": "triangle",
+      "start": "01-01",
+      "threshold": 846.07
+     }
+    }
+   ]
+  }
+ ]
+}
