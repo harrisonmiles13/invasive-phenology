@@ -1,0 +1,262 @@
+<title>Timing Guides for Managers</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="How to use the Invasive Phenology Atlas to time chemical applications, surveys, biocontrol releases, mating disruption, mechanical removal, inspections and crew schedules.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600;700&family=JetBrains+Mono:wght@400;500&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<style>
+/* Layout: a single reading column with a sticky contents rail on wide
+   screens; each guide is a card-free section separated by rules. */
+:root {
+  --bg: #eef2f0; --surface: #fbfcfb; --ink: #13201b; --ink-2: #44524c; --muted: #6a7771; --line: #d0d9d4;
+  --accent: #1f6f4a; --accent-ink: #ffffff; --today: #d9682b; --soft: #e2ece6;
+  --font-display: "Barlow Semi Condensed", "Arial Narrow", system-ui, sans-serif;
+  --font-body: "Source Sans 3", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { --bg: #0e1412; --surface: #151d1a; --ink: #e6eeea; --ink-2: #b9c7c0; --muted: #8b9a93; --line: #283430; --accent: #4fbf8a; --accent-ink: #06150e; --today: #f08a4b; --soft: #1c2925; color-scheme: dark; }
+}
+:root[data-theme="dark"] { --bg: #0e1412; --surface: #151d1a; --ink: #e6eeea; --ink-2: #b9c7c0; --muted: #8b9a93; --line: #283430; --accent: #4fbf8a; --accent-ink: #06150e; --today: #f08a4b; --soft: #1c2925; color-scheme: dark; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 17px/1.6 var(--font-body);
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 0 48px; }
+a { color: var(--accent); text-underline-offset: 2px; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.wrap { max-width: 1120px; margin: 0 auto; display: grid; grid-template-columns: 230px minmax(0, 1fr); gap: 40px; }
+header { grid-column: 1 / -1; padding-block: 28px 8px; border-bottom: 1px solid var(--line); }
+.crumb { font: 500 13px/1 var(--font-mono); color: var(--muted); margin: 0 0 10px; }
+h1 { font: 700 clamp(32px, 5vw, 48px)/1 var(--font-display); margin: 0; text-wrap: balance; }
+.lede { color: var(--ink-2); max-width: 64ch; margin: 12px 0 0; font-size: 18px; }
+nav.toc { position: sticky; top: 16px; align-self: start; padding-top: 28px; font-size: 15px; }
+nav.toc p { font: 600 11px/1 var(--font-body); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin: 0 0 10px; }
+nav.toc ol { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+nav.toc a { color: var(--ink-2); text-decoration: none; }
+nav.toc a:hover { color: var(--accent); text-decoration: underline; }
+main { min-width: 0; padding-top: 12px; }
+section { padding-block: 26px; border-bottom: 1px solid var(--line); }
+section h2 { font: 700 30px/1.1 var(--font-display); margin: 0 0 6px; text-wrap: balance; }
+section h3 { font: 600 19px/1.2 var(--font-display); margin: 22px 0 6px; letter-spacing: .01em; }
+p, li { max-width: 68ch; }
+.use { color: var(--ink-2); margin: 0 0 8px; }
+ul, ol { padding-left: 22px; }
+li { margin-bottom: 4px; }
+.events { display: flex; flex-wrap: wrap; gap: 6px; padding: 0; list-style: none; margin: 8px 0; }
+.events li { margin: 0; }
+.events a { display: inline-block; font: 500 14px/1.2 var(--font-body); padding: 6px 10px; border-radius: 999px; background: var(--soft); color: var(--ink); text-decoration: none; border: 1px solid var(--line); }
+.events a:hover { border-color: var(--accent); color: var(--accent); }
+.example { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 12px 16px; margin: 14px 0; }
+.example p { margin: 0; }
+.example b { font-family: var(--font-display); font-size: 16px; letter-spacing: .02em; text-transform: uppercase; color: var(--accent); }
+.caution { border-left: 3px solid var(--today); padding: 2px 0 2px 14px; color: var(--ink-2); }
+.src { font-size: 14px; color: var(--muted); }
+.src li { max-width: none; }
+table.read { border-collapse: collapse; width: 100%; font-size: 15px; margin: 10px 0; }
+table.read th, table.read td { text-align: left; padding: 7px 10px 7px 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+table.read th { font-weight: 600; white-space: nowrap; }
+.tbl { overflow-x: auto; }
+@media (max-width: 860px) { .wrap { grid-template-columns: minmax(0, 1fr); gap: 0; } nav.toc { position: static; padding-top: 18px; } }
+</style>
+
+<div class="wrap">
+  <header>
+    <p class="crumb"><a href="index.html">Invasive Phenology Atlas</a> / Guides</p>
+    <h1>Timing guides for managers</h1>
+    <p class="lede">The atlas predicts when invasive insects and plants reach the stages your work depends on. These guides show how to turn those predictions into dates on a work plan: when to treat, survey, release, disrupt, pull, inspect and staff.</p>
+  </header>
+
+  <nav class="toc" aria-label="Guides">
+    <p>Guides</p>
+    <ol>
+      <li><a href="#reading">Reading a prediction</a></li>
+      <li><a href="#chemical">Chemical applications</a></li>
+      <li><a href="#surveys">Surveys and monitoring</a></li>
+      <li><a href="#biocontrol">Biocontrol releases</a></li>
+      <li><a href="#mating">Mating disruption</a></li>
+      <li><a href="#removal">Removal before seed set</a></li>
+      <li><a href="#inspections">Inspections and moving materials</a></li>
+      <li><a href="#crews">Crew and volunteer scheduling</a></li>
+    </ol>
+  </nav>
+
+  <main>
+    <section id="reading">
+      <h2>Reading a prediction</h2>
+      <p class="use">Every date in the atlas comes with how it was made. Check that before you commit people or product to it.</p>
+      <div class="tbl"><table class="read">
+        <tr><th>Observed</th><td>The event already happened in NOAA's gridded weather record. Treat as fact for that 8 km cell.</td></tr>
+        <tr><th>Provisional</th><td>The last 2–4 days, from the National Weather Service analysis while NOAA's record catches up. Firm.</td></tr>
+        <tr><th>Forecast</th><td>Within the 10-day NWS forecast. Good for scheduling this week and next; check again daily, because a cool or warm spell moves it.</td></tr>
+        <tr><th>Projected</th><td>Beyond the forecast, assuming normal temperatures. Use it for planning and ordering, with a buffer of about one standard deviation (the <em>Variability</em> map).</td></tr>
+      </table></div>
+      <p>Two more things travel with each prediction, in the panel beside the map:</p>
+      <ul>
+        <li><strong>Model type.</strong> <em>Published model</em> means thresholds from the scientific or extension literature. <em>Fitted</em> means thresholds learned from dated iNaturalist photos of that stage. Fitted onset dates describe when people start photographing a stage, which can trail the biology by a few days.</li>
+        <li><strong>Check against observations.</strong> For example: “6% of nymph photos were taken before the predicted date.” A high share means real populations start earlier than the model, so add lead time.</li>
+      </ul>
+      <p>The workflow is the same for every guide below: open the <a href="index.html#m=today">Today</a> view for how far ahead or behind the season is; click your site to see <em>Coming up here</em>; then open the species and event to see this year's date map with forecast and projection, and how it compares with normal.</p>
+    </section>
+
+    <section id="chemical">
+      <h2>Timing chemical applications</h2>
+      <p class="use">Hit the stage the product works on, leave time for systemic products to move through the plant, and stay inside the label's windows.</p>
+      <h3>Events to watch</h3>
+      <ul class="events">
+        <li><a href="index.html#m=species&sp=eab&e=adult_first&y=current&v=date">Emerald ash borer: first adult emergence</a></li>
+        <li><a href="index.html#m=species&sp=slf&e=hatch_first&y=current&v=date">Spotted lanternfly: first egg hatch</a></li>
+        <li><a href="index.html#m=species&sp=slf&e=adult&y=current&v=date">Spotted lanternfly: first adults</a></li>
+        <li><a href="index.html#m=species&sp=buffelgrass&e=greenup_likely&y=current&v=date">Buffelgrass: green-up likely</a></li>
+        <li><a href="index.html#m=species&sp=knotweed&e=flowering_onset&y=current&v=date">Japanese knotweed: flowering begins</a></li>
+      </ul>
+      <h3>How to time it</h3>
+      <ol>
+        <li><strong>Find the target stage.</strong> Insecticides usually target young, exposed stages: newly hatched nymphs and larvae, or adults before they lay eggs. Herbicides work best on actively growing plants with full leaves.</li>
+        <li><strong>Work back from the event.</strong> For systemic products, finish applications before the event, by the product's uptake time. For contact products, apply just after the stage appears.</li>
+        <li><strong>Plan on the projection, commit on the forecast.</strong> Order product and book crews from the projected date minus one standard deviation. Fix the application day once the event is inside the 10-day forecast.</li>
+        <li><strong>Check the field.</strong> Confirm the stage on site, and check the label for temperature, rainfall and pollinator restrictions.</li>
+      </ol>
+      <div class="example"><p><b>Example: emerald ash borer</b> Systemic trunk injections of emamectin benzoate are recommended in mid to late spring after ash trees have leafed out, and before egg hatch (Purdue; South Dakota guidance gives April 15 to May 31). At your site, read <em>First adult emergence</em> and <em>Egg hatch (typical)</em>. The injection window runs from local ash leaf-out to comfortably before first adults, so eggs hatch into treated trees.</p></div>
+      <div class="example"><p><b>Example: buffelgrass</b> Glyphosate works best on green, growing buffelgrass. The USA-NPN rule says that at least 1.7 inches of rain in 24 days makes more than 50% greenness likely within one to two weeks. When <em>Green-up likely</em> appears as forecast or observed at your site, schedule treatment one to two weeks later.</p></div>
+      <div class="example"><p><b>Example: woody shrubs and knotweed</b> Penn State recommends herbicide on invasive shrubs once leaves have fully expanded. It gives an option around bloom to stop seed production, and September–October for root kill. For knotweed, Penn State stresses late-season glyphosate applications. Use the fitted <em>Flowering begins</em> and <em>Colored leaves begin</em> events to bracket these windows at your site.</p></div>
+      <p class="caution">The atlas does not choose products or rates. The label is the law. Follow state pesticide rules and the extension guidance for your crop or site.</p>
+      <ul class="src">
+        <li>Purdue Extension, <a href="https://extension.entm.purdue.edu/EAB/PDF/Insecticide.pdf">Insecticide options for protecting ash trees from emerald ash borer</a>; South Dakota, <a href="https://emeraldashborerinsouthdakota.sd.gov/PDF/EAB%20Pesticide%20Treatments.pdf">EAB pesticide treatments</a></li>
+        <li>Penn State Extension, <a href="https://extension.psu.edu/spotted-lanternfly-management-guide">Spotted lanternfly management guide</a>; <a href="https://extension.psu.edu/invasive-shrubs-are-leafed-out-timing-management">Invasive shrubs are leafed out: timing management</a>; <a href="https://extension.psu.edu/japanese-knotweed">Japanese knotweed</a></li>
+        <li>Gerst et al. 2021, <a href="https://besjournals.onlinelibrary.wiley.com/doi/full/10.1002/2688-8319.12109">USA-NPN buffelgrass green-up forecast</a></li>
+      </ul>
+    </section>
+
+    <section id="surveys">
+      <h2>Surveys and monitoring</h2>
+      <p class="use">Survey when the target is easiest to find, and have traps in place before the stage they catch appears.</p>
+      <h3>Events to watch</h3>
+      <ul class="events">
+        <li><a href="index.html#m=species&sp=slf&e=ovip_first&y=current&v=date">Spotted lanternfly: first egg laying (egg-mass season begins)</a></li>
+        <li><a href="index.html#m=species&sp=eab&e=adult_first&y=current&v=date">Emerald ash borer: first adults (traps up before)</a></li>
+        <li><a href="index.html#m=species&sp=jb&e=adult_first&y=current&v=date">Japanese beetle: first adults</a></li>
+        <li><a href="index.html#m=species&sp=garlic_mustard&e=flowering_onset&y=current&v=date">Garlic mustard: flowering begins</a></li>
+        <li><a href="index.html#m=species&sp=amur_honeysuckle&e=breaking_leaf_buds_onset&y=current&v=date">Amur honeysuckle: leaf-out begins</a></li>
+        <li><a href="index.html#m=species&sp=burning_bush&e=colored_leaves_onset&y=current&v=date">Burning bush: fall color begins</a></li>
+      </ul>
+      <h3>How to time it</h3>
+      <ol>
+        <li><strong>Visual surveys for plants:</strong> plan them for the flowering window, when plants stand out, or for leaf-out and fall color, when invasive shrubs are green while native plants are not.</li>
+        <li><strong>Traps:</strong> hang them before the predicted first adults, using the normal date minus one standard deviation. Leave them up until the event's <em>ends</em> date or your protocol's end date.</li>
+        <li><strong>Egg-mass surveys</strong> (spotted lanternfly) run from first egg laying through the winter until egg hatch.</li>
+        <li><strong>Route surveys with the season.</strong> The <em>Status on date</em> map with <em>Play season</em> shows a stage moving north and upslope, so you can order survey routes to match.</li>
+      </ol>
+      <div class="example"><p><b>Example: shrub detection</b> Penn State notes that invasive shrubs such as bush honeysuckle and buckthorn leaf out earlier and hold leaves later than most native shrubs. Plan a spring walk-through when Amur honeysuckle <em>leaf-out begins</em> at your site, and a fall pass once burning bush <em>colored leaves begin</em>.</p></div>
+      <p>Post your survey photos to iNaturalist with the life stage or flowering annotation. The models are refitted monthly from those records, so your observations sharpen the next year's dates.</p>
+      <ul class="src">
+        <li>Penn State Extension, <a href="https://extension.psu.edu/invasive-shrubs-are-leafed-out-timing-management">Invasive shrubs are leafed out: timing management</a>; <a href="https://extension.psu.edu/spotted-lanternfly-management-guide">Spotted lanternfly management guide</a></li>
+      </ul>
+    </section>
+
+    <section id="biocontrol">
+      <h2>Biocontrol releases</h2>
+      <p class="use">A natural enemy has to arrive when its host stage is present and conditions suit it. Releases out of step with the host are wasted.</p>
+      <h3>Events to watch</h3>
+      <ul class="events">
+        <li><a href="index.html#m=species&sp=eab&e=ovip_first&y=current&v=date">Emerald ash borer: first egg laying</a></li>
+        <li><a href="index.html#m=species&sp=eab&e=hatch&y=current&v=date">Emerald ash borer: egg hatch</a></li>
+        <li><a href="index.html#m=today&d=agdd50&v=ahead">Season ahead or behind (Today)</a></li>
+        <li><a href="index.html#m=species&sp=toh&e=fruiting_onset&y=current&v=date">Tree of heaven: fruiting begins</a></li>
+      </ul>
+      <h3>How to time it</h3>
+      <ol>
+        <li><strong>Match agent to host stage.</strong> Egg parasitoids go out during host egg laying, larval parasitoids when suitable larvae are in the host, and plant-feeding agents when host foliage is growing.</li>
+        <li><strong>Use degree-days, not dates.</strong> Release programs often give host stages in degree-days. The <em>Today</em> view shows degree-days to date at your site and how far the season runs ahead or behind normal.</li>
+        <li><strong>Avoid the extremes.</strong> Many agents need moderate temperatures. Check the forecast for heat or cold in the week of release.</li>
+      </ol>
+      <div class="example"><p><b>Example: emerald ash borer parasitoids</b> In Maryland, Abell et al. trapped the first adult emerald ash borer at about 479 degree-days (base 10 °C, 50 °F), peak flight at 823 and none after 1,301. The Tetrastichus parasitoid reproduced best at moderate temperatures and poorly at 15 °C and 35 °C. The authors caution against early-spring or late-fall releases in cold zones. Use the atlas's EAB egg-laying and hatch events with the Today degree-days to place egg-parasitoid (<em>Oobius</em>) releases in the egg period, and larval-parasitoid releases after hatch. Follow the USDA APHIS field release guidelines for the agent.</p></div>
+      <div class="example"><p><b>Example: Galerucella on purple loosestrife</b> Minnesota DNR advises collecting and releasing beetles in spring as they emerge, typically late May, when loosestrife is 1–3 feet tall. A cold spring pushed this about two weeks later at one site. Check <em>Days ahead / behind</em> on the Today map at your wetland, and shift the usual release date by that amount.</p></div>
+      <div class="example"><p><b>Example: Verticillium on tree of heaven</b> Pathogen agents such as <i>Verticillium nonalfalfae</i> (Brooks et al. 2020; Shively et al. 2024) act through living, leafed-out trees. The atlas does not yet publish tree-of-heaven leaf-out or fall-color dates, because too few annotated iNaturalist records passed validation. Until it does, use the <em>Days ahead / behind</em> map to shift your usual inoculation window, and <em>Fruiting begins</em> as a mid-season marker.</p></div>
+      <ul class="src">
+        <li>Abell, Duan &amp; Shrewsbury, <a href="https://bioone.org/journals/Florida-Entomologist/volume-102/issue-4/024.102.0403/Determining-Optimal-Parasitoid-Release-Timing-for-the-Biological-Control-of/10.1653/024.102.0403.full">Determining optimal parasitoid release timing for the biological control of emerald ash borer</a>, Florida Entomologist</li>
+        <li>USDA APHIS, <a href="https://aphis.prod.usda.gov/sites/default/files/eab-field-release-guidelines.pdf">EAB biological control release and recovery guidelines</a></li>
+        <li>Minnesota DNR, <a href="https://files.dnr.state.mn.us/natural_resources/invasives/aquaticplants/purpleloosestrife/pl-biocontrol-how-to-rear-release.pdf">Purple loosestrife biocontrol: how to rear and release</a></li>
+        <li>Brooks et al. 2020, Field-inoculated <i>Ailanthus altissima</i> stands reveal the biological control potential of <i>Verticillium nonalfalfae</i>; Shively et al. 2024, The bioherbicide <i>Verticillium nonalfalfae</i> effectively removes <i>Ailanthus</i></li>
+      </ul>
+    </section>
+
+    <section id="mating">
+      <h2>Mating disruption</h2>
+      <p class="use">Pheromone disruption works only if the pheromone is in the canopy before the first males fly and lasts through the flight.</p>
+      <h3>Events to watch</h3>
+      <ul class="events">
+        <li><a href="index.html#m=species&sp=spongy&e=adult_onset&y=current&v=date">Spongy moth: adults begin</a></li>
+        <li><a href="index.html#m=species&sp=lbam&e=adult_first&y=current&v=date">Light brown apple moth: first spring flight</a></li>
+      </ul>
+      <h3>How to time it</h3>
+      <ol>
+        <li><strong>Set the deadline</strong> as the earliest plausible first flight: this year's projected <em>adults begin</em> date, or the normal date minus one standard deviation if that is earlier.</li>
+        <li><strong>Work back by your logistics:</strong> aircraft booking, product delivery, crews and weather days.</li>
+        <li><strong>Confirm with the forecast.</strong> Once first flight is within the 10-day forecast, lock in the application, and use the <em>vs. normal</em> map to see whether your blocks run early.</li>
+        <li><strong>Cover the whole flight.</strong> Check that the product's field life reaches the <em>adults end</em> date.</li>
+      </ol>
+      <div class="example"><p><b>Example: spongy moth</b> Minnesota's program applies SPLAT GM-O, a pheromone that stops males finding females, from aircraft to tree canopies. Its 2026 treatments were scheduled for mid-June to early July, “depending on weather and insect development”. The atlas's fitted adult onset at each treatment block, plus the forecast, gives that development signal block by block.</p></div>
+      <p class="caution">Large disruption programs such as Slow the Spread set their own timing from trapping networks. Use the atlas to plan logistics and to compare blocks, not to override program protocols.</p>
+      <ul class="src">
+        <li>Minnesota Department of Agriculture, <a href="https://www.mda.state.mn.us/smmanagement">Spongy moth management</a></li>
+      </ul>
+    </section>
+
+    <section id="removal">
+      <h2>Removal before seed set</h2>
+      <p class="use">Pulling, cutting and mowing pay off only if they happen before seed is ripe. Seed already set must be bagged, not left on site.</p>
+      <h3>Events to watch</h3>
+      <ul class="events">
+        <li><a href="index.html#m=species&sp=garlic_mustard&e=flowering_onset&y=current&v=date">Garlic mustard: flowering begins</a></li>
+        <li><a href="index.html#m=species&sp=poison_hemlock&e=fruiting_onset&y=current&v=date">Poison hemlock: fruiting begins</a></li>
+        <li><a href="index.html#m=species&sp=knotweed&e=flowering_onset&y=current&v=date">Japanese knotweed: flowering begins</a></li>
+        <li><a href="index.html#m=species&sp=scotch_broom&e=flowering_onset&y=current&v=date">Scotch broom: flowering begins</a></li>
+      </ul>
+      <h3>How to time it</h3>
+      <ol>
+        <li><strong>Use <em>Fruiting begins</em> as the deadline</strong> where the atlas has it (poison hemlock, tree of heaven), otherwise <em>Flowering ends</em>, and <em>Flowering begins</em> as the start of the work window. Plants are easiest to find when flowering.</li>
+        <li><strong>Size the crew to the window.</strong> The days between the two events at your site, minus weather days, set how many people you need.</li>
+        <li><strong>Go south to north, low to high.</strong> The <em>Normal</em> map shows the order sites reach the deadline.</li>
+      </ol>
+      <div class="example"><p><b>Example: Japanese stiltgrass</b> Extension sources agree that stiltgrass must be cut or pulled before seed. Missouri advises early August, Rutgers puts seed drop at about mid-August in New Jersey, and Penn State advises finishing before seed heads emerge in late August. Penn State also notes that string trimming beats mowing, which stiltgrass regrows from. The atlas does not yet have a validated stiltgrass model: its flowering follows shortening days, and too few recent records passed the test. Use the extension dates, shifted by the <em>Days ahead / behind</em> map. Bag clippings that carry seed.</p></div>
+      <ul class="src">
+        <li>Missouri Department of Conservation, <a href="https://mdc.mo.gov/trees-plants/invasive-plants/japanese-stiltgrass-control">Japanese stiltgrass control</a>; Rutgers NJAES, <a href="https://njaes.rutgers.edu/FS1237/">Japanese stiltgrass fact sheet</a>; Penn State Extension, <a href="https://extension.psu.edu/japanese-stiltgrass">Japanese stiltgrass</a>; Clemson HGIC, <a href="https://hgic.clemson.edu/japanese-stiltgrass-identification-control-methods-removal-tips/">Japanese stiltgrass</a></li>
+      </ul>
+    </section>
+
+    <section id="inspections">
+      <h2>Inspections and moving materials</h2>
+      <p class="use">Hitchhiking stages spread invaders farther than they fly. Inspection effort should follow which stage is out now.</p>
+      <h3>Events to watch</h3>
+      <ul class="events">
+        <li><a href="index.html#m=species&sp=slf&e=ovip_first&y=current&v=status">Spotted lanternfly: status on date</a></li>
+        <li><a href="index.html#m=species&sp=slf&e=hatch&y=current&v=date">Spotted lanternfly: egg hatch</a></li>
+      </ul>
+      <h3>How to time it</h3>
+      <ol>
+        <li><strong>Know the stage on the move.</strong> Penn State's vehicle checklist notes that spotted lanternfly egg masses are present in autumn and winter, nymphs in spring and summer, and adults in autumn.</li>
+        <li><strong>Switch the inspection focus with the events.</strong> From <em>First egg laying</em>, check vehicles, stone, pallets and outdoor equipment for flat, mud-like egg masses. After <em>Egg hatch</em>, look for small nymphs. From <em>First adults</em>, check for adults on vehicles and loads.</li>
+        <li><strong>Check both ends of a route.</strong> Open the <em>Status on date</em> map for today to see whether egg laying has started at the origin and the destination.</li>
+      </ol>
+      <div class="example"><p><b>Example: shipping out of a quarantine area</b> Businesses moving regulated articles in spotted lanternfly quarantines need a permit, with training for a designated employee and inspection records kept (two years in Pennsylvania). Residents use a compliance checklist. When the atlas shows egg laying under way at a yard, add egg-mass checks of stored equipment and outbound loads to the daily routine until hatch.</p></div>
+      <ul class="src">
+        <li>Penn State, <a href="https://ehs.prod.fbweb.psu.edu/sites/ehs/files/extension_single_inspection_vehicle_checklist_rev_3-23.pdf">Spotted lanternfly vehicle inspection checklist</a>; New Jersey Department of Agriculture, <a href="https://www.nj.gov/agriculture/divisions/pi/prog/pests-diseases/spotted-lanternfly/assets/documents/Quarantine%20Plain%20Language%20for%20General%20Audience.pdf">Quarantine information</a>; Maryland Department of Agriculture, <a href="https://mda.maryland.gov/plants-pests/Documents/SLF-Quarantine-Fact-Sheet-2022.pdf">SLF quarantine fact sheet</a></li>
+      </ul>
+    </section>
+
+    <section id="crews">
+      <h2>Crew and volunteer scheduling</h2>
+      <p class="use">Seasonal staff, volunteer days and contractor bookings are fixed weeks ahead. Build them on projections, then adjust with the forecast.</p>
+      <h3>How to time it</h3>
+      <ol>
+        <li><strong>Build the season plan.</strong> For each site, open <em>Season at a glance</em>: every species recorded nearby with its normal window and this year's projected date. Group tasks that fall in the same weeks.</li>
+        <li><strong>Pick dates with a buffer.</strong> Book volunteer events where the normal ± 1 SD band and this year's projection overlap. Those dates still work in an early or late year.</li>
+        <li><strong>Re-plan weekly.</strong> Each Monday, read <em>Coming up here</em> (last 7 days to next 3 weeks) for each site, and move crews when a forecast date shifts.</li>
+        <li><strong>Share the view.</strong> Copy the link from the atlas: it keeps the species, event, map and location, so a crew lead opens the same picture.</li>
+        <li><strong>Watch the season signal.</strong> On the Today map, a site running 10 days ahead pulls the whole calendar forward. That is the first sign to move early-season work.</li>
+      </ol>
+      <div class="example"><p><b>Example: a May workday</b> At a mid-Atlantic preserve, the calendar may show garlic mustard flowering, spotted lanternfly first hatch and multiflora rose flowering falling in the same two weeks. One workday can cover garlic mustard pulling, a nymph survey on tree of heaven and marking rose for treatment, with the date set from the forecast ten days out.</p></div>
+    </section>
+
+    <p class="src" style="padding-top:20px">These guides support, and do not replace, label directions, permits and program protocols. Model dates are planning aids for 8 km grid cells; confirm stages in the field. <a href="index.html">Open the atlas</a>.</p>
+  </main>
+</div>
