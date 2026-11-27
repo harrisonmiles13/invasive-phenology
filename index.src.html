@@ -1,0 +1,288 @@
+<title>Invasive Phenology Atlas</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Daily degree-days, forecasts and phenology predictions for invasive insects and plants across the contiguous United States, checked against iNaturalist observations.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600;700&family=JetBrains+Mono:wght@400;500&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<style>
+/*LEAFLET_CSS*/
+/* Layout: status strip, mode switch and controls over a dominant map;
+   location panel (degree-days here, what's coming up, season calendar) to
+   the right, stacked below on narrow screens; methods underneath. */
+:root {
+  --bg: #eef2f0;
+  --surface: #fbfcfb;
+  --ink: #13201b;
+  --ink-2: #44524c;
+  --muted: #6a7771;
+  --line: #d0d9d4;
+  --accent: #1f6f4a;      /* forest green: selection, primary actions */
+  --accent-ink: #ffffff;
+  --today: #d9682b;       /* today line and forecast emphasis */
+  --map-bg: #dde4e0;
+  --map-line: rgba(20, 32, 27, 0.55);
+  --band: rgba(68, 82, 76, 0.18);
+  --obs: #44524c; --fcst: #d9682b; --proj: #8a6fb8;
+  --ahead: #b3261e; --behind: #1f5f9f;
+  --font-display: "Barlow Semi Condensed", "Arial Narrow", system-ui, sans-serif;
+  --font-body: "Source Sans 3", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+  --r: 6px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0e1412; --surface: #151d1a; --ink: #e6eeea; --ink-2: #b9c7c0; --muted: #8b9a93; --line: #283430;
+    --accent: #4fbf8a; --accent-ink: #06150e; --today: #f08a4b; --map-bg: #1a2320; --map-line: rgba(230, 238, 234, 0.5);
+    --band: rgba(185, 199, 192, 0.18); --obs: #b9c7c0; --fcst: #f08a4b; --proj: #b39ae0; --ahead: #ff7b6b; --behind: #6fb0ec;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0e1412; --surface: #151d1a; --ink: #e6eeea; --ink-2: #b9c7c0; --muted: #8b9a93; --line: #283430;
+  --accent: #4fbf8a; --accent-ink: #06150e; --today: #f08a4b; --map-bg: #1a2320; --map-line: rgba(230, 238, 234, 0.5);
+  --band: rgba(185, 199, 192, 0.18); --obs: #b9c7c0; --fcst: #f08a4b; --proj: #b39ae0; --ahead: #ff7b6b; --behind: #6fb0ec;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; background: var(--bg); color: var(--ink); font: 15.5px/1.5 var(--font-body);
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 0 32px;
+}
+a { color: var(--accent); text-underline-offset: 2px; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+[hidden] { display: none !important; }
+.wrap { max-width: 1500px; margin: 0 auto; }
+.top { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 10px 24px; padding-block: 20px 12px; }
+.brand h1 { font: 700 clamp(28px, 4vw, 42px)/1 var(--font-display); margin: 0; letter-spacing: .005em; text-wrap: balance; }
+.brand h1 span { color: var(--accent); }
+.brand p { margin: 6px 0 0; color: var(--ink-2); max-width: 66ch; }
+.top-right { display: flex; flex-direction: column; align-items: flex-end; gap: 8px; }
+.guides-link { font: 600 15px/1.2 var(--font-display); letter-spacing: .02em; }
+@media (max-width: 720px) { .top-right { align-items: flex-start; } }
+.status { display: flex; flex-wrap: wrap; gap: 6px; font: 12.5px/1.2 var(--font-mono); color: var(--ink-2); }
+.status span { padding: 5px 8px; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); }
+.status span:first-child { border-color: var(--today); color: var(--ink); }
+.controls { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r) var(--r) 0 0; padding: 12px 14px; display: flex; flex-direction: column; gap: 10px; }
+.row { display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: end; }
+.field { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.field > span, .label { font: 600 11px/1.2 var(--font-body); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin: 0; }
+select, input[type="search"], input[type="text"] { font: 500 14.5px/1.2 var(--font-body); color: var(--ink); background: var(--bg); border: 1px solid var(--line); border-radius: var(--r); padding: 8px 10px; min-width: 0; max-width: 100%; }
+#sp { min-width: min(320px, 100%); }
+#sp-filter { width: 150px; }
+.seg { display: flex; flex-wrap: wrap; gap: 2px; background: var(--bg); border: 1px solid var(--line); border-radius: var(--r); padding: 2px; }
+.seg button, .btn { font: 500 13.5px/1.2 var(--font-body); color: var(--ink-2); background: transparent; border: 0; border-radius: 4px; padding: 7px 10px; cursor: pointer; white-space: nowrap; }
+.seg button:hover { color: var(--ink); background: var(--surface); }
+.seg button[aria-pressed="true"] { background: var(--ink); color: var(--surface); }
+#mode button { font: 600 15px/1.1 var(--font-display); letter-spacing: .02em; padding: 8px 16px; }
+#mode button[aria-pressed="true"] { background: var(--accent); color: var(--accent-ink); }
+.btn { border: 1px solid var(--line); background: var(--surface); color: var(--ink); }
+.btn:hover { border-color: var(--ink-2); }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); font-weight: 600; }
+.check { display: flex; align-items: center; gap: 7px; font-size: 14px; color: var(--ink-2); padding-block: 8px; }
+.status-row { display: flex; flex-wrap: wrap; gap: 10px 14px; align-items: center; padding: 10px 14px; background: var(--surface); border: 1px solid var(--line); border-top: 0; }
+.status-row input[type="range"] { flex: 1 1 240px; accent-color: var(--accent); min-width: 0; }
+#stage-date { font: 600 20px/1 var(--font-display); min-width: 64px; }
+.app { display: grid; grid-template-columns: minmax(0, 1fr) 420px; border: 1px solid var(--line); border-top: 0; background: var(--surface); border-radius: 0 0 var(--r) var(--r); }
+#map-wrap { min-width: 0; display: flex; flex-direction: column; }
+.map-head { padding: 12px 14px 8px; }
+#map-title { font: 600 22px/1.15 var(--font-display); margin: 0; text-wrap: balance; }
+#map-sub { margin: 3px 0 0; font-size: 13.5px; color: var(--muted); }
+#map { height: clamp(380px, 64vh, 760px); background: var(--map-bg); }
+#map-wrap.loading #map { opacity: .65; }
+#readout { margin: 0; padding: 6px 14px; font: 12.5px/1.35 var(--font-mono); color: var(--ink-2); border-top: 1px solid var(--line); min-height: 2.5em; }
+#legend { padding: 4px 14px 6px; display: flex; flex-direction: column; gap: 6px; }
+#obs-note { margin: 0 14px 12px; }
+.legend-list { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 4px 12px; font-size: 12.5px; color: var(--ink-2); }
+.legend-list li { display: flex; align-items: center; gap: 5px; white-space: nowrap; }
+.sw { width: 15px; height: 12px; border-radius: 2px; box-shadow: inset 0 0 0 1px rgba(0,0,0,.1); }
+.sw.solid { background: #6ece58; }
+.sw.dots { background-color: #6ece58; background-image: radial-gradient(rgba(255,255,255,.85) 1px, transparent 1.3px); background-size: 4px 4px; }
+.sw.hatch { background-color: #6ece58; background-image: repeating-linear-gradient(135deg, rgba(255,255,255,.75) 0 1.5px, transparent 1.5px 5px); }
+.leaflet-container { background: var(--map-bg); font: 12px/1.4 var(--font-body); }
+.side { border-left: 1px solid var(--line); padding: 16px 18px; min-width: 0; display: flex; flex-direction: column; gap: 12px; }
+.side h2 { font: 600 26px/1.05 var(--font-display); margin: 0; text-wrap: balance; }
+.coords { font: 12.5px/1.3 var(--font-mono); color: var(--muted); margin: 3px 0 0; }
+form.find { display: flex; gap: 6px; flex-wrap: wrap; }
+form.find input { flex: 1 1 170px; }
+#search-msg { margin: 0; color: var(--ahead); font-size: 13.5px; }
+#search-msg:empty { display: none; }
+#side-body { display: flex; flex-direction: column; gap: 10px; }
+#side-body h3 { margin: 6px 0 0; }
+.dd-now { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+.stat { background: var(--bg); border-radius: var(--r); padding: 8px 10px; display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.stat .label { font-size: 10px; }
+.stat strong { font: 600 24px/1.05 var(--font-display); font-variant-numeric: tabular-nums; }
+.stat strong.ahead { color: var(--ahead); } .stat strong.behind { color: var(--behind); }
+.stat .unit { font-size: 12px; color: var(--muted); }
+ol.upcoming { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; }
+ol.upcoming li { display: grid; grid-template-columns: 72px minmax(0, 1fr) auto; gap: 8px; align-items: baseline; padding: 6px 0; border-bottom: 1px solid var(--line); }
+ol.upcoming li.past { opacity: .7; }
+ol.upcoming li.empty { display: block; color: var(--muted); font-size: 14px; }
+.when { font: 600 15px/1.1 var(--font-display); font-variant-numeric: tabular-nums; }
+.when small { display: block; font: 400 11.5px var(--font-body); color: var(--muted); }
+.what { text-align: left; background: none; border: 0; padding: 0; font: inherit; color: var(--ink); cursor: pointer; }
+.what:hover strong { color: var(--accent); text-decoration: underline; }
+.src { font: 500 11px/1 var(--font-mono); padding: 3px 6px; border-radius: 999px; border: 1px solid currentColor; white-space: nowrap; }
+.src-1 { color: var(--obs); } .src-2 { color: var(--obs); border-style: dashed; } .src-3 { color: var(--fcst); } .src-4 { color: var(--proj); }
+.cal svg { width: 100%; height: auto; display: block; }
+.gridline { stroke: var(--line); stroke-width: 1; }
+.tick { fill: var(--muted); font: 10px var(--font-mono); }
+.row-label { fill: var(--ink-2); font: 500 11.5px var(--font-body); }
+.today-line { stroke: var(--today); stroke-width: 1.5; }
+.sd-bar { stroke: var(--band); stroke-width: 7; stroke-linecap: round; }
+.normal-tick { stroke: var(--ink-2); stroke-width: 1.5; }
+circle.dot { stroke-width: 1.6; }
+circle.dot.src-1, circle.dot.src-2 { fill: var(--obs); stroke: var(--surface); }
+circle.dot.src-3 { fill: var(--surface); stroke: var(--fcst); }
+circle.dot.src-4 { fill: var(--surface); stroke: var(--proj); stroke-dasharray: 2 1.5; }
+.key { display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: 12px; color: var(--ink-2); margin: 6px 0 0; padding: 0; list-style: none; }
+.key li { display: flex; align-items: center; gap: 6px; }
+.key i { display: inline-block; }
+.key i.k-normal { width: 16px; height: 8px; border-radius: 4px; background: var(--band); box-shadow: inset 1.5px 0 0 0 var(--ink-2); }
+.key i.k-dot { width: 9px; height: 9px; border-radius: 50%; border: 1.6px solid currentColor; }
+.key i.k-dot.src-1 { background: var(--obs); border-color: var(--obs); }
+#model-info { background: var(--bg); border-radius: var(--r); padding: 10px 12px; display: flex; flex-direction: column; gap: 6px; }
+#model-info p { margin: 0; font-size: 14px; color: var(--ink-2); }
+#model-info .action { color: var(--ink); }
+.badge { font: 600 11px/1 var(--font-body); letter-spacing: .05em; text-transform: uppercase; padding: 3px 6px; border-radius: 4px; margin-right: 4px; }
+.badge.fitted { background: var(--accent); color: var(--accent-ink); }
+.badge.lit { background: var(--ink-2); color: var(--surface); }
+.note { font-size: 13px; color: var(--muted); margin: 0; }
+.about { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 330px), 1fr)); gap: 28px 40px; padding-block: 32px 8px; }
+.about section { min-width: 0; }
+.about h2 { font: 600 24px/1.1 var(--font-display); margin: 0 0 8px; }
+.about p, .about li { color: var(--ink-2); max-width: 66ch; }
+.about ul, .about ol { padding-left: 20px; }
+table.drv { border-collapse: collapse; font-size: 14px; width: 100%; }
+table.drv th, table.drv td { text-align: left; padding: 6px 8px 6px 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+footer { padding-block: 24px 0; font-size: 13px; color: var(--muted); border-top: 1px solid var(--line); margin-top: 24px; }
+@media (max-width: 1100px) { .app { grid-template-columns: minmax(0, 1fr); } .side { border-left: 0; border-top: 1px solid var(--line); } }
+@media (max-width: 720px) { #map { height: 50vh; min-height: 300px; } #sp { min-width: 0; width: 100%; } .row .field { flex: 1 1 100%; } #sp-filter { width: 100%; } .dd-now { grid-template-columns: 1fr 1fr; } }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <div class="brand">
+      <h1>Invasive <span>Phenology</span> Atlas</h1>
+      <p>Heat accumulated so far this year, and when invasive insects and plants will emerge, reproduce and senesce, using NOAA observations and the National Weather Service forecast.</p>
+    </div>
+    <div class="top-right">
+      <a class="guides-link" href="guides.html">Timing guides for managers →</a>
+      <div class="status" id="status" aria-label="Data status"><span>Loading…</span></div>
+    </div>
+  </header>
+
+  <div class="controls" role="group" aria-label="Map settings">
+    <div class="row">
+      <div class="field"><span>Mode</span>
+        <div class="seg" id="mode" role="group" aria-label="Mode">
+          <button type="button" data-mode="today">Today</button>
+          <button type="button" data-mode="species">Species</button>
+        </div>
+      </div>
+      <div class="row" id="today-controls">
+        <label class="field"><span>Degree-days</span><select id="driver"></select></label>
+        <div class="field"><span>Map</span>
+          <div class="seg" id="tviews" role="group" aria-label="Map type">
+            <button type="button" data-tview="value">Accumulated</button>
+            <button type="button" data-tview="anom">vs. normal</button>
+            <button type="button" data-tview="ahead">Days ahead / behind</button>
+          </div>
+        </div>
+      </div>
+      <div class="field"><span>Units</span>
+        <div class="seg" id="units" role="group" aria-label="Units"><button type="button" data-units="F">°F</button><button type="button" data-units="C">°C</button></div>
+      </div>
+      <button class="btn" id="copy-link" type="button">Copy link</button>
+    </div>
+    <div class="row" id="species-controls" hidden>
+      <label class="field"><span>Find</span><input type="search" id="sp-filter" placeholder="Name…" aria-label="Filter species"></label>
+      <label class="field"><span>Species</span><select id="sp"></select></label>
+      <label class="field"><span>Event</span><select id="ev"></select></label>
+      <label class="field"><span>Year</span><select id="year"></select></label>
+      <div class="field"><span>Map</span>
+        <div class="seg" id="views" role="group" aria-label="Map type">
+          <button type="button" data-view="date">Date</button>
+          <button type="button" data-view="anom">vs. normal</button>
+          <button type="button" data-view="normal">Normal</button>
+          <button type="button" data-view="sd">Variability</button>
+          <button type="button" data-view="pct">Years reached</button>
+          <button type="button" data-view="status">Status on date</button>
+        </div>
+      </div>
+      <label class="check"><input type="checkbox" id="range-only"> Only where recorded</label>
+      <label class="check"><input type="checkbox" id="show-obs"> iNaturalist records</label>
+    </div>
+  </div>
+  <div class="status-row" id="status-row" hidden>
+    <button class="btn primary" id="play" type="button">Play season</button>
+    <span id="stage-date">Jul 1</span>
+    <input type="range" id="stage-doy" min="1" max="366" step="1" value="182" aria-label="Day of year">
+    <label class="field"><span>Temperatures</span>
+      <select id="stage-src"><option value="current">This year with forecast</option><option value="normal">Normal (1991–2020)</option></select>
+    </label>
+  </div>
+
+  <main class="app">
+    <div id="map-wrap">
+      <div class="map-head"><h2 id="map-title">Loading…</h2><p id="map-sub"></p></div>
+      <div id="map" role="application" aria-label="Map. Click a location for details."></div>
+      <p id="readout" aria-live="polite">Hover or tap the map for values.</p>
+      <div id="legend"></div>
+      <p class="note" id="obs-note"></p>
+    </div>
+    <aside class="side" aria-labelledby="loc-name">
+      <div>
+        <p class="label">Location</p>
+        <h2 id="loc-name">Selected location</h2>
+        <p class="coords" id="loc-coords"></p>
+      </div>
+      <form class="find" id="search" role="search">
+        <input type="search" id="q" placeholder="Town, county, or lat, lon" aria-label="Find a place">
+        <button class="btn" type="submit">Find</button>
+        <button class="btn" type="button" id="locate">Use my location</button>
+      </form>
+      <p id="search-msg" role="status"></p>
+      <div id="model-info" hidden></div>
+      <div id="side-body"></div>
+    </aside>
+  </main>
+
+  <div class="about">
+    <section>
+      <h2>How it works</h2>
+      <p>Each map cell (about 8 km) runs every species model day by day. Temperatures come from NOAA nClimGrid-Daily, which reaches about three days behind today. The National Blend of Models, the National Weather Service's gridded forecast, fills those days and the next ten. After that, predictions assume the 1991–2020 normal for each day and place.</p>
+      <p>Predicted dates are marked <b>observed</b>, <b>provisional</b> (NWS analysis of the last few days), <b>forecast</b> or <b>projected</b> (normal temperatures), so you can see how firm each date is.</p>
+    </section>
+    <section>
+      <h2>Drivers</h2>
+      <table class="drv">
+        <tr><th>Heat</th><td>Degree-days above a base temperature since Jan 1, or since a day-length cue (brown marmorated stink bug)</td></tr>
+        <tr><th>Day length</th><td>Exact day length for each latitude, used as a start cue and for autumn senescence</td></tr>
+        <tr><th>Chilling</th><td>Cool degree-days after a date or once days shorten, for fall leaf color</td></tr>
+        <tr><th>Rain</th><td>Rolling rainfall totals, for rain-triggered green-up (buffelgrass)</td></tr>
+      </table>
+    </section>
+    <section>
+      <h2>Where the models come from</h2>
+      <ul>
+        <li><strong>Published models</strong>: DDRP parameter files for spotted lanternfly, emerald ash borer, Asian longhorned beetle, Japanese beetle and light brown apple moth; extension models for brown marmorated stink bug; the USA-NPN rain rule for buffelgrass.</li>
+        <li><strong>Fitted models</strong>: for other species, onset, peak and end thresholds are fitted to research-grade iNaturalist photos annotated with life stage or flowering, fruiting and leaf state. The base temperature or chilling rule is picked by cross-validation and tested on held-out recent years. A model is shown only if it beats a single calendar date.</li>
+        <li>Every model is checked against iNaturalist records; the panel beside the map reports how.</li>
+      </ul>
+    </section>
+    <section>
+      <h2>Limits</h2>
+      <ul>
+        <li>Contiguous US only. The cells average terrain, so sunny slopes and cities run ahead of the map.</li>
+        <li>iNaturalist records lean toward cities, roadsides and weekends. Fitted dates describe when people photograph a stage, which tracks but can trail the biology.</li>
+        <li>“Only where recorded” uses iNaturalist records within about 25 km. A missing record does not mean a species is absent.</li>
+        <li>Use the dates to plan scouting and treatment, and confirm stages in the field.</li>
+      </ul>
+    </section>
+  </div>
+  <footer>Temperature: NOAA nClimGrid-Daily and National Blend of Models. Observations: iNaturalist contributors (CC0, CC BY, CC BY-NC). Basemap © OpenStreetMap contributors, © CARTO. Code (MIT): <a href="https://github.com/harrisonmiles13/invasive-phenology">github.com/harrisonmiles13/invasive-phenology</a></footer>
+</div>
+<!--SCRIPTS-->
